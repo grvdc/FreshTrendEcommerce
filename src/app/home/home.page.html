@@ -1,14 +1,90 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
+    <ion-title style="text-align: center;">
+      <img src="https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png"
+        style="width: 55%;vertical-align: text-bottom;" />
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <ion-searchbar animated (keydown.enter)="onKeydown($event)" class="animated bounceInDown"></ion-searchbar>
+
+  <ion-slides pager="false" [options]="slideOpts">
+    <ion-slide *ngFor="let item of slide">
+      <img [src]="item.image">
+      <div >
+        <h3 class="animated fadeInRight">
+          Gold Flat-back Studs
+        </h3>
+
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+<!-- Categories Section Start -->
+  <div class="categories-secion" >
+    <ion-row >
+      <ng-container *ngFor="let cat of categories">
+      <ion-col size="5"  [style.background]="'url(' + cat.bimg + ')'" >
+        <div (click)="goToShopPage(cat.category)">
+          <h5>
+            {{cat.text}}
+          </h5>
+        </div>
+      </ion-col>
+    </ng-container>
+    </ion-row>
   </div>
+<!-- categories section End -->
+
+
+<!-- Favourite Section Start -->
+  <div style="padding: 10px;">
+    <ion-text>
+      <h2 style="font-size: 1.1875em;text-align: center;">
+        Piercing Jewelry Favorites
+      </h2>
+    </ion-text>
+    <ion-card>
+        <img src="https://cdn.shopify.com/s/files/1/2395/3423/files/cabochon-post-image-1_540x.jpg?v=1579718384" />
+        <ion-card-header>
+          <ion-card-subtitle style="font-size: 15px">New Piercing Jewelry</ion-card-subtitle>
+          <!-- <ion-card-title>Versatile Flat Back Studs</ion-card-title> -->
+        </ion-card-header>
+        <ion-card-content style="margin-bottom: 25px;">
+          <em style="font-size: 14px"><strong>Versatile Flat Back Studs</strong></em>- Fresh off the bench are these darling cabochon gemstone cartilage earrings in genuine Pearl, 
+          Onyx, Amethyst and Turquoise.  Wear in your ear piercings, lip, or even nose piercing.
+          <br/>
+          <ion-button class="checkout-btn" size="small" fill="outline">Shop now</ion-button>
+
+        </ion-card-content>
+
+        <img src="https://cdn.shopify.com/s/files/1/2395/3423/files/Twist-2.5mm_Perfect_Diamond_Flush_Bezel_Nose_Ring_Stud_8_540x.jpg?v=1579718405" />
+        <ion-card-header>
+          <ion-card-subtitle style="font-size: 15px">The Perfect Diamond Nose Ring</ion-card-subtitle>
+          <!-- <ion-card-title>Versatile Flat Back Studs</ion-card-title> -->
+        </ion-card-header>
+        <ion-card-content style="margin-bottom: 25px;">
+          <em style="font-size: 14px"><strong>Diamonds Are Forever </strong></em>- Featuring a 2.5mm VS1 diamond,
+           this best-selling diamond nose stud is a must-have.<br/>
+          <ion-button class="checkout-btn" size="small" fill="outline">Shop now</ion-button>
+
+        </ion-card-content>
+
+        <img src="http://cdn.shopify.com/s/files/1/2395/3423/files/ashanti-diamond-side-set-seamless-hoops_540x.jpg?v=1579718426 540wcdn.shopify.com/s/files/1/2395/3423/files/ashanti-diamond-side-set-seamless-hoops_540x.jpg?v=1579718426 540wcdn.shopify.com/s/files/1/2395/3423/files/ashanti-diamond-side-set-seamless-hoops_540x.jpg?v=1579718426 540wcdn.shopify.com/s/files/1/2395/3423/files/ashanti-diamond-side-set-seamless-hoops_540x.jpg?v=1579718426" />
+        <ion-card-header>
+          <ion-card-subtitle style="font-size: 15px">Diamond Hoops</ion-card-subtitle>
+          <!-- <ion-card-title>Versatile Flat Back Studs</ion-card-title> -->
+        </ion-card-header>
+        <ion-card-content style="margin-bottom: 25px;">
+          <em style="font-size: 14px"><strong>The Perfect Valentine's Gift</strong></em> - These 
+          seamless hoops feature VS1 diamonds and are great for a variety of piercings 
+          like nose, cartilage ear piercings, nipple, and more.<br/>
+          <ion-button class="checkout-btn" size="small" fill="outline">Shop now</ion-button>
+
+        </ion-card-content>
+      </ion-card>
+  </div>
+<!-- favourite section End -->
 </ion-content>

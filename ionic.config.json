@@ -1,5 +1,7 @@
 {
   "name": "Fresh",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

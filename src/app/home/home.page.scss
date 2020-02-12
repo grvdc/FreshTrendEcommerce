@@ -1,1 +1,48 @@
+ion-slides{
+  ion-slide{
+    div{
+      width: 100%;
+      padding-right: 10%;
+      text-align: right;
+      position: absolute;
+      z-index: 99;
+      bottom: 30%;
+      font-weight: bold;
+    }
+  }
+}
+  ion-slides{
+    ion-slide{
+      img{
+        width:100% !important;
+      }
+    }
+  }
 
+  .categories-secion{
+    margin-top: 20px;
+    ion-row{
+      display: flex;
+      justify-content: space-around;
+      ion-col{
+        background-position: center center;
+        background-image: url();
+        height: 110px;
+        background-size: 115% 105% !important;;
+        text-align: center;
+        align-items: center;
+        display: flex;
+        margin-bottom: 20px;
+        justify-content: center;
+
+        h5{
+          color: #8144A1;
+        }
+      }
+    }
+  }
+  .checkout-btn{
+    --color: #a37bb9;
+    --border-color: #a37bb9;
+    --color-activated: #a37bb9;
+}
