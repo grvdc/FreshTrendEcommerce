@@ -43,7 +43,7 @@ pic:any;
     {bimg:'https://cdn.shopify.com/s/files/1/2395/3423/files/gold-plugs-group-concept-1_720x.jpg?v=1579718545',
     text:'PLUGG & TUNNELS',category:'plugg',},
     {bimg:'https://cdn.shopify.com/s/files/1/2395/3423/files/four-diamonds-seamless-ring-hoop-Font-facing-1-rose-67K_720x.jpg?v=1579718566',
-    text:'HOOPS & CAPTIVES',category:'hoops',},
+    text:'HOOPS & CAPTIVES',category:'Necklace',},
 
   ]
   constructor(private auth : AuthService,    private router: Router,

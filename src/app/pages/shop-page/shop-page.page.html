@@ -1,12 +1,37 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-back-button></ion-back-button>
-        </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>shop-page</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-row style="padding-top:10px; padding-right: 10px;">
+    <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important" sizeLg="4"
+      sizeMd="4" sizeXs="6" *ngFor="let product of productList" class="animated fadeIn">
+      <ion-card  class="m0">
+        <img [src]="product.image.src" style="height: 185px !important" />
+
+        <ion-card-header style="padding-top: 0px;padding-bottom: 0;">
+          <ion-card-title>
+            <h6 style="margin-bottom: -10px;" >{{product.title}}
+            </h6>
+          </ion-card-title>
+          <ion-card-subtitle>
+            <ion-row>
+
+              <ion-col size="12" style="padding-left: 0 !important;
+            padding-right: 0 !important;">
+                <label style="color:black">{{product.variants[0].price | currency}}</label>
+              </ion-col>
+            </ion-row>
+          </ion-card-subtitle>
+        </ion-card-header>
+
+      </ion-card>
+    </ion-col>
+  </ion-row>
 
 </ion-content>

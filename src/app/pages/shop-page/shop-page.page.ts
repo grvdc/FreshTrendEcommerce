@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ShopPagePage implements OnInit {
   categoryType:any;
+  productList :any;
   constructor(
     private auth : AuthService, 
     private router: Router,
@@ -38,8 +39,9 @@ export class ShopPagePage implements OnInit {
     }
 
   productBycategory(category){
-    this.auth.getProductsByCategories(category).subscribe(datar=>{
-        console.log("this.newProductsCategoruies",datar);
+    this.auth.getProductsByCategories(category).subscribe(data_=>{
+      this.productList=data_['products'];
+        console.log("this.newProductsCategoruies",this.productList);
     })
   }
 
