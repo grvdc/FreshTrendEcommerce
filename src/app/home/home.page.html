@@ -1,90 +1,135 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title style="text-align: center;">
-      <img src="https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png"
-        style="width: 55%;vertical-align: text-bottom;" />
+    <ion-buttons slot="start">
+      <ion-menu-button class="white">
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png" />
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="cart"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-searchbar animated (keydown.enter)="onKeydown($event)" class="animated bounceInDown"></ion-searchbar>
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+  <!-- <ion-searchbar animated (keydown.enter)="onKeydown($event)" class="animated bounceInDown"></ion-searchbar> -->
+  <div class="search-bar">
+    <ion-input placeholder="Search"></ion-input>
+    <div class="search-icon">
+      <ion-icon name="search"></ion-icon>
+    </div>
+  </div>
 
-  <ion-slides pager="false" [options]="slideOpts">
+  <ion-slides pager="true" [options]="slideOpts">
     <ion-slide *ngFor="let item of slide">
-      <img [src]="item.image">
-      <div >
-        <h3 class="animated fadeInRight">
-          Gold Flat-back Studs
-        </h3>
-
-      </div>
+      <ion-card>
+        <img [src]="item.image">
+        <div>
+          <h3 class="animated fadeInRight">
+            {{item.text}}
+          </h3>
+        </div>
+      </ion-card>
+     
     </ion-slide>
   </ion-slides>
-
-<!-- Categories Section Start -->
-  <div class="categories-secion" >
-    <ion-row >
-      <ng-container *ngFor="let cat of categories">
-      <ion-col size="5"  [style.background]="'url(' + cat.bimg + ')'" >
-        <div (click)="goToShopPage(cat.category)">
-          <h5>
-            {{cat.text}}
-          </h5>
-        </div>
+  <!-- Categories Section Start -->
+  <div class="categories-secion">
+    <ion-row>
+      <ion-col sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let cat of categories;index as index">
+        <ion-card style="margin: 5px;">
+          <img [src]="cat.bimg" (click)="goToShopPage(cat)" class="cat-img" />
+          <div class="cat-over">
+          
+          </div>
+          <div class="cat-text" (click)="goToShopPage(cat)">
+            <h4 (click)="goToShopPage(cat)">
+              {{cat.text}}
+            </h4>
+          </div>
+          
+        </ion-card>
+        
       </ion-col>
-    </ng-container>
+      <!-- </ng-container> -->
     </ion-row>
   </div>
-<!-- categories section End -->
+  <!-- categories section End -->
 
 
-<!-- Favourite Section Start -->
-  <div style="padding: 10px;">
+  <!-- Favourite Section Start -->
+  <div class="favourite-section">
     <ion-text>
-      <h2 style="font-size: 1.1875em;text-align: center;">
+      <h2>
         Piercing Jewelry Favorites
       </h2>
     </ion-text>
     <ion-card>
-        <img src="https://cdn.shopify.com/s/files/1/2395/3423/files/cabochon-post-image-1_540x.jpg?v=1579718384" />
-        <ion-card-header>
-          <ion-card-subtitle style="font-size: 15px">New Piercing Jewelry</ion-card-subtitle>
-          <!-- <ion-card-title>Versatile Flat Back Studs</ion-card-title> -->
-        </ion-card-header>
-        <ion-card-content style="margin-bottom: 25px;">
-          <em style="font-size: 14px"><strong>Versatile Flat Back Studs</strong></em>- Fresh off the bench are these darling cabochon gemstone cartilage earrings in genuine Pearl, 
-          Onyx, Amethyst and Turquoise.  Wear in your ear piercings, lip, or even nose piercing.
-          <br/>
-          <ion-button class="checkout-btn" size="small" fill="outline">Shop now</ion-button>
+      <img src="https://cdn.shopify.com/s/files/1/2395/3423/files/cabochon-post-image-1_540x.jpg?v=1579718384" />
+      <ion-card-header>
+        <ion-card-subtitle>New Piercing Jewelry</ion-card-subtitle>
+        <!-- <ion-card-title>Versatile Flat Back Studs</ion-card-title> -->
+      </ion-card-header>
+      <ion-card-content>
+        <em><strong>Versatile Flat Back Studs</strong></em>- Fresh off the bench are these darling cabochon gemstone
+        cartilage earrings in genuine Pearl,
+        Onyx, Amethyst and Turquoise. Wear in your ear piercings, lip, or even nose piercing.
+        <br />
+        <ion-button class="checkout-btn" size="small" fill="outline" (click)="goToShopPage('')">Shop now</ion-button>
 
-        </ion-card-content>
+      </ion-card-content>
 
-        <img src="https://cdn.shopify.com/s/files/1/2395/3423/files/Twist-2.5mm_Perfect_Diamond_Flush_Bezel_Nose_Ring_Stud_8_540x.jpg?v=1579718405" />
-        <ion-card-header>
-          <ion-card-subtitle style="font-size: 15px">The Perfect Diamond Nose Ring</ion-card-subtitle>
-          <!-- <ion-card-title>Versatile Flat Back Studs</ion-card-title> -->
-        </ion-card-header>
-        <ion-card-content style="margin-bottom: 25px;">
-          <em style="font-size: 14px"><strong>Diamonds Are Forever </strong></em>- Featuring a 2.5mm VS1 diamond,
-           this best-selling diamond nose stud is a must-have.<br/>
-          <ion-button class="checkout-btn" size="small" fill="outline">Shop now</ion-button>
+      <img
+        src="https://cdn.shopify.com/s/files/1/2395/3423/files/Twist-2.5mm_Perfect_Diamond_Flush_Bezel_Nose_Ring_Stud_8_540x.jpg?v=1579718405" />
+      <ion-card-header>
+        <ion-card-subtitle>The Perfect Diamond Nose Ring</ion-card-subtitle>
+        <!-- <ion-card-title>Versatile Flat Back Studs</ion-card-title> -->
+      </ion-card-header>
+      <ion-card-content>
+        <em><strong>Diamonds Are Forever </strong></em>- Featuring a 2.5mm VS1 diamond,
+        this best-selling diamond nose stud is a must-have.<br />
+        <ion-button class="checkout-btn" size="small" fill="outline" (click)="goToShopPage('')">Shop now</ion-button>
 
-        </ion-card-content>
+      </ion-card-content>
 
-        <img src="http://cdn.shopify.com/s/files/1/2395/3423/files/ashanti-diamond-side-set-seamless-hoops_540x.jpg?v=1579718426 540wcdn.shopify.com/s/files/1/2395/3423/files/ashanti-diamond-side-set-seamless-hoops_540x.jpg?v=1579718426 540wcdn.shopify.com/s/files/1/2395/3423/files/ashanti-diamond-side-set-seamless-hoops_540x.jpg?v=1579718426 540wcdn.shopify.com/s/files/1/2395/3423/files/ashanti-diamond-side-set-seamless-hoops_540x.jpg?v=1579718426" />
-        <ion-card-header>
-          <ion-card-subtitle style="font-size: 15px">Diamond Hoops</ion-card-subtitle>
-          <!-- <ion-card-title>Versatile Flat Back Studs</ion-card-title> -->
-        </ion-card-header>
-        <ion-card-content style="margin-bottom: 25px;">
-          <em style="font-size: 14px"><strong>The Perfect Valentine's Gift</strong></em> - These 
-          seamless hoops feature VS1 diamonds and are great for a variety of piercings 
-          like nose, cartilage ear piercings, nipple, and more.<br/>
-          <ion-button class="checkout-btn" size="small" fill="outline">Shop now</ion-button>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRnMtmi6OV9sj0Q6s-o59h2Vfhsjhw8bGbP1KYEfwkfysee-Rg0" />
+      <ion-card-header>
+        <ion-card-subtitle>Diamond Hoops</ion-card-subtitle>
+        <!-- <ion-card-title>Versatile Flat Back Studs</ion-card-title> -->
+      </ion-card-header>
+      <ion-card-content>
+        <em><strong>The Perfect Valentine's Gift</strong></em> - These
+        seamless hoops feature VS1 diamonds and are great for a variety of piercings
+        like nose, cartilage ear piercings, nipple, and more.<br />
+        <ion-button class="checkout-btn" size="small" fill="outline" (click)="goToShopPage('')">Shop now</ion-button>
 
-        </ion-card-content>
-      </ion-card>
+      </ion-card-content>
+    </ion-card>
   </div>
-<!-- favourite section End -->
+  <!-- favourite section End -->
+
+
+  <!-- Start of Bottom -->
+
+  <!-- end of bottom -->
 </ion-content>
+<ion-tab-bar slot="bottom" style="--background: #a37bb9;">
+  <ion-tab-button tab="schedule" style="color:white">
+    <ion-icon name="home"></ion-icon>
+    <ion-label>Home</ion-label>
+  </ion-tab-button>
+
+
+  <ion-tab-button tab="map" style="color:white">
+    <ion-icon name="grid"></ion-icon>
+    <ion-label>Shop</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="about" style="color:white">
+    <ion-icon name="person"></ion-icon>
+    <ion-label>Profile</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>

@@ -401,6 +401,56 @@ var findCheckedOption = function (el, tagName) {
 
 
 
+/***/ }),
+
+/***/ "./src/app/services/auth.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/services/auth.service.ts ***!
+  \******************************************/
+/*! exports provided: AuthService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+
+var AuthService = /** @class */ (function () {
+    function AuthService(HttpClient) {
+        this.HttpClient = HttpClient;
+        this.domain = _environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].baseUrl;
+        this.apiKey = '74e37f3412f07c416015254388b0404a';
+        this.password = '7f46f7bf0452eb854fa458293586b4f5';
+        this.store = 'kiwi-diamond.myshopify.com';
+        this.fullUrl = this.domain + '?key=' + this.apiKey + '&pass=' + this.password + '&store=' + this.store;
+    }
+    AuthService.prototype.newApi = function () {
+        return this.HttpClient.get(this.fullUrl + '&return=products.json');
+        // return this.HttpClient.get(this.fullUrl +  '&return=products.json?product_type=Cartilage');
+    };
+    AuthService.prototype.getProductsByCategories = function (category) {
+        return this.HttpClient.get(this.fullUrl + '&return=products.json?product_type=' + category);
+    };
+    AuthService.ctorParameters = function () { return [
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
+    ]; };
+    AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
+    ], AuthService);
+    return AuthService;
+}());
+
+
+
 /***/ })
 
 }]);

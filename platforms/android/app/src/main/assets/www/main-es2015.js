@@ -441,7 +441,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n"
+module.exports = "<ion-app>\n    <ion-menu side=\"start\" type=\"push\" contentId=\"main\">\n        <ion-header>\n          <ion-toolbar color=\"primary\">\n            <ion-title>End Menu</ion-title>\n          </ion-toolbar>\n        </ion-header>\n        <ion-content>\n           \n        </ion-content>\n      </ion-menu>\n      \n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n  \n</ion-app>\n"
 
 /***/ }),
 
@@ -463,7 +463,15 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', loadChildren: () => __webpack_require__.e(/*! import() | home-home-module */ "home-home-module").then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomePageModule) },
+    { path: 'home', loadChildren: () => Promise.all(/*! import() | home-home-module */[__webpack_require__.e("common"), __webpack_require__.e("home-home-module")]).then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomePageModule) },
+    {
+        path: 'shop-page',
+        loadChildren: () => Promise.all(/*! import() | pages-shop-page-shop-page-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-shop-page-shop-page-module")]).then(__webpack_require__.bind(null, /*! ./pages/shop-page/shop-page.module */ "./src/app/pages/shop-page/shop-page.module.ts")).then(m => m.ShopPagePageModule)
+    },
+    {
+        path: 'product-detail',
+        loadChildren: () => Promise.all(/*! import() | pages-product-detail-product-detail-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-product-detail-product-detail-module")]).then(__webpack_require__.bind(null, /*! ./pages/product-detail/product-detail.module */ "./src/app/pages/product-detail/product-detail.module.ts")).then(m => m.ProductDetailPageModule)
+    },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -487,7 +495,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJ9 */"
+module.exports = ".my-menu {\n  --width: 65%;\n}\n.my-menu .my-custom-menu {\n  height: 100%;\n  background: #de6161;\n}\n.my-menu .my-custom-menu .profile {\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 0;\n  overflow: hidden;\n  text-align: center;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n  padding-top: 15px;\n  background: #401a1a;\n}\n.my-menu .my-custom-menu .profile .profile-picture {\n  border-radius: 50%;\n  width: 135px;\n  height: 135px;\n}\n.my-menu .my-custom-menu .r {\n  -webkit-tap-highlight-color: transparent;\n}\n.my-menu .my-custom-menu ion-list {\n  -webkit-tap-highlight-color: transparent;\n  background: transparent !important;\n  height: 100% !important;\n  overflow: scroll !important;\n  padding: 0px;\n}\n.my-menu .my-custom-menu ion-list ion-item {\n  padding-left: 5%;\n}\n.my-menu .my-custom-menu ion-list ion-item ion-icon {\n  color: #fff;\n}\n.my-menu .my-custom-menu ion-list ion-item ion-label {\n  color: #fff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3ViYy0yMS9Eb2N1bWVudHMvaW9uYXBwL2dpdC9uZXdHaXQvRnJlc2hUcmVuZEVjb21tZXJjZS9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksWUFBQTtBQ0NKO0FEQUk7RUFDSSxZQUFBO0VBRUEsbUJBQUE7QUNDUjtBREFRO0VBQ0ksTUFBQTtFQUNBLFFBQUE7RUFDQSxPQUFBO0VBQ0EsVUFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0VBQ0EsV0FBQTtFQUNBLGlCQUFBO0VBQ0EsbUJBQUE7QUNFWjtBRERZO0VBQ0ksa0JBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtBQ0doQjtBRENPO0VBQ0Msd0NBQUE7QUNDUjtBRENPO0VBQ0Msd0NBQUE7RUFBMEMsa0NBQUE7RUFDMUMsdUJBQUE7RUFDQSwyQkFBQTtFQUNBLFlBQUE7QUNFUjtBREFRO0VBQ0ksZ0JBQUE7QUNFWjtBRERZO0VBQ0ksV0FBQTtBQ0doQjtBRERZO0VBQ0ksV0FBQTtBQ0doQiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5teS1tZW51e1xuICAgIC0td2lkdGg6IDY1JTtcbiAgICAubXktY3VzdG9tLW1lbnV7XG4gICAgICAgIGhlaWdodDogMTAwJTtcbiAgICAgICAgLy9iYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQodG8gYm90dG9tLCByZ2JhKDE2NSw4NCwyMTYsMSkgMCUsIHJnYmEoOTAsNTcsMTgzLDEpIDYwJSwgcmdiYSg0Niw2NSwxNzMsMSkgMTAwJSkhaW1wb3J0YW50O1xuICAgICAgICBiYWNrZ3JvdW5kOiAjZGU2MTYxO1xuICAgICAgICAucHJvZmlsZSB7XG4gICAgICAgICAgICB0b3A6IDA7XG4gICAgICAgICAgICByaWdodDogMDtcbiAgICAgICAgICAgIGxlZnQ6IDA7XG4gICAgICAgICAgICB6LWluZGV4OiAwO1xuICAgICAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICAgICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgICAgICAgIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xuICAgICAgICAgICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbiAgICAgICAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgICAgICAgcGFkZGluZy10b3A6IDE1cHg7XG4gICAgICAgICAgICBiYWNrZ3JvdW5kOiAjNDAxYTFhO1xuICAgICAgICAgICAgLnByb2ZpbGUtcGljdHVyZSB7XG4gICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgICAgICAgICAgICAgIHdpZHRoOiAxMzVweDtcbiAgICAgICAgICAgICAgICBoZWlnaHQ6IDEzNXB4O1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICAgXG4gICAgICAgLnJ7XG4gICAgICAgIC13ZWJraXQtdGFwLWhpZ2hsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gICAgICAgfVxuICAgICAgIGlvbi1saXN0e1xuICAgICAgICAtd2Via2l0LXRhcC1oaWdobGlnaHQtY29sb3I6IHRyYW5zcGFyZW50OyBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xuICAgICAgICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcbiAgICAgICAgb3ZlcmZsb3c6IHNjcm9sbCAhaW1wb3J0YW50O1xuICAgICAgICBwYWRkaW5nOiAwcHg7XG4gICAgICAgIFxuICAgICAgICBpb24taXRlbXtcbiAgICAgICAgICAgIHBhZGRpbmctbGVmdDogNSU7XG4gICAgICAgICAgICBpb24taWNvbiB7XG4gICAgICAgICAgICAgICAgY29sb3I6I2ZmZjtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIGlvbi1sYWJlbHtcbiAgICAgICAgICAgICAgICBjb2xvcjojZmZmO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICAgfVxuICAgIH1cbn1cblxuIiwiLm15LW1lbnUge1xuICAtLXdpZHRoOiA2NSU7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUge1xuICBoZWlnaHQ6IDEwMCU7XG4gIGJhY2tncm91bmQ6ICNkZTYxNjE7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgLnByb2ZpbGUge1xuICB0b3A6IDA7XG4gIHJpZ2h0OiAwO1xuICBsZWZ0OiAwO1xuICB6LWluZGV4OiAwO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xuICB3aWR0aDogMTAwJTtcbiAgcGFkZGluZy10b3A6IDE1cHg7XG4gIGJhY2tncm91bmQ6ICM0MDFhMWE7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgLnByb2ZpbGUgLnByb2ZpbGUtcGljdHVyZSB7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgd2lkdGg6IDEzNXB4O1xuICBoZWlnaHQ6IDEzNXB4O1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IC5yIHtcbiAgLXdlYmtpdC10YXAtaGlnaGxpZ2h0LWNvbG9yOiB0cmFuc3BhcmVudDtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSBpb24tbGlzdCB7XG4gIC13ZWJraXQtdGFwLWhpZ2hsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG4gIGhlaWdodDogMTAwJSAhaW1wb3J0YW50O1xuICBvdmVyZmxvdzogc2Nyb2xsICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmc6IDBweDtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSBpb24tbGlzdCBpb24taXRlbSB7XG4gIHBhZGRpbmctbGVmdDogNSU7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgaW9uLWxpc3QgaW9uLWl0ZW0gaW9uLWljb24ge1xuICBjb2xvcjogI2ZmZjtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSBpb24tbGlzdCBpb24taXRlbSBpb24tbGFiZWwge1xuICBjb2xvcjogI2ZmZjtcbn0iXX0= */"
 
 /***/ }),
 
@@ -516,6 +524,7 @@ let AppComponent = class AppComponent {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
+        this.classng = 'mycontent';
         this.initializeApp();
     }
     initializeApp() {
@@ -523,6 +532,9 @@ let AppComponent = class AppComponent {
             this.statusBar.styleDefault();
             this.splashScreen.hide();
         });
+    }
+    col() {
+        this.classng = 'mycontentt';
     }
 };
 AppComponent.ctorParameters = () => [
@@ -564,7 +576,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
+
 
 
 
@@ -581,11 +595,12 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]],
         entryComponents: [],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"]],
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"]],
         providers: [
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
-            _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_9__["Camera"],
+            _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_10__["Camera"],
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
@@ -610,7 +625,8 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const environment = {
-    production: false
+    production: false,
+    baseUrl: 'https://www.psd2htmlx.com/R/api/',
 };
 /*
  * For easier debugging in development mode, you can import the following file
