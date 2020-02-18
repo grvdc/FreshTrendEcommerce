@@ -21,6 +21,7 @@ ion-content{
     width: 100%;
     display: flex;
     padding: 10px;
+    border-bottom: 1px solid #a88fb6;
     ion-input{
       border: solid 1px #A88FB6;
       height: 40px;
@@ -68,6 +69,8 @@ ion-content{
         padding-top:0 !important;
         margin-bottom: 10px;
         ion-card{
+          margin: 5px;
+          border-radius: 0;
           margin:0;
           .cat-img{
             height: 120px !important;
@@ -148,3 +151,7 @@ ion-content{
   
 }
 
+ion-slides {
+  --bullet-background: white;
+  --bullet-background-active: white;
+}

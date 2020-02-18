@@ -9,6 +9,7 @@
     </ion-title>
     <ion-buttons slot="end">
       <ion-icon name="cart"></ion-icon>
+
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -39,7 +40,7 @@
   <div class="categories-secion">
     <ion-row>
       <ion-col sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let cat of categories;index as index">
-        <ion-card style="margin: 5px;">
+        <ion-card >
           <img [src]="cat.bimg" (click)="goToShopPage(cat)" class="cat-img" />
           <div class="cat-over">
           

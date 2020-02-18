@@ -1,12 +1,54 @@
 <ion-app>
-    <ion-menu side="start" type="push" contentId="main">
-        <ion-header>
+    <ion-menu side="start" type="push" contentId="main" style="margin: 20px;">
+        <ion-header style="display: none;">
           <ion-toolbar color="primary">
             <ion-title>End Menu</ion-title>
           </ion-toolbar>
         </ion-header>
         <ion-content>
+          <!-- <ion-row>
+            <ion-col size="9" style="display: flex;
+            align-items: center;
+            justify-content: flex-start;">
+                <h5 (click)="col()" style="margin:0;">SHOP BY PIERCING</h5>
+            </ion-col>
+            <ion-col size="3" style="display: flex;
+            align-items: center;
+            justify-content: center;" >
+                 <ion-icon name="add" *ngIf="!data" (click)="col()"></ion-icon>
+                 <ion-icon name="remove" *ngIf="data" (click)="col()"></ion-icon>
+      
+            </ion-col>
+          </ion-row> -->
            
+           
+           <!-- <div style="height: 0px;
+           width: 100%;
+           background: #eaeaea;
+           transition: height 1s;
+           overflow: auto;"  [ngClass]="{'height':data}">
+              <p>Item1</p>
+              <p>Item2</p>
+              <p>Item3</p>
+
+           </div> -->
+
+           <ion-row *ngFor="let cat of categories;index as index">
+              <ion-col size="9" style="display: flex;
+              align-items: center;
+              justify-content: flex-start;">
+                  <p (click)="col(cat,index)" style="margin:0;font-size: 16px;">{{cat.catName}}</p>
+              </ion-col>
+              <div style="height: 0px; width: 100%; padding-left: 20px; overflow: auto;"  [ngClass]="{'height':cat.data}">
+              <div *ngFor="let sub of cat.catlist;index as i"><p  (click)="newD(sub,index)" style=" margin-top: 10px; margin-bottom: 10px;font-size: 16px;
+            ">{{sub.subCat}} </p>
+                <div style="height: 0px; width: 100%; padding-left: 20px;transition: height 0.7s; overflow: hidden;"  [ngStyle]="{'height':sub.data === true ? sub.height : '0px' }">
+                    <p *ngFor="let sLi of sub.subList" (click)="go()" style=" margin-top: 0px;margin-bottom: 10px;font-size: 16px;">{{sLi}}</p>
+
+                </div>
+              </div>
+           </div>
+          </ion-row>
         </ion-content>
       </ion-menu>
       

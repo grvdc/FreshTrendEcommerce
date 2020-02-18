@@ -447,7 +447,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\n    <ion-menu side=\"start\" type=\"push\" contentId=\"main\">\n        <ion-header>\n          <ion-toolbar color=\"primary\">\n            <ion-title>End Menu</ion-title>\n          </ion-toolbar>\n        </ion-header>\n        <ion-content>\n           \n        </ion-content>\n      </ion-menu>\n      \n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n  \n</ion-app>\n"
+module.exports = "<ion-app>\n    <ion-menu side=\"start\" type=\"push\" contentId=\"main\" style=\"margin: 20px;\">\n        <ion-header style=\"display: none;\">\n          <ion-toolbar color=\"primary\">\n            <ion-title>End Menu</ion-title>\n          </ion-toolbar>\n        </ion-header>\n        <ion-content>\n          <!-- <ion-row>\n            <ion-col size=\"9\" style=\"display: flex;\n            align-items: center;\n            justify-content: flex-start;\">\n                <h5 (click)=\"col()\" style=\"margin:0;\">SHOP BY PIERCING</h5>\n            </ion-col>\n            <ion-col size=\"3\" style=\"display: flex;\n            align-items: center;\n            justify-content: center;\" >\n                 <ion-icon name=\"add\" *ngIf=\"!data\" (click)=\"col()\"></ion-icon>\n                 <ion-icon name=\"remove\" *ngIf=\"data\" (click)=\"col()\"></ion-icon>\n      \n            </ion-col>\n          </ion-row> -->\n           \n           \n           <!-- <div style=\"height: 0px;\n           width: 100%;\n           background: #eaeaea;\n           transition: height 1s;\n           overflow: auto;\"  [ngClass]=\"{'height':data}\">\n              <p>Item1</p>\n              <p>Item2</p>\n              <p>Item3</p>\n\n           </div> -->\n\n           <ion-row *ngFor=\"let cat of categories;index as index\">\n              <ion-col size=\"9\" style=\"display: flex;\n              align-items: center;\n              justify-content: flex-start;\">\n                  <h5 (click)=\"col(cat,index)\" style=\"margin:0;\">{{cat.catName}}</h5>\n              </ion-col>\n              <div style=\"height: 0px; width: 100%; padding-left: 20px; overflow: auto;\"  [ngClass]=\"{'height':cat.data}\">\n              <div *ngFor=\"let sub of cat.catlist;index as i\"><p  (click)=\"newD(sub,index)\" style=\" margin-top: 10px; margin-bottom: 10px;\n            \">{{sub.subCat}} </p>\n                <div style=\"height: 0px; width: 100%; padding-left: 20px;transition: height 0.7s; overflow: hidden;\"  [ngStyle]=\"{'height':sub.data === true ? sub.height : '0px' }\">\n                    <p *ngFor=\"let sLi of sub.subList\" (click)=\"go()\" style=\" margin-top: 0px;margin-bottom: 10px;\n                \">{{sLi}}</p>\n\n                </div>\n              </div>\n           </div>\n          </ion-row>\n        </ion-content>\n      </ion-menu>\n      \n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n  \n</ion-app>\n"
 
 /***/ }),
 
@@ -504,7 +504,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".my-menu {\n  --width: 65%;\n}\n.my-menu .my-custom-menu {\n  height: 100%;\n  background: #de6161;\n}\n.my-menu .my-custom-menu .profile {\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 0;\n  overflow: hidden;\n  text-align: center;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n  padding-top: 15px;\n  background: #401a1a;\n}\n.my-menu .my-custom-menu .profile .profile-picture {\n  border-radius: 50%;\n  width: 135px;\n  height: 135px;\n}\n.my-menu .my-custom-menu .r {\n  -webkit-tap-highlight-color: transparent;\n}\n.my-menu .my-custom-menu ion-list {\n  -webkit-tap-highlight-color: transparent;\n  background: transparent !important;\n  height: 100% !important;\n  overflow: scroll !important;\n  padding: 0px;\n}\n.my-menu .my-custom-menu ion-list ion-item {\n  padding-left: 5%;\n}\n.my-menu .my-custom-menu ion-list ion-item ion-icon {\n  color: #fff;\n}\n.my-menu .my-custom-menu ion-list ion-item ion-label {\n  color: #fff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3ViYy0yMS9Eb2N1bWVudHMvaW9uYXBwL2dpdC9uZXdHaXQvRnJlc2hUcmVuZEVjb21tZXJjZS9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksWUFBQTtBQ0NKO0FEQUk7RUFDSSxZQUFBO0VBRUEsbUJBQUE7QUNDUjtBREFRO0VBQ0ksTUFBQTtFQUNBLFFBQUE7RUFDQSxPQUFBO0VBQ0EsVUFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0VBQ0EsV0FBQTtFQUNBLGlCQUFBO0VBQ0EsbUJBQUE7QUNFWjtBRERZO0VBQ0ksa0JBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtBQ0doQjtBRENPO0VBQ0Msd0NBQUE7QUNDUjtBRENPO0VBQ0Msd0NBQUE7RUFBMEMsa0NBQUE7RUFDMUMsdUJBQUE7RUFDQSwyQkFBQTtFQUNBLFlBQUE7QUNFUjtBREFRO0VBQ0ksZ0JBQUE7QUNFWjtBRERZO0VBQ0ksV0FBQTtBQ0doQjtBRERZO0VBQ0ksV0FBQTtBQ0doQiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5teS1tZW51e1xuICAgIC0td2lkdGg6IDY1JTtcbiAgICAubXktY3VzdG9tLW1lbnV7XG4gICAgICAgIGhlaWdodDogMTAwJTtcbiAgICAgICAgLy9iYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQodG8gYm90dG9tLCByZ2JhKDE2NSw4NCwyMTYsMSkgMCUsIHJnYmEoOTAsNTcsMTgzLDEpIDYwJSwgcmdiYSg0Niw2NSwxNzMsMSkgMTAwJSkhaW1wb3J0YW50O1xuICAgICAgICBiYWNrZ3JvdW5kOiAjZGU2MTYxO1xuICAgICAgICAucHJvZmlsZSB7XG4gICAgICAgICAgICB0b3A6IDA7XG4gICAgICAgICAgICByaWdodDogMDtcbiAgICAgICAgICAgIGxlZnQ6IDA7XG4gICAgICAgICAgICB6LWluZGV4OiAwO1xuICAgICAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICAgICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgICAgICAgIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xuICAgICAgICAgICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbiAgICAgICAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgICAgICAgcGFkZGluZy10b3A6IDE1cHg7XG4gICAgICAgICAgICBiYWNrZ3JvdW5kOiAjNDAxYTFhO1xuICAgICAgICAgICAgLnByb2ZpbGUtcGljdHVyZSB7XG4gICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgICAgICAgICAgICAgIHdpZHRoOiAxMzVweDtcbiAgICAgICAgICAgICAgICBoZWlnaHQ6IDEzNXB4O1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICAgXG4gICAgICAgLnJ7XG4gICAgICAgIC13ZWJraXQtdGFwLWhpZ2hsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gICAgICAgfVxuICAgICAgIGlvbi1saXN0e1xuICAgICAgICAtd2Via2l0LXRhcC1oaWdobGlnaHQtY29sb3I6IHRyYW5zcGFyZW50OyBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xuICAgICAgICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcbiAgICAgICAgb3ZlcmZsb3c6IHNjcm9sbCAhaW1wb3J0YW50O1xuICAgICAgICBwYWRkaW5nOiAwcHg7XG4gICAgICAgIFxuICAgICAgICBpb24taXRlbXtcbiAgICAgICAgICAgIHBhZGRpbmctbGVmdDogNSU7XG4gICAgICAgICAgICBpb24taWNvbiB7XG4gICAgICAgICAgICAgICAgY29sb3I6I2ZmZjtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIGlvbi1sYWJlbHtcbiAgICAgICAgICAgICAgICBjb2xvcjojZmZmO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICAgfVxuICAgIH1cbn1cblxuIiwiLm15LW1lbnUge1xuICAtLXdpZHRoOiA2NSU7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUge1xuICBoZWlnaHQ6IDEwMCU7XG4gIGJhY2tncm91bmQ6ICNkZTYxNjE7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgLnByb2ZpbGUge1xuICB0b3A6IDA7XG4gIHJpZ2h0OiAwO1xuICBsZWZ0OiAwO1xuICB6LWluZGV4OiAwO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xuICB3aWR0aDogMTAwJTtcbiAgcGFkZGluZy10b3A6IDE1cHg7XG4gIGJhY2tncm91bmQ6ICM0MDFhMWE7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgLnByb2ZpbGUgLnByb2ZpbGUtcGljdHVyZSB7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgd2lkdGg6IDEzNXB4O1xuICBoZWlnaHQ6IDEzNXB4O1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IC5yIHtcbiAgLXdlYmtpdC10YXAtaGlnaGxpZ2h0LWNvbG9yOiB0cmFuc3BhcmVudDtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSBpb24tbGlzdCB7XG4gIC13ZWJraXQtdGFwLWhpZ2hsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG4gIGhlaWdodDogMTAwJSAhaW1wb3J0YW50O1xuICBvdmVyZmxvdzogc2Nyb2xsICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmc6IDBweDtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSBpb24tbGlzdCBpb24taXRlbSB7XG4gIHBhZGRpbmctbGVmdDogNSU7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgaW9uLWxpc3QgaW9uLWl0ZW0gaW9uLWljb24ge1xuICBjb2xvcjogI2ZmZjtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSBpb24tbGlzdCBpb24taXRlbSBpb24tbGFiZWwge1xuICBjb2xvcjogI2ZmZjtcbn0iXX0= */"
+module.exports = ".my-menu {\n  --width: 65%;\n}\n.my-menu .my-custom-menu {\n  height: 100%;\n  background: #de6161;\n}\n.my-menu .my-custom-menu .profile {\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 0;\n  overflow: hidden;\n  text-align: center;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n  padding-top: 15px;\n  background: #401a1a;\n}\n.my-menu .my-custom-menu .profile .profile-picture {\n  border-radius: 50%;\n  width: 135px;\n  height: 135px;\n}\n.my-menu .my-custom-menu .r {\n  -webkit-tap-highlight-color: transparent;\n}\n.my-menu .my-custom-menu ion-list {\n  -webkit-tap-highlight-color: transparent;\n  background: transparent !important;\n  height: 100% !important;\n  overflow: scroll !important;\n  padding: 0px;\n}\n.my-menu .my-custom-menu ion-list ion-item {\n  padding-left: 5%;\n}\n.my-menu .my-custom-menu ion-list ion-item ion-icon {\n  color: #fff;\n}\n.my-menu .my-custom-menu ion-list ion-item ion-label {\n  color: #fff;\n}\n.height {\n  height: 100% !important;\n}\n.height-sub {\n  height: 270px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3ViYy0yMS9Eb2N1bWVudHMvaW9uYXBwL2dpdC9uZXdHaXQvRnJlc2hUcmVuZEVjb21tZXJjZS9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksWUFBQTtBQ0NKO0FEQUk7RUFDSSxZQUFBO0VBRUEsbUJBQUE7QUNDUjtBREFRO0VBQ0ksTUFBQTtFQUNBLFFBQUE7RUFDQSxPQUFBO0VBQ0EsVUFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0VBQ0EsV0FBQTtFQUNBLGlCQUFBO0VBQ0EsbUJBQUE7QUNFWjtBRERZO0VBQ0ksa0JBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtBQ0doQjtBRENPO0VBQ0Msd0NBQUE7QUNDUjtBRENPO0VBQ0Msd0NBQUE7RUFBMEMsa0NBQUE7RUFDMUMsdUJBQUE7RUFDQSwyQkFBQTtFQUNBLFlBQUE7QUNFUjtBREFRO0VBQ0ksZ0JBQUE7QUNFWjtBRERZO0VBQ0ksV0FBQTtBQ0doQjtBRERZO0VBQ0ksV0FBQTtBQ0doQjtBRElBO0VBQ0ksdUJBQUE7QUNESjtBREdBO0VBQ0ksd0JBQUE7QUNBSiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5teS1tZW51e1xuICAgIC0td2lkdGg6IDY1JTtcbiAgICAubXktY3VzdG9tLW1lbnV7XG4gICAgICAgIGhlaWdodDogMTAwJTtcbiAgICAgICAgLy9iYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQodG8gYm90dG9tLCByZ2JhKDE2NSw4NCwyMTYsMSkgMCUsIHJnYmEoOTAsNTcsMTgzLDEpIDYwJSwgcmdiYSg0Niw2NSwxNzMsMSkgMTAwJSkhaW1wb3J0YW50O1xuICAgICAgICBiYWNrZ3JvdW5kOiAjZGU2MTYxO1xuICAgICAgICAucHJvZmlsZSB7XG4gICAgICAgICAgICB0b3A6IDA7XG4gICAgICAgICAgICByaWdodDogMDtcbiAgICAgICAgICAgIGxlZnQ6IDA7XG4gICAgICAgICAgICB6LWluZGV4OiAwO1xuICAgICAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICAgICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgICAgICAgIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xuICAgICAgICAgICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbiAgICAgICAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgICAgICAgcGFkZGluZy10b3A6IDE1cHg7XG4gICAgICAgICAgICBiYWNrZ3JvdW5kOiAjNDAxYTFhO1xuICAgICAgICAgICAgLnByb2ZpbGUtcGljdHVyZSB7XG4gICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgICAgICAgICAgICAgIHdpZHRoOiAxMzVweDtcbiAgICAgICAgICAgICAgICBoZWlnaHQ6IDEzNXB4O1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICAgXG4gICAgICAgLnJ7XG4gICAgICAgIC13ZWJraXQtdGFwLWhpZ2hsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gICAgICAgfVxuICAgICAgIGlvbi1saXN0e1xuICAgICAgICAtd2Via2l0LXRhcC1oaWdobGlnaHQtY29sb3I6IHRyYW5zcGFyZW50OyBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xuICAgICAgICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcbiAgICAgICAgb3ZlcmZsb3c6IHNjcm9sbCAhaW1wb3J0YW50O1xuICAgICAgICBwYWRkaW5nOiAwcHg7XG4gICAgICAgIFxuICAgICAgICBpb24taXRlbXtcbiAgICAgICAgICAgIHBhZGRpbmctbGVmdDogNSU7XG4gICAgICAgICAgICBpb24taWNvbiB7XG4gICAgICAgICAgICAgICAgY29sb3I6I2ZmZjtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIGlvbi1sYWJlbHtcbiAgICAgICAgICAgICAgICBjb2xvcjojZmZmO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICAgfVxuICAgIH1cbn1cblxuLmhlaWdodHtcbiAgICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcbn1cbi5oZWlnaHQtc3Vie1xuICAgIGhlaWdodDogMjcwcHggIWltcG9ydGFudDtcbn0iLCIubXktbWVudSB7XG4gIC0td2lkdGg6IDY1JTtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSB7XG4gIGhlaWdodDogMTAwJTtcbiAgYmFja2dyb3VuZDogI2RlNjE2MTtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSAucHJvZmlsZSB7XG4gIHRvcDogMDtcbiAgcmlnaHQ6IDA7XG4gIGxlZnQ6IDA7XG4gIHotaW5kZXg6IDA7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gIHdpZHRoOiAxMDAlO1xuICBwYWRkaW5nLXRvcDogMTVweDtcbiAgYmFja2dyb3VuZDogIzQwMWExYTtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSAucHJvZmlsZSAucHJvZmlsZS1waWN0dXJlIHtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICB3aWR0aDogMTM1cHg7XG4gIGhlaWdodDogMTM1cHg7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgLnIge1xuICAtd2Via2l0LXRhcC1oaWdobGlnaHQtY29sb3I6IHRyYW5zcGFyZW50O1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IGlvbi1saXN0IHtcbiAgLXdlYmtpdC10YXAtaGlnaGxpZ2h0LWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbiAgaGVpZ2h0OiAxMDAlICFpbXBvcnRhbnQ7XG4gIG92ZXJmbG93OiBzY3JvbGwgIWltcG9ydGFudDtcbiAgcGFkZGluZzogMHB4O1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IGlvbi1saXN0IGlvbi1pdGVtIHtcbiAgcGFkZGluZy1sZWZ0OiA1JTtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSBpb24tbGlzdCBpb24taXRlbSBpb24taWNvbiB7XG4gIGNvbG9yOiAjZmZmO1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IGlvbi1saXN0IGlvbi1pdGVtIGlvbi1sYWJlbCB7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG4uaGVpZ2h0IHtcbiAgaGVpZ2h0OiAxMDAlICFpbXBvcnRhbnQ7XG59XG5cbi5oZWlnaHQtc3ViIHtcbiAgaGVpZ2h0OiAyNzBweCAhaW1wb3J0YW50O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -534,6 +534,37 @@ var AppComponent = /** @class */ (function () {
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
         this.classng = 'mycontent';
+        this.data = false;
+        this.categories = [
+            {
+                catName: 'SHOP BY PIERCING', catlist: [
+                    {
+                        subCat: 'Earpiercing', subList: ['Cartilage Earrings', 'Conch Jewelry', 'Daith Jewelry', 'Ear Cuffs Non Pierced',
+                            'Earrings (Ear Lobe Piercings)', 'Forward Helix', 'Helix Earrings', 'Industrial Barbells', 'Rook Earrings', 'Tragus Earrings'], data: false, id: 11,
+                        height: '280px'
+                    },
+                    { subCat: 'Nose Rings', subList: ['Diamond Nose Rings', 'Gemstone Nose Rings',
+                            'Charm Nose Rings', 'Hoop Nose Rings', 'Platinum Nose Rings', 'Shop All'], data: false, id: 12, height: '168px' },
+                    { subCat: 'BellyRing', subList: ['Non-Dangle Belly Rings', 'Dangle Belly Rings', ' Reverse Belly Button Ring',
+                            ' Diamond Belly Button Rings', 'Shop All'], data: false, id: 13, height: '135px' },
+                    { subCat: 'Lip Rings', subList: ['Diamond Lip Rings', 'Gemstone Lip Rings', 'Charm Lip Rings', 'Shop All'], data: false, id: 14, height: '107px' },
+                    { subCat: 'Nipple Rings', subList: ['Nipple Barbells & Bars', 'Nipple Rings & Hoops', 'Shop All'], data: false, id: 15, height: '80px' },
+                    { subCat: 'Eyebrow Rings', nodata: true },
+                    { subCat: 'Plugs & Tunnels', nodata: true },
+                    { subCat: 'Septum Rings', nodata: true },
+                    { subCat: 'Tongue Rings', nodata: true },
+                ],
+                data: false,
+                id: 1
+            },
+            {
+                catName: 'SHOP BY STYLE', catlist: [
+                    { subCat: 'Hoops', subList: ['H1', 'H2', 'H3'], data: false, height: '102px', id: 21 }
+                ],
+                data: false,
+                id: 2
+            }
+        ];
         this.initializeApp();
     }
     AppComponent.prototype.initializeApp = function () {
@@ -543,8 +574,52 @@ var AppComponent = /** @class */ (function () {
             _this.splashScreen.hide();
         });
     };
-    AppComponent.prototype.col = function () {
-        this.classng = 'mycontentt';
+    AppComponent.prototype.col = function (data, index) {
+        console.log("col", data, index);
+        if (!data.data) {
+            this.closeCategory();
+            this.categories.map(function (values) {
+                if (data.id == values.id) {
+                    values.data = true;
+                }
+            });
+        }
+        else {
+            this.closeCategory();
+        }
+    };
+    AppComponent.prototype.closeCategory = function () {
+        this.categories.forEach(function (values) {
+            values.data = false;
+        });
+    };
+    AppComponent.prototype.newD = function (data, index) {
+        var _this = this;
+        console.log('index', index);
+        if (!data.data) {
+            this.closeSub(index);
+            this.categories[index].catlist.forEach(function (values) {
+                if (data.id == values.id) {
+                    if (!data.nodata) {
+                        values.data = true;
+                    }
+                    else {
+                        _this.go();
+                    }
+                }
+            });
+        }
+        else {
+            this.closeSub(index);
+        }
+    };
+    AppComponent.prototype.closeSub = function (index) {
+        this.categories[index].catlist.forEach(function (values) {
+            values.data = false;
+        });
+    };
+    AppComponent.prototype.go = function () {
+        console.log("goClick");
     };
     AppComponent.ctorParameters = function () { return [
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },

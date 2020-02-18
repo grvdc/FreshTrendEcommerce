@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
-import { LoadingController, IonInfiniteScroll } from '@ionic/angular';
+import { LoadingController, IonInfiniteScroll, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-shop-page',
@@ -16,12 +16,18 @@ export class ShopPagePage implements OnInit {
   oldproductsList = [];
   id:any;
   length= 7;
+  search :boolean = false;
   constructor(
     private auth: AuthService,
     private router: Router,
     private route: ActivatedRoute,
     public loadingController: LoadingController,
+    public platform: Platform,
+
   ) {
+    this.platform.backButton.subscribe(() => {
+      console.log("testbk");
+    });
     this.route.queryParams.subscribe(params => {
       if (params && params.special) {
         this.categoryType = JSON.parse(params.special);
@@ -123,6 +129,12 @@ export class ShopPagePage implements OnInit {
   }
 
   filterItems(ev) {
+    if(ev.target.value !== ''){
+      this.search = true;
+    } else {
+      this.search = false;
+      
+    }
     console.log("this.oldproductsList;",this.oldproductsList)
     this.productList = this.oldproductsList;
     const searchTerm = ev.target.value;
