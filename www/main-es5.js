@@ -447,7 +447,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\n    <ion-menu side=\"start\" type=\"push\" contentId=\"main\" style=\"margin: 20px;\">\n        <ion-header style=\"display: none;\">\n          <ion-toolbar color=\"primary\">\n            <ion-title>End Menu</ion-title>\n          </ion-toolbar>\n        </ion-header>\n        <ion-content>\n          <!-- <ion-row>\n            <ion-col size=\"9\" style=\"display: flex;\n            align-items: center;\n            justify-content: flex-start;\">\n                <h5 (click)=\"col()\" style=\"margin:0;\">SHOP BY PIERCING</h5>\n            </ion-col>\n            <ion-col size=\"3\" style=\"display: flex;\n            align-items: center;\n            justify-content: center;\" >\n                 <ion-icon name=\"add\" *ngIf=\"!data\" (click)=\"col()\"></ion-icon>\n                 <ion-icon name=\"remove\" *ngIf=\"data\" (click)=\"col()\"></ion-icon>\n      \n            </ion-col>\n          </ion-row> -->\n           \n           \n           <!-- <div style=\"height: 0px;\n           width: 100%;\n           background: #eaeaea;\n           transition: height 1s;\n           overflow: auto;\"  [ngClass]=\"{'height':data}\">\n              <p>Item1</p>\n              <p>Item2</p>\n              <p>Item3</p>\n\n           </div> -->\n\n           <ion-row *ngFor=\"let cat of categories;index as index\">\n              <ion-col size=\"9\" style=\"display: flex;\n              align-items: center;\n              justify-content: flex-start;\">\n                  <h5 (click)=\"col(cat,index)\" style=\"margin:0;\">{{cat.catName}}</h5>\n              </ion-col>\n              <div style=\"height: 0px; width: 100%; padding-left: 20px; overflow: auto;\"  [ngClass]=\"{'height':cat.data}\">\n              <div *ngFor=\"let sub of cat.catlist;index as i\"><p  (click)=\"newD(sub,index)\" style=\" margin-top: 10px; margin-bottom: 10px;\n            \">{{sub.subCat}} </p>\n                <div style=\"height: 0px; width: 100%; padding-left: 20px;transition: height 0.7s; overflow: hidden;\"  [ngStyle]=\"{'height':sub.data === true ? sub.height : '0px' }\">\n                    <p *ngFor=\"let sLi of sub.subList\" (click)=\"go()\" style=\" margin-top: 0px;margin-bottom: 10px;\n                \">{{sLi}}</p>\n\n                </div>\n              </div>\n           </div>\n          </ion-row>\n        </ion-content>\n      </ion-menu>\n      \n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n  \n</ion-app>\n"
+module.exports = "<ion-app>\n    <ion-menu side=\"start\" type=\"push\" contentId=\"main\" style=\"margin: 20px;\" swipe-gesture=\"false\">\n        <ion-header style=\"display: none;\">\n          <ion-toolbar color=\"primary\">\n            <ion-title>End Menu</ion-title>\n          </ion-toolbar>\n        </ion-header>\n        <ion-content>\n           <ion-row *ngFor=\"let cat of categories;index as index\">\n              <ion-col size=\"9\" style=\"display: flex;\n              align-items: center;\n              justify-content: flex-start;\">\n                  <p (click)=\"col(cat,index)\" style=\"margin:0;font-size: 16px;\">{{cat.catName}}</p>\n              </ion-col>\n              <div style=\"height: 0px; width: 100%; padding-left: 20px; overflow: auto;\"  [ngClass]=\"{'height':cat.data}\">\n              <div *ngFor=\"let sub of cat.catlist;index as i\"><p  (click)=\"newD(sub,index)\" style=\" margin-top: 10px; margin-bottom: 10px;font-size: 16px;\n            \">{{sub.subCat}} </p>\n                <div style=\"height: 0px; width: 100%; padding-left: 20px;transition: height 0.7s; overflow: hidden;\"  [ngStyle]=\"{'height':sub.data === true ? sub.height : '0px' }\">\n                    <p *ngFor=\"let sLi of sub.subList\" (click)=\"go()\" style=\" margin-top: 0px;margin-bottom: 10px;font-size: 16px;\">{{sLi}}</p>\n\n                </div>\n              </div>\n           </div>\n          </ion-row>\n\n          <div  class=\"second-section\">\n            <ion-row >\n              <ion-col size=\"12\" >\n                  <p (click)=\"gotoLoginPage()\">SIGN IN</p>\n              </ion-col>\n           </ion-row>\n           <ion-row >\n            <ion-col size=\"12\" >\n                <p >WISHLIST</p>\n            </ion-col>\n         </ion-row>\n          <ion-row >\n          <ion-col size=\"12\" >\n              <p>REWARDS</p>\n          </ion-col>\n       </ion-row>\n          </div>\n        </ion-content>\n      </ion-menu>\n      \n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n  \n</ion-app>\n"
 
 /***/ }),
 
@@ -478,6 +478,10 @@ var routes = [
         path: 'product-detail',
         loadChildren: function () { return Promise.all(/*! import() | pages-product-detail-product-detail-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-product-detail-product-detail-module")]).then(__webpack_require__.bind(null, /*! ./pages/product-detail/product-detail.module */ "./src/app/pages/product-detail/product-detail.module.ts")).then(function (m) { return m.ProductDetailPageModule; }); }
     },
+    {
+        path: 'login',
+        loadChildren: function () { return __webpack_require__.e(/*! import() | pages-login-login-module */ "pages-login-login-module").then(__webpack_require__.bind(null, /*! ./pages/login/login.module */ "./src/app/pages/login/login.module.ts")).then(function (m) { return m.LoginPageModule; }); }
+    },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -504,7 +508,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".my-menu {\n  --width: 65%;\n}\n.my-menu .my-custom-menu {\n  height: 100%;\n  background: #de6161;\n}\n.my-menu .my-custom-menu .profile {\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 0;\n  overflow: hidden;\n  text-align: center;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n  padding-top: 15px;\n  background: #401a1a;\n}\n.my-menu .my-custom-menu .profile .profile-picture {\n  border-radius: 50%;\n  width: 135px;\n  height: 135px;\n}\n.my-menu .my-custom-menu .r {\n  -webkit-tap-highlight-color: transparent;\n}\n.my-menu .my-custom-menu ion-list {\n  -webkit-tap-highlight-color: transparent;\n  background: transparent !important;\n  height: 100% !important;\n  overflow: scroll !important;\n  padding: 0px;\n}\n.my-menu .my-custom-menu ion-list ion-item {\n  padding-left: 5%;\n}\n.my-menu .my-custom-menu ion-list ion-item ion-icon {\n  color: #fff;\n}\n.my-menu .my-custom-menu ion-list ion-item ion-label {\n  color: #fff;\n}\n.height {\n  height: 100% !important;\n}\n.height-sub {\n  height: 270px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3ViYy0yMS9Eb2N1bWVudHMvaW9uYXBwL2dpdC9uZXdHaXQvRnJlc2hUcmVuZEVjb21tZXJjZS9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksWUFBQTtBQ0NKO0FEQUk7RUFDSSxZQUFBO0VBRUEsbUJBQUE7QUNDUjtBREFRO0VBQ0ksTUFBQTtFQUNBLFFBQUE7RUFDQSxPQUFBO0VBQ0EsVUFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0VBQ0EsV0FBQTtFQUNBLGlCQUFBO0VBQ0EsbUJBQUE7QUNFWjtBRERZO0VBQ0ksa0JBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtBQ0doQjtBRENPO0VBQ0Msd0NBQUE7QUNDUjtBRENPO0VBQ0Msd0NBQUE7RUFBMEMsa0NBQUE7RUFDMUMsdUJBQUE7RUFDQSwyQkFBQTtFQUNBLFlBQUE7QUNFUjtBREFRO0VBQ0ksZ0JBQUE7QUNFWjtBRERZO0VBQ0ksV0FBQTtBQ0doQjtBRERZO0VBQ0ksV0FBQTtBQ0doQjtBRElBO0VBQ0ksdUJBQUE7QUNESjtBREdBO0VBQ0ksd0JBQUE7QUNBSiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5teS1tZW51e1xuICAgIC0td2lkdGg6IDY1JTtcbiAgICAubXktY3VzdG9tLW1lbnV7XG4gICAgICAgIGhlaWdodDogMTAwJTtcbiAgICAgICAgLy9iYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQodG8gYm90dG9tLCByZ2JhKDE2NSw4NCwyMTYsMSkgMCUsIHJnYmEoOTAsNTcsMTgzLDEpIDYwJSwgcmdiYSg0Niw2NSwxNzMsMSkgMTAwJSkhaW1wb3J0YW50O1xuICAgICAgICBiYWNrZ3JvdW5kOiAjZGU2MTYxO1xuICAgICAgICAucHJvZmlsZSB7XG4gICAgICAgICAgICB0b3A6IDA7XG4gICAgICAgICAgICByaWdodDogMDtcbiAgICAgICAgICAgIGxlZnQ6IDA7XG4gICAgICAgICAgICB6LWluZGV4OiAwO1xuICAgICAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICAgICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgICAgICAgIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xuICAgICAgICAgICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbiAgICAgICAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgICAgICAgcGFkZGluZy10b3A6IDE1cHg7XG4gICAgICAgICAgICBiYWNrZ3JvdW5kOiAjNDAxYTFhO1xuICAgICAgICAgICAgLnByb2ZpbGUtcGljdHVyZSB7XG4gICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgICAgICAgICAgICAgIHdpZHRoOiAxMzVweDtcbiAgICAgICAgICAgICAgICBoZWlnaHQ6IDEzNXB4O1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICAgXG4gICAgICAgLnJ7XG4gICAgICAgIC13ZWJraXQtdGFwLWhpZ2hsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gICAgICAgfVxuICAgICAgIGlvbi1saXN0e1xuICAgICAgICAtd2Via2l0LXRhcC1oaWdobGlnaHQtY29sb3I6IHRyYW5zcGFyZW50OyBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xuICAgICAgICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcbiAgICAgICAgb3ZlcmZsb3c6IHNjcm9sbCAhaW1wb3J0YW50O1xuICAgICAgICBwYWRkaW5nOiAwcHg7XG4gICAgICAgIFxuICAgICAgICBpb24taXRlbXtcbiAgICAgICAgICAgIHBhZGRpbmctbGVmdDogNSU7XG4gICAgICAgICAgICBpb24taWNvbiB7XG4gICAgICAgICAgICAgICAgY29sb3I6I2ZmZjtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIGlvbi1sYWJlbHtcbiAgICAgICAgICAgICAgICBjb2xvcjojZmZmO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICAgfVxuICAgIH1cbn1cblxuLmhlaWdodHtcbiAgICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcbn1cbi5oZWlnaHQtc3Vie1xuICAgIGhlaWdodDogMjcwcHggIWltcG9ydGFudDtcbn0iLCIubXktbWVudSB7XG4gIC0td2lkdGg6IDY1JTtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSB7XG4gIGhlaWdodDogMTAwJTtcbiAgYmFja2dyb3VuZDogI2RlNjE2MTtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSAucHJvZmlsZSB7XG4gIHRvcDogMDtcbiAgcmlnaHQ6IDA7XG4gIGxlZnQ6IDA7XG4gIHotaW5kZXg6IDA7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gIHdpZHRoOiAxMDAlO1xuICBwYWRkaW5nLXRvcDogMTVweDtcbiAgYmFja2dyb3VuZDogIzQwMWExYTtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSAucHJvZmlsZSAucHJvZmlsZS1waWN0dXJlIHtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICB3aWR0aDogMTM1cHg7XG4gIGhlaWdodDogMTM1cHg7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgLnIge1xuICAtd2Via2l0LXRhcC1oaWdobGlnaHQtY29sb3I6IHRyYW5zcGFyZW50O1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IGlvbi1saXN0IHtcbiAgLXdlYmtpdC10YXAtaGlnaGxpZ2h0LWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbiAgaGVpZ2h0OiAxMDAlICFpbXBvcnRhbnQ7XG4gIG92ZXJmbG93OiBzY3JvbGwgIWltcG9ydGFudDtcbiAgcGFkZGluZzogMHB4O1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IGlvbi1saXN0IGlvbi1pdGVtIHtcbiAgcGFkZGluZy1sZWZ0OiA1JTtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSBpb24tbGlzdCBpb24taXRlbSBpb24taWNvbiB7XG4gIGNvbG9yOiAjZmZmO1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IGlvbi1saXN0IGlvbi1pdGVtIGlvbi1sYWJlbCB7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG4uaGVpZ2h0IHtcbiAgaGVpZ2h0OiAxMDAlICFpbXBvcnRhbnQ7XG59XG5cbi5oZWlnaHQtc3ViIHtcbiAgaGVpZ2h0OiAyNzBweCAhaW1wb3J0YW50O1xufSJdfQ== */"
+module.exports = ".my-menu {\n  --width: 65%;\n}\n.my-menu .my-custom-menu {\n  height: 100%;\n  background: #de6161;\n}\n.my-menu .my-custom-menu .profile {\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 0;\n  overflow: hidden;\n  text-align: center;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n  padding-top: 15px;\n  background: #401a1a;\n}\n.my-menu .my-custom-menu .profile .profile-picture {\n  border-radius: 50%;\n  width: 135px;\n  height: 135px;\n}\n.my-menu .my-custom-menu .r {\n  -webkit-tap-highlight-color: transparent;\n}\n.my-menu .my-custom-menu ion-list {\n  -webkit-tap-highlight-color: transparent;\n  background: transparent !important;\n  height: 100% !important;\n  overflow: scroll !important;\n  padding: 0px;\n}\n.my-menu .my-custom-menu ion-list ion-item {\n  padding-left: 5%;\n}\n.my-menu .my-custom-menu ion-list ion-item ion-icon {\n  color: #fff;\n}\n.my-menu .my-custom-menu ion-list ion-item ion-label {\n  color: #fff;\n}\n.height {\n  height: 100% !important;\n}\n.height-sub {\n  height: 270px !important;\n}\n.second-section {\n  height: 150px;\n  width: 100%;\n  margin-top: 40%;\n}\n.second-section p {\n  margin: 0;\n  font-size: 16px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3ViYy0yMS9Eb2N1bWVudHMvaW9uYXBwL2dpdC9uZXdHaXQvRnJlc2hUcmVuZEVjb21tZXJjZS9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksWUFBQTtBQ0NKO0FEQUk7RUFDSSxZQUFBO0VBRUEsbUJBQUE7QUNDUjtBREFRO0VBQ0ksTUFBQTtFQUNBLFFBQUE7RUFDQSxPQUFBO0VBQ0EsVUFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0VBQ0EsV0FBQTtFQUNBLGlCQUFBO0VBQ0EsbUJBQUE7QUNFWjtBRERZO0VBQ0ksa0JBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtBQ0doQjtBRENPO0VBQ0Msd0NBQUE7QUNDUjtBRENPO0VBQ0Msd0NBQUE7RUFBMEMsa0NBQUE7RUFDMUMsdUJBQUE7RUFDQSwyQkFBQTtFQUNBLFlBQUE7QUNFUjtBREFRO0VBQ0ksZ0JBQUE7QUNFWjtBRERZO0VBQ0ksV0FBQTtBQ0doQjtBRERZO0VBQ0ksV0FBQTtBQ0doQjtBRElBO0VBQ0ksdUJBQUE7QUNESjtBREdBO0VBQ0ksd0JBQUE7QUNBSjtBREVBO0VBQ0ksYUFBQTtFQUNBLFdBQUE7RUFDQSxlQUFBO0FDQ0o7QURBSTtFQUNJLFNBQUE7RUFBUyxlQUFBO0FDR2pCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm15LW1lbnV7XG4gICAgLS13aWR0aDogNjUlO1xuICAgIC5teS1jdXN0b20tbWVudXtcbiAgICAgICAgaGVpZ2h0OiAxMDAlO1xuICAgICAgICAvL2JhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCh0byBib3R0b20sIHJnYmEoMTY1LDg0LDIxNiwxKSAwJSwgcmdiYSg5MCw1NywxODMsMSkgNjAlLCByZ2JhKDQ2LDY1LDE3MywxKSAxMDAlKSFpbXBvcnRhbnQ7XG4gICAgICAgIGJhY2tncm91bmQ6ICNkZTYxNjE7XG4gICAgICAgIC5wcm9maWxlIHtcbiAgICAgICAgICAgIHRvcDogMDtcbiAgICAgICAgICAgIHJpZ2h0OiAwO1xuICAgICAgICAgICAgbGVmdDogMDtcbiAgICAgICAgICAgIHotaW5kZXg6IDA7XG4gICAgICAgICAgICBvdmVyZmxvdzogaGlkZGVuO1xuICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICAgICAgICAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XG4gICAgICAgICAgICB3aGl0ZS1zcGFjZTogbm93cmFwO1xuICAgICAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgICAgICBwYWRkaW5nLXRvcDogMTVweDtcbiAgICAgICAgICAgIGJhY2tncm91bmQ6ICM0MDFhMWE7XG4gICAgICAgICAgICAucHJvZmlsZS1waWN0dXJlIHtcbiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1MCU7XG4gICAgICAgICAgICAgICAgd2lkdGg6IDEzNXB4O1xuICAgICAgICAgICAgICAgIGhlaWdodDogMTM1cHg7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgICBcbiAgICAgICAucntcbiAgICAgICAgLXdlYmtpdC10YXAtaGlnaGxpZ2h0LWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgICAgICB9XG4gICAgICAgaW9uLWxpc3R7XG4gICAgICAgIC13ZWJraXQtdGFwLWhpZ2hsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7IGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG4gICAgICAgIGhlaWdodDogMTAwJSAhaW1wb3J0YW50O1xuICAgICAgICBvdmVyZmxvdzogc2Nyb2xsICFpbXBvcnRhbnQ7XG4gICAgICAgIHBhZGRpbmc6IDBweDtcbiAgICAgICAgXG4gICAgICAgIGlvbi1pdGVte1xuICAgICAgICAgICAgcGFkZGluZy1sZWZ0OiA1JTtcbiAgICAgICAgICAgIGlvbi1pY29uIHtcbiAgICAgICAgICAgICAgICBjb2xvcjojZmZmO1xuICAgICAgICAgICAgfVxuICAgICAgICAgICAgaW9uLWxhYmVse1xuICAgICAgICAgICAgICAgIGNvbG9yOiNmZmY7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgICB9XG4gICAgfVxufVxuXG4uaGVpZ2h0e1xuICAgIGhlaWdodDogMTAwJSAhaW1wb3J0YW50O1xufVxuLmhlaWdodC1zdWJ7XG4gICAgaGVpZ2h0OiAyNzBweCAhaW1wb3J0YW50O1xufVxuLnNlY29uZC1zZWN0aW9ue1xuICAgIGhlaWdodDoxNTBweDtcbiAgICB3aWR0aDoxMDAlO1xuICAgIG1hcmdpbi10b3A6IDQwJTtcbiAgICBwe1xuICAgICAgICBtYXJnaW46MDtmb250LXNpemU6IDE2cHg7XG4gICAgfVxufSIsIi5teS1tZW51IHtcbiAgLS13aWR0aDogNjUlO1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IHtcbiAgaGVpZ2h0OiAxMDAlO1xuICBiYWNrZ3JvdW5kOiAjZGU2MTYxO1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IC5wcm9maWxlIHtcbiAgdG9wOiAwO1xuICByaWdodDogMDtcbiAgbGVmdDogMDtcbiAgei1pbmRleDogMDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbiAgd2lkdGg6IDEwMCU7XG4gIHBhZGRpbmctdG9wOiAxNXB4O1xuICBiYWNrZ3JvdW5kOiAjNDAxYTFhO1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IC5wcm9maWxlIC5wcm9maWxlLXBpY3R1cmUge1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIHdpZHRoOiAxMzVweDtcbiAgaGVpZ2h0OiAxMzVweDtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSAuciB7XG4gIC13ZWJraXQtdGFwLWhpZ2hsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgaW9uLWxpc3Qge1xuICAtd2Via2l0LXRhcC1oaWdobGlnaHQtY29sb3I6IHRyYW5zcGFyZW50O1xuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xuICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcbiAgb3ZlcmZsb3c6IHNjcm9sbCAhaW1wb3J0YW50O1xuICBwYWRkaW5nOiAwcHg7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgaW9uLWxpc3QgaW9uLWl0ZW0ge1xuICBwYWRkaW5nLWxlZnQ6IDUlO1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IGlvbi1saXN0IGlvbi1pdGVtIGlvbi1pY29uIHtcbiAgY29sb3I6ICNmZmY7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgaW9uLWxpc3QgaW9uLWl0ZW0gaW9uLWxhYmVsIHtcbiAgY29sb3I6ICNmZmY7XG59XG5cbi5oZWlnaHQge1xuICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcbn1cblxuLmhlaWdodC1zdWIge1xuICBoZWlnaHQ6IDI3MHB4ICFpbXBvcnRhbnQ7XG59XG5cbi5zZWNvbmQtc2VjdGlvbiB7XG4gIGhlaWdodDogMTUwcHg7XG4gIHdpZHRoOiAxMDAlO1xuICBtYXJnaW4tdG9wOiA0MCU7XG59XG4uc2Vjb25kLXNlY3Rpb24gcCB7XG4gIG1hcmdpbjogMDtcbiAgZm9udC1zaXplOiAxNnB4O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -523,29 +527,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(platform, splashScreen, statusBar) {
+    function AppComponent(platform, splashScreen, statusBar, router, menuCtrl) {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
+        this.router = router;
+        this.menuCtrl = menuCtrl;
         this.classng = 'mycontent';
         this.data = false;
         this.categories = [
             {
                 catName: 'SHOP BY PIERCING', catlist: [
                     {
-                        subCat: 'Earpiercing', subList: ['Cartilage Earrings', 'Conch Jewelry', 'Daith Jewelry', 'Ear Cuffs Non Pierced',
+                        subCat: 'Ear Piercings', subList: ['Cartilage Earrings', 'Conch Jewelry', 'Daith Jewelry', 'Ear Cuffs Non Pierced',
                             'Earrings (Ear Lobe Piercings)', 'Forward Helix', 'Helix Earrings', 'Industrial Barbells', 'Rook Earrings', 'Tragus Earrings'], data: false, id: 11,
                         height: '280px'
                     },
                     { subCat: 'Nose Rings', subList: ['Diamond Nose Rings', 'Gemstone Nose Rings',
                             'Charm Nose Rings', 'Hoop Nose Rings', 'Platinum Nose Rings', 'Shop All'], data: false, id: 12, height: '168px' },
-                    { subCat: 'BellyRing', subList: ['Non-Dangle Belly Rings', 'Dangle Belly Rings', ' Reverse Belly Button Ring',
+                    { subCat: 'Belly Rings', subList: ['Non-Dangle Belly Rings', 'Dangle Belly Rings', ' Reverse Belly Button Ring',
                             ' Diamond Belly Button Rings', 'Shop All'], data: false, id: 13, height: '135px' },
                     { subCat: 'Lip Rings', subList: ['Diamond Lip Rings', 'Gemstone Lip Rings', 'Charm Lip Rings', 'Shop All'], data: false, id: 14, height: '107px' },
                     { subCat: 'Nipple Rings', subList: ['Nipple Barbells & Bars', 'Nipple Rings & Hoops', 'Shop All'], data: false, id: 15, height: '80px' },
@@ -559,7 +567,21 @@ var AppComponent = /** @class */ (function () {
             },
             {
                 catName: 'SHOP BY STYLE', catlist: [
-                    { subCat: 'Hoops', subList: ['H1', 'H2', 'H3'], data: false, height: '102px', id: 21 }
+                    { subCat: 'Shop Our Instagram', nodata: true },
+                    { subCat: 'Hoops', subList: ['Captive Bead Rings', 'Seamless Rings', 'Clicker Rings', 'Shop All'], data: false, height: '102px', id: 21 },
+                    { subCat: 'Flat Back Earrings', nodata: true },
+                    { subCat: 'Circular Barbells', nodata: true },
+                    { subCat: 'Curved Barbells', nodata: true },
+                    { subCat: 'Spiral Barbell', nodata: true },
+                    { subCat: 'Straight Barbells', nodata: true },
+                    { subCat: 'Replacement Parts', nodata: true },
+                    { subCat: 'Diamond Body Jewelry', subList: ['Diamond Cartilage Earrings', 'Shop all'], data: false, height: '50px', id: 22 },
+                    { subCat: 'Pearl Body Jewelry', nodata: true },
+                    { subCat: 'Opal Body Jewelry', nodata: true },
+                    { subCat: 'Toe Rings', nodata: true },
+                    { subCat: 'Necklaces', nodata: true },
+                    { subCat: 'Aftercare', nodata: true },
+                    { subCat: 'New Arrivals', nodata: true },
                 ],
                 data: false,
                 id: 2
@@ -619,12 +641,20 @@ var AppComponent = /** @class */ (function () {
         });
     };
     AppComponent.prototype.go = function () {
+        this.menuCtrl.toggle();
+        this.router.navigateByUrl('/shop-page');
         console.log("goClick");
+    };
+    AppComponent.prototype.gotoLoginPage = function () {
+        this.menuCtrl.toggle();
+        this.router.navigateByUrl('/login');
     };
     AppComponent.ctorParameters = function () { return [
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },
         { type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"] },
-        { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"] }
+        { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"] }
     ]; };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -634,7 +664,9 @@ var AppComponent = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"],
-            _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"]])
+            _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"]])
     ], AppComponent);
     return AppComponent;
 }());
