@@ -13,7 +13,7 @@ export class HomePage {
 
   page: any;
   shows:boolean=false;
-
+  cartBadge = 0;
   pic: any;
   slideOpts = {
     initialSlide: 1,
@@ -72,6 +72,7 @@ export class HomePage {
 
 
   async ionViewWillEnter() {
+    this.getCartCount()
     let datas = await this.auth.newApi().subscribe(datar => {
       console.log("this.newProducts", datar);
     })
@@ -107,4 +108,20 @@ export class HomePage {
    
   };
 
+
+  goCartPage(){
+    this.router.navigateByUrl('/cart-page');
+  }
+
+  getCartCount(){
+    let a = [];
+      if (!JSON.parse(localStorage.getItem('cartProducts'))) {
+        
+      } else {
+        a = JSON.parse(localStorage.getItem('cartProducts'));
+      }
+      console.log('a', a);
+      localStorage.setItem('products', JSON.stringify(a));
+      this.cartBadge = a.length;
+  }
 }

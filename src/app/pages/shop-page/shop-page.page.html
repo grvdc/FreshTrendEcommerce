@@ -3,56 +3,111 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title >
-        <img src="https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png"
-          style="width: 55%;vertical-align: text-bottom;" />
-      </ion-title>
+    <ion-title>
+      <img src="https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png"
+        style="width: 55%;vertical-align: text-bottom;" />
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="cart" (click)="goCartPage()"></ion-icon>
+      <ion-badge color="success" style="    border-radius: 35px;
+        background: #af7ddc;
+    width: 20px;
+    margin-top: -11px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;">{{cartBadge}}</ion-badge>
+    </ion-buttons>
     <!-- <ion-title>shop-page</ion-title> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content
-          pullingIcon="arrow-dropdown"
-          pullingText="Pull to refresh"
-          refreshingSpinner="circles"
-          refreshingText="Refreshing...">
-        </ion-refresher-content>
-      </ion-refresher>
-    <!-- <ion-searchbar type="text" debounce="500" (ionInput)="filterItems($event)"></ion-searchbar> -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <!-- <ion-searchbar type="text" debounce="500" (ionInput)="filterItems($event)"></ion-searchbar> -->
 
-    <div style="width: 100%;display: flex;padding: 10px;">
-        <ion-input style="border: solid 1px #A88FB6;height: 40px;" type="text" debounce="500"  placeholder="Search" (ionInput)="filterItems($event)"></ion-input>
-        <div style="width: 10%;
+  <div style="width: 100%;display: flex;padding: 10px;">
+    <ion-input style="border: solid 1px #A88FB6;height: 40px;" type="text" debounce="500" placeholder="Search"
+      (ionInput)="filterItems($event)"></ion-input>
+    <div style="width: 10%;
         background: #A88FB6;
         border: solid 1px #A88FB6;
         display: flex;
         align-items: center;
         justify-content: center;">
-          <ion-icon name="search" ></ion-icon>
-        </div>
-      </div>
-      
-  <h4 style="text-align: center;margin-left: 20px;margin-right: 20px;">{{this.categoryType ? this.categoryType.header : 'Shop Page' }}</h4>
+      <ion-icon name="search"></ion-icon>
+    </div>
+  </div>
+
+  <div
+    style="display: flex;font-size: 0.68em;color: grey;justify-content: space-around;margin-bottom: 10px; margin-top: -5px">
+    <div>look For:</div>
+    <div style="text-decoration: underline;">nose rings</div>
+    <div style="text-decoration: underline;">cartiliage earrings</div>
+    <div style="text-decoration: underline;">barbells</div>
+    <div style="text-decoration: underline;">septum</div>
+
+  </div>
+
+  <h4 style="    text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-top: 2px solid #a88fb6;
+  padding-top: 10px;">{{this.categoryType ? this.categoryType.header : 'Shop Page' }}</h4>
+
+
+
   <ion-row style="padding-top:10px; padding-right: 10px;" *ngIf="productList.length">
     <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important" sizeLg="4"
       sizeMd="4" sizeXs="6" *ngFor="let product of productList" class="animated fadeIn">
-      <ion-card  class="m0">
+      <ion-card class="m0">
         <img [src]="product.image.src" style="height: 185px !important" (click)="productDetail(product)" />
-
-        <ion-card-header style="padding-top: 0px;padding-bottom: 0;">
-          <ion-card-title>
-            <h6 style="margin-bottom: -10px;" >{{product.title}}
-            </h6>
-          </ion-card-title>
+        <div style=" width: 100%;
+        padding-top: 5%;
+        text-align: center;
+        position: absolute;
+        z-index: 99;
+        /* bottom: 31%; */
+        opacity: 0.5;
+        top: 0px;
+        color: white;
+        font-weight: bold;
+        /* background-color: #dc0000; */
+        left: -40%;
+        font-size:20px;
+        ">
+          <ion-icon name="heart" style="color:rgb(155, 87, 177)" (click)="wishlist(product.id)"
+            [ngClass]="{wish: product.wish}"></ion-icon>
+        </div>
+        <ion-card-header style="padding-top: 0px;padding-bottom: 0; text-align: center;">
+          <div *ngIf="product.options[0].name == 'Metal Color'"
+            style="width: 100%;    display: flex;   justify-content: center; align-content: center;">
+            <div style="opacity: 0.7;width: 15px;height: 15px; background: #f3a800;border-radius: 50%;margin: 3px;">
+            </div>
+            <div style="opacity: 0.7;width: 15px;height: 15px; background: #d2d2d2;border-radius: 50%;margin: 3px;">
+            </div>
+            <div style="opacity: 0.7;width: 15px;height: 15px; background: #ffa793;border-radius: 50%;margin: 3px;">
+            </div>
+          </div>
           <ion-card-subtitle>
-            <ion-row>
+            <h6 style="margin-bottom: -10px;word-wrap: break-word;
+            overflow: hidden;
+            max-height: 2.4em;
+            line-height: 1.2em;
+           font-weight: 700 !important;color: black;">{{product.title}}
+            </h6>
+          </ion-card-subtitle>
+          <ion-card-subtitle>
+            <ion-row style="margin-top: 20px;">
 
               <ion-col size="12" style="padding-left: 0 !important;
             padding-right: 0 !important;">
-                <label style="color:black"><strong>{{product.variants[0].price | currency}}</strong></label>
+                <label style="color:black">{{product.variants[0].price | currency}}</label>
               </ion-col>
             </ion-row>
           </ion-card-subtitle>
@@ -61,11 +116,11 @@
       </ion-card>
     </ion-col>
   </ion-row>
+
+
+
   <ion-infinite-scroll threshold="1%" (ionInfinite)="loadData($event)" *ngIf="!search">
-    <ion-infinite-scroll-content
-      loadingSpinner="bubbles"
-      loadingText="Loading more data..."
-      >
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
   <div *ngIf="!productList.length && getResponse" style="display: flex;
@@ -75,7 +130,7 @@
   flex-direction: column;
   ">
     <h5 style="margin:0">Sorry No data Found</h5>
-    <img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg?size=338&ext=jpg"/>
+    <img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg?size=338&ext=jpg" />
     <ion-button class="checkout-btn" size="small" fill="outline" (click)="productBycategory()">Try Again</ion-button>
   </div>
 </ion-content>

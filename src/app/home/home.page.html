@@ -8,8 +8,15 @@
       <img src="https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png" />
     </ion-title>
     <ion-buttons slot="end">
-      <ion-icon name="cart"></ion-icon>
-
+      <ion-icon name="cart" (click)="goCartPage()"></ion-icon>
+      <ion-badge color="success" style="    border-radius: 35px;
+      background: #af7ddc;
+  width: 20px;
+  margin-top: -11px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;">{{cartBadge}}</ion-badge>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -21,9 +28,18 @@
     <div class="search-icon">
       <ion-icon name="search"></ion-icon>
     </div>
+    
+  </div>
+  <div style="display: flex;font-size: 0.68em;color: grey;justify-content: space-around;margin-bottom: 10px; margin-top: -5px">
+    <div>look For:</div>
+    <div style="text-decoration: underline;">nose rings</div>
+    <div style="text-decoration: underline;">cartiliage earrings</div>
+    <div style="text-decoration: underline;">barbells</div>
+    <div style="text-decoration: underline;">septum</div>
+
   </div>
 
-  <ion-slides pager="true" [options]="slideOpts">
+  <ion-slides pager="true" [options]="slideOpts" style="border-top: 2px solid #a88fb6;">
     <ion-slide *ngFor="let item of slide">
       <ion-card>
         <img [src]="item.image">

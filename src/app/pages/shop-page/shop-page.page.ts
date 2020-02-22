@@ -17,6 +17,7 @@ export class ShopPagePage implements OnInit {
   id:any;
   length= 7;
   search :boolean = false;
+  cartBadge = 0;
   constructor(
     private auth: AuthService,
     private router: Router,
@@ -43,9 +44,19 @@ export class ShopPagePage implements OnInit {
   }
 
   async ionViewWillEnter() {
-   
+   this.getCartCount();
   }
-
+  getCartCount(){
+    let a = [];
+      if (!JSON.parse(localStorage.getItem('cartProducts'))) {
+        
+      } else {
+        a = JSON.parse(localStorage.getItem('cartProducts'));
+      }
+      console.log('a', a);
+      localStorage.setItem('products', JSON.stringify(a));
+      this.cartBadge = a.length;
+  }
   doRefresh(event) {
     console.log('Begin async operation');
 
@@ -88,6 +99,12 @@ export class ShopPagePage implements OnInit {
         // this.productList = data_['products'];
         this.id = setInterval(() => this.anitest(),120);
         this.oldproductsList = data_['products'];
+        // this.oldproductsList['titleLength'] =  this.oldproductsList['title'].split(' ').length;
+        // console.log('this.oldproductsList',this.oldproductsList['title'].split(' ').length);
+        this.oldproductsList.map(item=>{
+          item.titleLength = item.title.split(' ').length;
+        })
+        console.log('this.oldproductsList',this.oldproductsList);
       }
     })
     
@@ -118,6 +135,7 @@ export class ShopPagePage implements OnInit {
   }
 
   productDetail(product){
+    localStorage.setItem('products',JSON.stringify(product))
     console.log("click PRoduct", product);
     let navigationExtras: NavigationExtras = {
       queryParams: {
@@ -144,4 +162,10 @@ export class ShopPagePage implements OnInit {
     console.log("this.productList;",this.productList)
     
   }
+
+  goCartPage(){
+    this.router.navigateByUrl('/cart-page');
+  }
+
+  
 }

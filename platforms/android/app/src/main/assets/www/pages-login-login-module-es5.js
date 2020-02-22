@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <ion-header>\n  <ion-toolbar>\n \n    <ion-title>\n      <img src=\"https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png\" />\n    </ion-title>\n    \n  </ion-toolbar>\n</ion-header> -->\n\n\n\n<ion-content>\n  <div style=\"width: 100%; height: 250px;display: flex; align-items: center;\n  justify-content: center;\">\n      <img src=\"https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png\" style=\"width: 50%;\" />\n  </div>\n  <h3 style=\"text-align: center;display: none;\">Login</h3>\n  <ion-item lines=\"none\">\n      <ion-label position=\"floating\" >Email</ion-label>\n      <ion-input clearInput style=\"border-bottom: solid 1px #b766b7;\"></ion-input>\n  </ion-item>\n  <ion-item lines=\"none\">\n      <ion-label position=\"floating\">Password</ion-label>\n      <ion-input type=\"password\" style=\"border-bottom: solid 1px #b766b7;\"></ion-input>\n  </ion-item>\n  \n  <ion-item lines=\"none\">\n    <div style=\"width:100%;margin-top: 10px;\"> \n    <ion-row>\n      <ion-col size=\"12\" style=\"padding:0\">\n          <ion-button expand=\"full\" style=\"width: 100%; --background: #b766b7;\" (click)=\"login()\">LOGIN</ion-button>\n      </ion-col>\n    </ion-row>\n    <ion-row style=\"margin-top: -10px;\">\n        <ion-col size=\"12\" style=\"padding:0\">\n            <p style=\"text-align: right;\">Forget Password?</p>\n        </ion-col>\n    </ion-row>\n  </div>\n  </ion-item>\n  \n\n</ion-content>\n"
+module.exports = "<!-- <ion-header>\n  <ion-toolbar>\n \n    <ion-title>\n      <img src=\"https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png\" />\n    </ion-title>\n    \n  </ion-toolbar>\n</ion-header> -->\n\n\n\n<ion-content>\n  <div style=\"width: 100%; height: 250px;display: flex; align-items: center;\n  justify-content: center;\">\n      <img src=\"https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png\" style=\"width: 50%;\" />\n  </div>\n  <h3 style=\"text-align: center;display: none;\">Login</h3>\n  <ion-item lines=\"none\">\n      <ion-label position=\"floating\" >Email</ion-label>\n      <ion-input clearInput style=\"border-bottom: solid 1px #b766b7;\"></ion-input>\n  </ion-item>\n  <ion-item lines=\"none\">\n      <ion-label position=\"floating\">Password</ion-label>\n      <ion-input type=\"password\" style=\"border-bottom: solid 1px #b766b7;\"></ion-input>\n  </ion-item>\n  \n  <ion-item lines=\"none\">\n    <div style=\"width:100%;margin-top: 10px;\"> \n    <ion-row>\n      <ion-col size=\"12\" style=\"padding:0\">\n          <ion-button expand=\"full\" style=\"width: 100%; --background: #b766b7;\" (click)=\"login()\">LOGIN</ion-button>\n      </ion-col>\n    </ion-row>\n    <ion-row style=\"margin-top: -10px;\">\n        <ion-col size=\"12\" style=\"padding:0\">\n            <p style=\"text-align: right;\">Forget Password?</p>\n        </ion-col>\n    </ion-row>\n    <ion-row style=\"margin-top: -10px;\">\n      <ion-col size=\"12\" style=\"padding:0;margin:0\">\n          <p style=\"text-align: right;\" (click)=\"signup()\">Sign Up</p>\n      </ion-col>\n  </ion-row>\n  </div>\n  </ion-item>\n  \n\n</ion-content>\n"
 
 /***/ }),
 
@@ -131,6 +131,9 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage.prototype.login = function () {
         this.router.navigateByUrl('/');
+    };
+    LoginPage.prototype.signup = function () {
+        this.router.navigateByUrl('/signup');
     };
     LoginPage.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }

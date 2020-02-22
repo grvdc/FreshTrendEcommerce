@@ -441,7 +441,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\n    <ion-menu side=\"start\" type=\"push\" contentId=\"main\" style=\"margin: 20px;\" swipe-gesture=\"false\">\n        <ion-header style=\"display: none;\">\n          <ion-toolbar color=\"primary\">\n            <ion-title>End Menu</ion-title>\n          </ion-toolbar>\n        </ion-header>\n        <ion-content>\n           <ion-row *ngFor=\"let cat of categories;index as index\">\n              <ion-col size=\"9\" style=\"display: flex;\n              align-items: center;\n              justify-content: flex-start;\">\n                  <p (click)=\"col(cat,index)\" style=\"margin:0;font-size: 16px;\">{{cat.catName}}</p>\n              </ion-col>\n              <div style=\"height: 0px; width: 100%; padding-left: 20px; overflow: auto;\"  [ngClass]=\"{'height':cat.data}\">\n              <div *ngFor=\"let sub of cat.catlist;index as i\"><p  (click)=\"newD(sub,index)\" style=\" margin-top: 10px; margin-bottom: 10px;font-size: 16px;\n            \">{{sub.subCat}} </p>\n                <div style=\"height: 0px; width: 100%; padding-left: 20px;transition: height 0.7s; overflow: hidden;\"  [ngStyle]=\"{'height':sub.data === true ? sub.height : '0px' }\">\n                    <p *ngFor=\"let sLi of sub.subList\" (click)=\"go()\" style=\" margin-top: 0px;margin-bottom: 10px;font-size: 16px;\">{{sLi}}</p>\n\n                </div>\n              </div>\n           </div>\n          </ion-row>\n\n          <div  class=\"second-section\">\n            <ion-row >\n              <ion-col size=\"12\" >\n                  <p (click)=\"gotoLoginPage()\">SIGN IN</p>\n              </ion-col>\n           </ion-row>\n           <ion-row >\n            <ion-col size=\"12\" >\n                <p >WISHLIST</p>\n            </ion-col>\n         </ion-row>\n          <ion-row >\n          <ion-col size=\"12\" >\n              <p>REWARDS</p>\n          </ion-col>\n       </ion-row>\n          </div>\n        </ion-content>\n      </ion-menu>\n      \n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n  \n</ion-app>\n"
+module.exports = "<ion-app>\n    <ion-menu side=\"start\" type=\"push\" contentId=\"main\"  swipe-gesture=\"false\">\n        <ion-header style=\"display: none;\">\n          <ion-toolbar color=\"primary\">\n            <ion-title>End Menu</ion-title>\n          </ion-toolbar>\n        </ion-header>\n        <ion-content>\n           <ion-row *ngFor=\"let cat of categories;index as index\" style=\"margin-left: 20px;\n           margin-top: 10px;margin-bottom: -10px;\">\n              <ion-col size=\"9\" style=\"display: flex;\n              align-items: center;\n              justify-content: flex-start;\">\n                  <p (click)=\"col(cat,index)\" style=\"margin:0;font-size: 16px;\">{{cat.catName}}</p>\n              </ion-col>\n              <div style=\"height: 0px; width: 100%; padding-left: 20px; overflow: auto;\"  [ngClass]=\"{'height':cat.data}\">\n              <div *ngFor=\"let sub of cat.catlist;index as i\"><p  (click)=\"newD(sub,index)\" style=\" margin-top: 10px; margin-bottom: 10px;font-size: 16px;\n            \">{{sub.subCat}} </p>\n                <div style=\"height: 0px; width: 100%; padding-left: 20px;transition: height 0.7s; overflow: hidden;\"  [ngStyle]=\"{'height':sub.data === true ? sub.height : '0px' }\">\n                    <p *ngFor=\"let sLi of sub.subList\" (click)=\"go()\" style=\" margin-top: 0px;margin-bottom: 10px;font-size: 16px;\">{{sLi}}</p>\n\n                </div>\n              </div>\n           </div>\n          </ion-row>\n\n          <div  class=\"second-section\">\n            <ion-row style=\"border-top:solid 1px purple\">\n              <ion-col size=\"12\" style=\"margin-left: 20px; \" >\n                  <p (click)=\"gotoLoginPage()\">SIGN IN</p>\n              </ion-col>\n           </ion-row>\n           <ion-row >\n            <ion-col size=\"12\" style=\"margin-left: 20px; \">\n                <p >WISHLIST</p>\n            </ion-col>\n         </ion-row>\n          <ion-row >\n          <ion-col size=\"12\" style=\"margin-left: 20px; \">\n              <p>REWARDS</p>\n          </ion-col>\n       </ion-row>\n          </div>\n        </ion-content>\n      </ion-menu>\n      \n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n  \n</ion-app>\n"
 
 /***/ }),
 
@@ -475,6 +475,14 @@ const routes = [
     {
         path: 'login',
         loadChildren: () => __webpack_require__.e(/*! import() | pages-login-login-module */ "pages-login-login-module").then(__webpack_require__.bind(null, /*! ./pages/login/login.module */ "./src/app/pages/login/login.module.ts")).then(m => m.LoginPageModule)
+    },
+    {
+        path: 'signup',
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-signup-signup-module */ "pages-signup-signup-module").then(__webpack_require__.bind(null, /*! ./pages/signup/signup.module */ "./src/app/pages/signup/signup.module.ts")).then(m => m.SignupPageModule)
+    },
+    {
+        path: 'cart-page',
+        loadChildren: () => Promise.all(/*! import() | pages-cart-page-cart-page-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-cart-page-cart-page-module")]).then(__webpack_require__.bind(null, /*! ./pages/cart-page/cart-page.module */ "./src/app/pages/cart-page/cart-page.module.ts")).then(m => m.CartPagePageModule)
     },
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -581,9 +589,20 @@ let AppComponent = class AppComponent {
         this.initializeApp();
     }
     initializeApp() {
+        // this.platform.ready().then(() => {
+        //   this.statusBar.styleDefault();
+        //   this.splashScreen.hide();
+        // });
         this.platform.ready().then(() => {
-            this.statusBar.styleDefault();
+            this.platform.backButton.subscribeWithPriority(9999, () => {
+                document.addEventListener('backbutton', function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    console.log('hello');
+                }, false);
+            });
             this.splashScreen.hide();
+            this.statusBar.styleDefault();
         });
     }
     col(data, index) {

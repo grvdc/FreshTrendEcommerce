@@ -1,0 +1,163 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title >
+        <img src="https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png"
+          style="width: 55%;vertical-align: text-bottom;" />
+      </ion-title>
+      <!-- <ion-buttons slot="end">
+        <ion-icon name="cart"></ion-icon>
+  
+      </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+    <div *ngIf="skeleton">
+        <ion-item>
+          <ion-thumbnail slot="start" style="width: 35%;height:125px;">
+            <ion-skeleton-text></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 70%;height:25px"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail slot="start" style="width: 35%;height:125px;">
+            <ion-skeleton-text></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 70%;height:25px"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail slot="start" style="width: 35%;height:125px;">
+            <ion-skeleton-text></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 70%;height:25px"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+      </div>
+
+
+     
+     
+  <div class="list-item-div" *ngIf="!skeleton && cartItems.length">
+    <ion-list>
+      
+      <ion-card *ngFor="let item of cartItems; index as index" style="box-shadow: none;border-bottom: solid 2px #d4a7d4;
+      padding-bottom: 20px;">
+      
+        <div class="tt">
+
+          <ion-thumbnail slot="start" class="list-thumb" (click)="goToProductDetailPage(item.id)">
+            <img [src]="item.image.src">
+            <div Style="width: 100%;
+            padding-top: 0;
+            text-align: right;
+            position: absolute;
+            z-index: 99;
+            /* bottom: 31%; */
+            opacity: 0.5;
+            top: 0px;
+            color: #020202;
+            font-weight: bold;
+            /* background-color: #dc0000; */
+            left: 0%;
+            padding-right: 10px;
+            font-size: 20px;" ><ion-icon name="close" (click)="indexFinding(index)"></ion-icon></div>
+          </ion-thumbnail>
+          <div class="detail-section">
+            <ion-row >
+              <ion-col class="col-title" size="12">
+                <h5 style="font-size: 16px;font-weight: 800;color: #4c4c4c;">{{item.title}}</h5>
+              </ion-col>
+              <ion-col  size="12">
+                <p class="price-p">Metal color.  {{item.options[0].values[0]}}</p>
+              </ion-col>
+              <ion-col size="12">
+                <p >Guage. {{item.variants[0].grams}}G</p>
+              </ion-col>
+            </ion-row>
+            <ion-row class="action-section">
+                <ion-col size="8" class="qty-section" style="justify-content: start !important;">
+                    <div style="height: 25px; width: 100px;justify-content: space-around;background: #ececec;">
+                      <ion-icon name="remove" (click)="removeQty(item,index)"></ion-icon>
+                      <ion-label style="width: 35px;">{{qty}}</ion-label>
+                      <!-- <ion-label>{{item.productQuantity>-1?item.productQuantity:1}}</ion-label> -->
+                      <ion-icon name="add" (click)="addQty(item,index)" ></ion-icon>
+                    </div>
+                  </ion-col>
+              <ion-col size="4" class="trash-section" style="justify-content: flex-end;">
+                <!-- <ion-icon name="trash" (click)="indexFinding(index)"></ion-icon> -->
+                {{item.variants[0].price | currency}}
+              </ion-col>
+              
+            </ion-row>
+
+          </div>
+        </div>
+        
+      </ion-card>
+
+    </ion-list>
+  </div>
+  <ion-card class="checkout-section" *ngIf="!skeleton && cartItems.length" style="box-shadow: none;">
+    <ion-row >
+      <ion-row>
+        <!-- <ion-col size="6" class="left-side-text">Sub Total</ion-col>
+        <ion-col size="6" class="right-side-text">Rs. {{gtotal}}
+        </ion-col> -->
+        <!-- <ion-col size="6" class="left-side-text">Sub Total ex. Tax</ion-col>
+        <ion-col size="6" class="right-side-text">Rs. 0</ion-col> -->
+        <ion-col size="6" class="left-bold">Subtotal</ion-col> 
+        <ion-col size="6" class="right-bold">{{totalAmount |currency}}</ion-col>
+        <ion-col size="12" class="btn-section">
+          <ion-button  class="checkout-btn" type="submit" (click)="checkOutPage()">CHECK OUt
+          </ion-button>
+        </ion-col>
+
+
+      </ion-row>
+
+
+    </ion-row>
+  </ion-card>
+
+  <div *ngIf="!skeleton && !cartItems.length">
+      <h5 style="text-align: center;">Your cart is currently empty</h5>
+  </div>
+   
+
+
+</ion-content>
+
+

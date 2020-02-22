@@ -1,0 +1,161 @@
+ion-header{
+        ion-toolbar{
+          ion-title{
+            text-align: center;
+            padding-left: 0;
+            img{
+              width: 55%;
+              vertical-align: text-bottom;
+            }
+          }
+          ion-buttons{
+            margin-right: 13px;
+            font-size: 20px;
+          }
+        }
+      }
+
+
+.footer{
+    padding: 5pt;
+    background-color: rgba(0, 150, 0, .8);
+    position: sticky;
+    bottom: 0;
+}
+
+.item-inner {
+    padding-right: 0px!important;
+ }
+.checkout-btn{
+    --color:white;
+    --border-color: purple;
+    --background: purple;
+    width:100%;
+    --color-activated: #a88fb6;
+}
+.list-item-div{
+//     max-height:75%;
+    overflow: scroll;
+    ion-list{
+            padding-top: 0;
+    }
+    .tt {
+            padding: 10px;
+            display: flex;
+            .list-thumb{
+                    width:50%;
+                    height: 0%;
+                    margin:0;
+            }
+            .detail-section{
+                    padding-left: 10px;
+                    width:100%;
+                    ion-row{
+                            height:75%;
+                            display: flex;
+                          
+                            .col-title{
+                                    display: flex;
+                                    align-self: flex-end;
+                                    h5{
+                                            text-align: left;
+                                            margin: 0;
+                                    }
+                            }
+                            ion-col{
+                                    display: flex;
+                                   
+                                    padding-top: 0;
+                                    padding-bottom: 0;
+                                    .price-p{
+                                            margin:0;
+                                            font-size: 15px;
+                                            margin-bottom: 2px;
+                                    }
+                            }
+                            ion-col{
+                                    p{
+                                            margin:0;
+                                            font-size: 14px;
+                                    }
+                            }
+                          
+                    }
+                    .action-section{
+                            height:25%;
+                            margin-top: 10px;
+                            .trash-section{
+                                    display: flex;
+                                    align-self: center;
+                                    padding-top: 0;
+                                    padding-bottom: 0;
+                                    ion-icon{
+                                            color:red;
+                                            font-size:18pt;
+                                    }
+                            }
+                            .qty-section{
+                                    display: flex;
+                                    align-self: center;
+                                    padding-top: 0;
+                                    padding-bottom: 0;
+                                    justify-content: flex-end;
+                                    div{
+                                            display: flex;
+                                            align-items: center;
+                                            border: solid 1px grey;
+                                            ion-icon{
+                                                    font-size: 20px;
+                                            }
+                                            ion-label{
+                                                    border-right: solid 1px grey;
+                                                    border-left: solid 1px grey;
+                                                    align-self: center;
+                                                    font-size: 17px;
+                                                    width: 20px;
+                                                    display: flex;
+                                                    justify-content: center;
+                                            }
+                                    }
+                            }
+                    }
+            }
+    }
+}
+.checkout-section{
+//     padding: 0px;
+//      position: absolute;
+//      bottom: 0;
+     max-height: 25%;
+     background: white;
+     display: flex;
+     align-items: flex-end;
+
+    ion-row{
+            width: 100%;
+            .left-side-text{
+                    padding-left: 10px;
+                    padding-bottom: 0;
+            }
+            .right-side-text{
+                    text-align: right; 
+                    padding-bottom: 0;
+                    padding-right: 10px;
+            }
+            .left-bold{
+                    padding-left: 10px;
+                    font-weight: 800;
+                    font-size: 18px;
+            }
+            .right-bold{
+                    font-size: 18px;
+                    text-align: right;
+                    padding-right: 10px;
+                    font-weight: 800;
+            }
+            .btn-section{
+                    padding-left: 10px;
+                    padding-right: 10px;
+            }
+    }
+}

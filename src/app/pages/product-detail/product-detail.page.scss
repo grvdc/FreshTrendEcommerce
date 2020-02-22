@@ -1,3 +1,20 @@
+ion-header{
+    ion-toolbar{
+      ion-title{
+        text-align: center;
+        padding-left: 0;
+        img{
+          width: 55%;
+          vertical-align: text-bottom;
+        }
+      }
+      ion-buttons{
+        margin-right: 13px;
+        font-size: 20px;
+      }
+    }
+  }
+
 .hilight{
     border:solid 2px #a37bb9;
 
@@ -8,3 +25,4 @@
 .t-color{
     color:#a37bb9 !important;
 }
+

@@ -1,12 +1,13 @@
 <ion-app>
-    <ion-menu side="start" type="push" contentId="main" style="margin: 20px;" swipe-gesture="false">
+    <ion-menu side="start" type="push" contentId="main"  swipe-gesture="false">
         <ion-header style="display: none;">
           <ion-toolbar color="primary">
             <ion-title>End Menu</ion-title>
           </ion-toolbar>
         </ion-header>
         <ion-content>
-           <ion-row *ngFor="let cat of categories;index as index">
+           <ion-row *ngFor="let cat of categories;index as index" style="margin-left: 20px;
+           margin-top: 10px;margin-bottom: -10px;">
               <ion-col size="9" style="display: flex;
               align-items: center;
               justify-content: flex-start;">
@@ -24,18 +25,18 @@
           </ion-row>
 
           <div  class="second-section">
-            <ion-row >
-              <ion-col size="12" >
+            <ion-row style="border-top:solid 1px purple">
+              <ion-col size="12" style="margin-left: 20px; " >
                   <p (click)="gotoLoginPage()">SIGN IN</p>
               </ion-col>
            </ion-row>
            <ion-row >
-            <ion-col size="12" >
+            <ion-col size="12" style="margin-left: 20px; ">
                 <p >WISHLIST</p>
             </ion-col>
          </ion-row>
           <ion-row >
-          <ion-col size="12" >
+          <ion-col size="12" style="margin-left: 20px; ">
               <p>REWARDS</p>
           </ion-col>
        </ion-row>
