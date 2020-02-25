@@ -34,7 +34,9 @@ export class AppComponent {
         { subCat: 'Tongue Rings', nodata: true },
       ],
       data: false,
-      id:1
+      id:1,
+      logo:'../assets/icon/pin.svg',
+
     },
     {
       catName: 'SHOP BY STYLE', catlist: [
@@ -54,12 +56,11 @@ export class AppComponent {
         { subCat: 'Aftercare', nodata: true },
         { subCat: 'New Arrivals', nodata: true },
 
-
-
-
       ],
       data: false,
-      id:2
+      id:2,
+      logo:'../assets/icon/snow.svg'
+
 
     }
   ]

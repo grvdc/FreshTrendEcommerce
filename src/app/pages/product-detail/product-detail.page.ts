@@ -78,7 +78,7 @@ nn(){
     console.log('a', a);
     localStorage.setItem('cartProducts', JSON.stringify(a));
     this.cartBadge = a.length;
-   
+    this.router.navigateByUrl('/cart-page');
   }
 
 

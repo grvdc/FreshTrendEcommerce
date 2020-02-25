@@ -26,3 +26,22 @@ ion-header{
     color:#a37bb9 !important;
 }
 
+.search-bar{
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  // border-bottom: 2px solid #a88fb6;
+  border-top: 1px solid #a88fb6;
+  ion-input{
+    border: solid 1px #A88FB6;
+    height: 40px;
+  }
+  .search-icon{
+    width: 10%;
+    background: #A88FB6;
+    border: solid 1px #A88FB6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

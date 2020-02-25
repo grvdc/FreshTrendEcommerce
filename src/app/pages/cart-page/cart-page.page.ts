@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cart-page',
@@ -27,10 +28,11 @@ export class CartPagePage implements OnInit {
   // new
   qty = 1 ;
   gtotal:any;
-  productPrice:any;
+  totalprice:any = 0;
   constructor(
     private router: Router,
     private auth: AuthService,
+    public alertController: AlertController,
   ) {
 
   }
@@ -41,73 +43,74 @@ export class CartPagePage implements OnInit {
 
   ionViewWillEnter(){
     let a:any = [];
-    let variants:any = [];
 
     if (!JSON.parse(localStorage.getItem('cartProducts'))) {
 
     } else {
       this.totalAmount = 0;
       a = JSON.parse(localStorage.getItem('cartProducts'));
-     console.log('productPrice',a);
-
-      // for(let i = 0; i<= a.length; i++){
-      //   variants=a[i].variants;
-      //   console.log('variants',variants);
-      //   this.totalAmount=variants[i].price;
-      // console.log('totalAmount',this.totalAmount);
-
-      // for(let b=0; b< variants.length; b++)
-      // {
-
-      //   this.totalAmount=variants[b].price;
-      //   console.log('totalAmount',this.totalAmount);
-
-      // }
-
-      // }
-      
       a.map((item) => {
-        item.variants[0].price
+        item.productQuantity = 1;
         this.totalAmount = this.totalAmount + parseFloat(item.variants[0].price);
       })
     }
-
-    // localStorage.setItem('products', JSON.stringify(a));
     this.cartItems = a;
     console.log('cartItems', this.cartItems);
-
-
-    // productPrice=this.cartItems.this.variants.price
     this.skeleton = false;
-
-    // this.auth.newApi().subscribe(data_ => {
-    //   if (data_) {
-    //     this.skeleton = false;
-    //     data_['products'].map(item => {
-    //       if (item.image && item.image.src) {
-    //         this.oldproductsList.push(item);
-    //       }
-    //     })
-    //   }
-    // this.cartItems=this.oldproductsList;
-    // console.log(this.cartItems,'this.cartItems')
-    //   console.log('odf',this.oldproductsList);
-    //   this.totalAmount= this.cartItems[0]['variants'][0].price;
-    //   this.gtotal = this.totalAmount;
-    // })
-
 
   }
   
-  addQty(){
-     this.qty = this.qty + 1;
-     console.log('add qty', this.totalAmount);
+  addQty(item,i){
+    let newamt = 0;
+    let float =  parseFloat(item.variants[0].price);
+    this.totalAmount = this.totalAmount - (item.productQuantity * float);
+    item.productQuantity =  item.productQuantity + 1;
+   
+    newamt =  item.productQuantity * float;
+    
+    this.totalAmount = this.totalAmount + newamt;
 
 
   }
 
-  removeQty(){
-    this.qty = this.qty - 1;
+  async removeQty(item, i){
+    let newamt = 0;
+    let float =  parseFloat(item.variants[0].price);
+    this.totalAmount = this.totalAmount - (item.productQuantity * float);
+    if (item.productQuantity != 1){
+      item.productQuantity =  item.productQuantity - 1;
+      newamt =  item.productQuantity * float;
+      this.totalAmount = this.totalAmount + newamt;
+    } else{
+      this.totalAmount = this.totalAmount -  float;
+     
+        const alert = await this.alertController.create({
+          header: 'Confirm!',
+          message: 'Oops! you can\'t choose the quantity less than 1 if you want then you have to delete this item ',
+          buttons: [
+            {
+              text: 'Cancel',
+              role: 'cancel',
+              cssClass: 'secondary',
+              handler: (blah) => {
+                console.log('Confirm Cancel: blah');
+              }
+            }, {
+              text: 'Okay',
+              handler: () => {
+                this.indexFinding(i);
+                console.log('Confirm Okay');
+              }
+            }
+          ]
+        });
+    
+         alert.present();
+     
+     
+      
+
+    }
   }
 
 

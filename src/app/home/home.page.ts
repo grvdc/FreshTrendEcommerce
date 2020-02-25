@@ -33,13 +33,13 @@ export class HomePage {
   categories = [
     {
       bimg: 'https://cdn.shopify.com/s/files/1/2395/3423/files/201912-ear-party_360x.jpg?v=1579718481',
-      text: 'CARTILAGE EARRING',
+      text: 'CARTILAGE EARRINGS',
       category: 'Cartilage',
       header: 'Cartilage Earrings & Piercing Jewelry',
     },
     {
       bimg: 'https://cdn.shopify.com/s/files/1/2395/3423/files/double-princess-cut-14k-gold-belly-ring_7_720x.jpg?v=1579718501',
-      text: 'BUTTON RINGS',
+      text: 'BELLY BUTTON RINGS',
       category: 'button',
       header: 'Belly Button Rings',
     },
@@ -55,7 +55,7 @@ export class HomePage {
     },
     {
       bimg: 'https://cdn.shopify.com/s/files/1/2395/3423/files/gold-plugs-group-concept-1_720x.jpg?v=1579718545',
-      text: 'PLUGG & TUNNELS', category: 'plugg',
+      text: 'PLUGS & TUNNELS', category: 'plugg',
       header: 'Ear Plugs, Tunnels & Gauges',
     },
     {

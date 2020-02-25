@@ -44,13 +44,18 @@ ion-content{
         margin: 0;
         border-radius: 0;
         div{
+        height: 240px;
+
           width: 100%;
           // padding-right: 10%;
           // text-align: right;
           position: absolute;
           z-index: 99;
-          bottom: 30%;
+          bottom: 0%;
           font-weight: bold;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           h3{
             color:white;
           }

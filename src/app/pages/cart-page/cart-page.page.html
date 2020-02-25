@@ -111,7 +111,7 @@
                 <ion-col size="8" class="qty-section" style="justify-content: start !important;">
                     <div style="height: 25px; width: 100px;justify-content: space-around;background: #ececec;">
                       <ion-icon name="remove" (click)="removeQty(item,index)"></ion-icon>
-                      <ion-label style="width: 35px;">{{qty}}</ion-label>
+                      <ion-label style="width: 35px;">{{item.productQuantity}}</ion-label>
                       <!-- <ion-label>{{item.productQuantity>-1?item.productQuantity:1}}</ion-label> -->
                       <ion-icon name="add" (click)="addQty(item,index)" ></ion-icon>
                     </div>
