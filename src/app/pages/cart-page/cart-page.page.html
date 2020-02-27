@@ -106,6 +106,9 @@
               <ion-col size="12">
                 <p >Guage. {{item.variants[0].grams}}G</p>
               </ion-col>
+              <ion-col size="12">
+                <p >Price. {{item.variants[0].price | currency}}</p>
+              </ion-col>
             </ion-row>
             <ion-row class="action-section">
                 <ion-col size="8" class="qty-section" style="justify-content: start !important;">
@@ -118,7 +121,7 @@
                   </ion-col>
               <ion-col size="4" class="trash-section" style="justify-content: flex-end;">
                 <!-- <ion-icon name="trash" (click)="indexFinding(index)"></ion-icon> -->
-                {{item.variants[0].price | currency}}
+                {{item.itemTotal? (item.itemTotal | currency): (item.variants[0].price | currency)}}
               </ion-col>
               
             </ion-row>

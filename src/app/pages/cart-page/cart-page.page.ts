@@ -51,6 +51,7 @@ export class CartPagePage implements OnInit {
       a = JSON.parse(localStorage.getItem('cartProducts'));
       a.map((item) => {
         item.productQuantity = 1;
+        item.itemTotal = item.productQuantity * item.variants[0].price;
         this.totalAmount = this.totalAmount + parseFloat(item.variants[0].price);
       })
     }
@@ -69,20 +70,20 @@ export class CartPagePage implements OnInit {
     newamt =  item.productQuantity * float;
     
     this.totalAmount = this.totalAmount + newamt;
-
+    item.itemTotal = item.productQuantity * item.variants[0].price;
 
   }
 
   async removeQty(item, i){
     let newamt = 0;
     let float =  parseFloat(item.variants[0].price);
-    this.totalAmount = this.totalAmount - (item.productQuantity * float);
+    
     if (item.productQuantity != 1){
+      this.totalAmount = this.totalAmount - (item.productQuantity * float);
       item.productQuantity =  item.productQuantity - 1;
       newamt =  item.productQuantity * float;
       this.totalAmount = this.totalAmount + newamt;
     } else{
-      this.totalAmount = this.totalAmount -  float;
      
         const alert = await this.alertController.create({
           header: 'Confirm!',
@@ -98,6 +99,9 @@ export class CartPagePage implements OnInit {
             }, {
               text: 'Okay',
               handler: () => {
+                this.totalAmount = this.totalAmount -  float;
+
+                this.totalAmount = this.totalAmount - (item.productQuantity * float);
                 this.indexFinding(i);
                 console.log('Confirm Okay');
               }
@@ -106,11 +110,8 @@ export class CartPagePage implements OnInit {
         });
     
          alert.present();
-     
-     
-      
-
-    }
+       }
+       item.itemTotal = item.productQuantity * item.variants[0].price;
   }
 
 

@@ -97,4 +97,17 @@ nn(){
       localStorage.setItem('products', JSON.stringify(a));
       this.cartBadge = a.length;
   }
+
+  wishlist(product){
+    if(!product.wish){
+      product.wish = true;
+    } else {
+      product.wish = false;
+    }
+    console.log("product",product)
+  }
+
+  shopPage(){
+    this.router.navigateByUrl('/shop-page');
+  }
 }

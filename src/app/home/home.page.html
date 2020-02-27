@@ -32,25 +32,27 @@
   </div>
   <div style="display: flex;font-size: 0.68em;color: grey;justify-content: space-around;margin-bottom: 10px; margin-top: -5px">
     <div>look For:</div>
-    <div style="text-decoration: underline;">nose rings</div>
-    <div style="text-decoration: underline;">cartiliage earrings</div>
-    <div style="text-decoration: underline;">barbells</div>
-    <div style="text-decoration: underline;">septum</div>
+    <div style="text-decoration: underline;" (click)="goToShopPage('')">nose rings</div>
+    <div style="text-decoration: underline;" (click)="goToShopPage('')">cartiliage earrings</div>
+    <div style="text-decoration: underline;" (click)="goToShopPage('')">barbells</div>
+    <div style="text-decoration: underline;" (click)="goToShopPage('')">septum</div>
 
   </div>
 
   <ion-slides pager="true" [options]="slideOpts" style="border-top: 2px solid #a88fb6;">
     <ion-slide *ngFor="let item of slide">
-      <ion-card>
-        <img [src]="item.image">
+      <ion-card style="width: 100%;height:240px;">
+        <img [src]="item.image" style="height: 100%;">
         
         <div class="over">
           
         </div>
-        <div>
+        <div style="display: flex;
+          flex-direction: column;">
           <h3 class="animated fadeInRight">
             {{item.text}}
           </h3>
+          <p style="margin: 0;">{{item.subtext}}</p>
         </div>
       </ion-card>
      

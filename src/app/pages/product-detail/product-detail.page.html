@@ -1,15 +1,15 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-back-button></ion-back-button>
-        </ion-buttons>
-        <ion-title >
-            <img src="https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png"
-              style="width: 55%;vertical-align: text-bottom;" />
-          </ion-title>
-          <ion-buttons slot="end" (click)="goCartPage()">
-            <ion-icon name="cart" ></ion-icon>
-            <ion-badge color="success" style="    border-radius: 35px;
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png"
+        style="width: 55%;vertical-align: text-bottom;" />
+    </ion-title>
+    <ion-buttons slot="end" (click)="goCartPage()">
+      <ion-icon name="cart"></ion-icon>
+      <ion-badge color="success" style="    border-radius: 35px;
                 background: #af7ddc;
             width: 20px;
             margin-top: -11px;
@@ -17,7 +17,7 @@
             display: flex;
             align-items: center;
             justify-content: center;">{{cartBadge}}</ion-badge>
-          </ion-buttons>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -27,38 +27,38 @@
     <div class="search-icon">
       <ion-icon name="search"></ion-icon>
     </div>
-    
+
   </div>
-  <div style="display: flex;font-size: 0.68em;color: grey;justify-content: space-around;margin-bottom: 10px; margin-top: -5px">
+  <div
+    style="display: flex;font-size: 0.68em;color: grey;justify-content: space-around;margin-bottom: 10px; margin-top: -5px">
     <div>look For:</div>
-    <div style="text-decoration: underline;">nose rings</div>
-    <div style="text-decoration: underline;">cartiliage earrings</div>
-    <div style="text-decoration: underline;">barbells</div>
-    <div style="text-decoration: underline;">septum</div>
+    <div style="text-decoration: underline;" (click)="shopPage()">nose rings</div>
+    <div style="text-decoration: underline;" (click)="shopPage()">cartiliage earrings</div>
+    <div style="text-decoration: underline;" (click)="shopPage()">barbells</div>
+    <div style="text-decoration: underline;" (click)="shopPage()">septum</div>
 
   </div>
 
 
 
-    <ion-row style="margin-top: 10px;border-top:solid 2px #a88fb6;">
+  <ion-row style="margin-top: 10px;border-top:solid 2px #a88fb6;">
 
-        <ion-col size="10" style="padding: 10px; display: flex;justify-content: center;">
-          <ion-thumbnail style="height: 250px;width: 100%; display: flex; justify-content: center;">
-            <img [src]="imageShow" alt="image" style="height: 275px;width: 100%;" />
-          </ion-thumbnail>
-        </ion-col>
-        <ion-col size="2" style="padding-top: 10px;">
-          <ion-thumbnail *ngFor="let item of imageList"
-            style="margin-bottom: 3px; display: flex;justify-content: center;" (click)="highlightedOff(item.src)"
-            [ngClass]="{'hilight':item.highlighted }">
-            <img [src]="item.src" style="    height: 100%;
+    <ion-col size="10" style="padding: 10px; display: flex;justify-content: center;">
+      <ion-thumbnail style="height: 250px;width: 100%; display: flex; justify-content: center;align-items: center;">
+        <img [src]="imageShow" alt="image" style="height: 190px;width: 190px;" />
+      </ion-thumbnail>
+    </ion-col>
+    <ion-col size="2" style="padding-top: 10px;">
+      <ion-thumbnail *ngFor="let item of imageList" style="margin-bottom: 3px; display: flex;justify-content: center;"
+        (click)="highlightedOff(item.src)" [ngClass]="{'hilight':item.highlighted }">
+        <img [src]="item.src" style="    height: 100%;
                  ;">
-          </ion-thumbnail>
-    
-        </ion-col>
-      </ion-row>
-     
-      <div style="     width: 100%;
+      </ion-thumbnail>
+
+    </ion-col>
+  </ion-row>
+
+  <div style="     width: 100%;
       padding-top: 5%;
       text-align: center;
       position: absolute;
@@ -69,135 +69,158 @@
       font-size: 20px;
       text-align: right;
       padding-right: 15px;
+      opacity: 0.5;
       ">
-        <ion-icon name="heart" style="color:rgb(106, 112, 108);margin-right: 10px;"></ion-icon>
+    <ion-icon name="heart" style="color:#444444" (click)="wishlist(product)" [ngClass]="{wish: product.wish}">
+    </ion-icon>
+  </div>
+
+  <ion-card style="margin-bottom: 60px;position: sticky;box-shadow: none;">
+    <ion-item lines="none" style="height:65px;">
+      <ion-row style="width:100%">
+        <ion-col size="12" style="padding-left: 0px;">
+          <h6 style="color: #232323;font-weight: 700">{{product.title}}</h6>
+        </ion-col>
+
+      </ion-row>
+    </ion-item>
+    <p style="padding-left: 16px;margin: 0">${{product.variants[0].price}} </p>
+    <ion-item lines="none" style="color: #242424">
+      <p>Buy in monthly payments with Affirm on orders over $50. </p>
+    </ion-item>
+    <ion-item style="color: #242424" lines="none">
+      <div style="width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: solid 1px #b766b7;">
+        <ion-label>Metal Type</ion-label>
+        <ion-select value="wGold" okText="Okay" cancelText="Dismiss" style="max-width: 100% !important;">
+          <ion-select-option value="wGold">14k White Gold</ion-select-option>
+          <ion-select-option value="yGold">14k Yellow Gold</ion-select-option>
+          <ion-select-option value="rGold">14k Rose Gold</ion-select-option>
+          <ion-select-option value="platinum">Platinum</ion-select-option>
+        </ion-select>
       </div>
+    </ion-item>
 
-      <ion-card style="margin-bottom: 60px;position: sticky;box-shadow: none;">
-          <ion-item lines="none">
-            <ion-row style="width:100%">
-              <ion-col size="8" style="padding-left: 0px;">
-                <h6 style="color: #232323;font-weight: 700">{{product.title}}</h6>
-              </ion-col>
-              <ion-col size="4" style="    display: none;
-             align-items: flex-end;justify-content:flex-end;">
-                <h6 style="font-weight: 550;" class="t-color">${{product.variants[0].price}}</h6>
-              </ion-col>
-            </ion-row>
-          </ion-item>
-              <p style="padding-left: 16px;margin: 0">${{product.variants[0].price}} </p>
-          <ion-item lines="none" style="color: #242424">
-              <p >Buy in monthly payments with Affirm on orders over $50. </p>
-          </ion-item>
-          <ion-item style="color: #242424">
-              <ion-label>Metal Type</ion-label>
-              <ion-select value="wGold" okText="Okay" cancelText="Dismiss" style="max-width: 100% !important;">
-                <ion-select-option value="wGold">14k White Gold</ion-select-option>
-                <ion-select-option value="yGold">14k Yellow Gold</ion-select-option>
-                <ion-select-option value="rGold">14k Rose Gold</ion-select-option>
-                <ion-select-option value="platinum">Platinum</ion-select-option>
-              </ion-select>
-            </ion-item>
+    <ion-item style="color: #242424" lines="none">
+      <div style="width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: solid 1px #b766b7;">
+        <ion-label>Style</ion-label>
+        <ion-select value="twist" okText="Okay" cancelText="Dismiss">
+          <ion-select-option value="twist">Twist</ion-select-option>
+          <ion-select-option value="bone">Bone</ion-select-option>
+          <ion-select-option value="lpost">L Post</ion-select-option>
+          <ion-select-option value="pinpost">Pin Post</ion-select-option>
+        </ion-select>
+      </div>
+    </ion-item>
 
-            <ion-item style="color: #242424">
-                <ion-label>Style</ion-label>
-                <ion-select value="twist" okText="Okay" cancelText="Dismiss">
-                  <ion-select-option value="twist">Twist</ion-select-option>
-                  <ion-select-option value="bone">Bone</ion-select-option>
-                  <ion-select-option value="lpost">L Post</ion-select-option>
-                  <ion-select-option value="pinpost">Pin Post</ion-select-option>
-                </ion-select>
-              </ion-item>
-            
-              <ion-item style="color: #242424"> 
-                  <ion-label>Guage</ion-label>
-                  <ion-select value="18G" okText="Okay" cancelText="Dismiss">
-                    <ion-select-option value="18G">18G</ion-select-option>
-                    <ion-select-option value="20G">20G</ion-select-option>
-                  </ion-select>
-                </ion-item>
+    <ion-item style="color: #242424" lines="none">
+      <div style="width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: solid 1px #b766b7;">
+        <ion-label>Guage</ion-label>
+        <ion-select value="18G" okText="Okay" cancelText="Dismiss">
+          <ion-select-option value="18G">18G</ion-select-option>
+          <ion-select-option value="20G">20G</ion-select-option>
+        </ion-select>
+      </div>
+    </ion-item>
 
-                <ion-item lines="none" style="color: #242424">
-                    <p style="color: #a88fb6;font-size: 16px;">Need different size?</p>
-                </ion-item>
+    <ion-item lines="none" style="color: #242424">
+      <p style="color: #a88fb6;font-size: 16px;">Need different size?</p>
+    </ion-item>
 
-                    <ion-row style="padding-left: 16px;padding-right: 16px;">
-                    <ion-col style="padding: 0;">Enter any special instructions:</ion-col>
-                  </ion-row>
-                    <ion-row style="padding-left: 16px; padding-right: 16px;margin-top: 5px">
-                      <ion-col style="padding: 0;">
-                        <ion-input type="text" style="border: solid 1px #b766b7;"></ion-input>
-                      </ion-col>
-                    </ion-row>
+    <ion-row style="padding-left: 16px;padding-right: 16px;">
+      <ion-col style="padding: 0;">Enter any special instructions:</ion-col>
+    </ion-row>
+    <ion-row style="padding-left: 16px; padding-right: 16px;margin-top: 5px">
+      <ion-col style="padding: 0;">
+        <ion-input type="text" style="border: solid 1px #b766b7;"></ion-input>
+      </ion-col>
+    </ion-row>
 
-                    <ion-row style="padding-left: 16px;padding-right: 16px;margin-top: 10px;">
-                      <ion-col style="padding: 0;">Quantity</ion-col>
-                    </ion-row>
-                    <ion-row style="padding-left: 16px; padding-right: 16px; display: flex;align-items: center;">                      
-                      <ion-col size="2"style="padding: 0;">
-                        <ion-input type="number" style="border: solid 1px #b766b7;text-align: center; color: black;" [(ngModel)]="qty"></ion-input>
-                      </ion-col>
-                      <ion-col size="10"style="padding: 0;">
-                        <ion-button (click)="addToCart()" style="--background: purple; width: 100%;--color:white;color:white;margin-left: 20px;" type="submit">ADD TO CART
-                        </ion-button>
-                      </ion-col>
-                    </ion-row>
+    <ion-row style="padding-left: 16px;padding-right: 16px;margin-top: 10px;">
+      <ion-col style="padding: 0;">Quantity</ion-col>
+    </ion-row>
+    <ion-row style="padding-left: 16px; padding-right: 16px; display: flex;align-items: center;">
+      <ion-col size="2" style="padding: 0;">
+        <ion-input type="number" style="border: solid 1px #b766b7;text-align: center; color: black;" [(ngModel)]="qty">
+        </ion-input>
+      </ion-col>
+      <ion-col size="10" style="padding: 0;">
+        <ion-button (click)="addToCart()"
+          style="--background: purple; width: 100%;--color:white;color:white;margin-left: 20px;" type="submit">ADD TO
+          CART
+        </ion-button>
+      </ion-col>
+    </ion-row>
 
-                    <ion-item lines="none">
-                      <p style="color: #242424;font-size: 16px;font-weight: 800;margin-bottom: 0;">Description</p>
-                  </ion-item>
-                  <ion-item lines="none" style="color: #242424">
-                    <p style="color: #242424;font-size: 16px;margin-top: 0;">The 1.5mm diamond on this discrete nose stud is perfect
-                       for those who love their nostril piercing and want something that quietly shines. 
-                       The prong setting allows the light to shine through this teeny-tiny diamond, producing a dazzle that surpasses its size.
-                       The diamond is placed in a low-profile setting which sits flat in the piercing so that it doesn't stick out.
-                       A must-have for someone who is looking for a teeny-tiny piece for their piercing</p>
-                </ion-item>
+    <ion-item lines="none">
+      <p style="color: #242424;font-size: 16px;font-weight: 800;margin-bottom: 0;">Description</p>
+    </ion-item>
+    <ion-item lines="none" style="color: #242424">
+      <p style="color: #242424;font-size: 16px;margin-top: 0;">The 1.5mm diamond on this discrete nose stud is perfect
+        for those who love their nostril piercing and want something that quietly shines.
+        The prong setting allows the light to shine through this teeny-tiny diamond, producing a dazzle that surpasses
+        its size.
+        The diamond is placed in a low-profile setting which sits flat in the piercing so that it doesn't stick out.
+        A must-have for someone who is looking for a teeny-tiny piece for their piercing</p>
+    </ion-item>
 
-                <ion-item lines="none">
-                  <ion-row style="text-align: left;border: solid 1px #c7c7c7;">
-                    <ion-col size="12" style="display: flex; align-items: center;justify-content: center;
+    <ion-item lines="none">
+      <ion-row style="text-align: left;border: solid 1px #c7c7c7;">
+        <ion-col size="12" style="display: flex; align-items: center;justify-content: center;
                     height: 45px;font-size: 16px;font-weight: 800;">Product details</ion-col>
-                    <ion-col size="8" style="background: #F3F3F3;border: 1px solid #ECECEC;padding: 10px 14px">Ships In</ion-col>
-                    <ion-col size="4" style="border: 1px solid #ECECEC;padding: 10px 14px" >1</ion-col>
-                    <ion-col size="8" style="background: #F3F3F3;border: 1px solid #ECECEC;padding: 10px 14px">Material</ion-col>
-                    <ion-col size="4" style="border: 1px solid #ECECEC;padding: 10px 14px">14K Rose Gold</ion-col>
-                    <ion-col size="8" style="background: #F3F3F3;border: 1px solid #ECECEC;padding: 10px 14px">Gauge</ion-col>
-                    <ion-col size="4" style="border: 1px solid #ECECEC;padding: 10px 14px">18G (1.0mm)</ion-col>
-                    <ion-col size="8" style="background: #F3F3F3;border: 1px solid #ECECEC;padding: 10px 14px">Length</ion-col>
-                    <ion-col size="4" style="border: 1px solid #ECECEC;padding: 10px 14px">1/4" (6.4mm)</ion-col>
-                    <ion-col size="8" style="background: #F3F3F3;border: 1px solid #ECECEC;padding: 10px 14px">Style</ion-col>
-                    <ion-col size="4" style="border: 1px solid #ECECEC;padding: 10px 14px">Twist</ion-col>
-                    <ion-col size="8" style="background: #F3F3F3;border: 1px solid #ECECEC;padding: 10px 14px">Gemstone Type</ion-col>
-                    <ion-col size="4" style="border: 1px solid #ECECEC;padding: 10px 14px">Diamond</ion-col>
-                    <ion-col size="8" style="background: #F3F3F3;border: 1px solid #ECECEC;padding: 10px 14px">Gemstone Size</ion-col>
-                    <ion-col size="4" style="border: 1px solid #ECECEC;padding: 10px 14px">1.5mm</ion-col>
-                  </ion-row>
-                </ion-item>
-        </ion-card>
+        <ion-col size="8" style="background: #F3F3F3;border: 1px solid #ECECEC;padding: 10px 14px">Ships In</ion-col>
+        <ion-col size="4" style="border: 1px solid #ECECEC;padding: 10px 14px">1</ion-col>
+        <ion-col size="8" style="background: #F3F3F3;border: 1px solid #ECECEC;padding: 10px 14px">Material</ion-col>
+        <ion-col size="4" style="border: 1px solid #ECECEC;padding: 10px 14px">14K Rose Gold</ion-col>
+        <ion-col size="8" style="background: #F3F3F3;border: 1px solid #ECECEC;padding: 10px 14px">Gauge</ion-col>
+        <ion-col size="4" style="border: 1px solid #ECECEC;padding: 10px 14px">18G (1.0mm)</ion-col>
+        <ion-col size="8" style="background: #F3F3F3;border: 1px solid #ECECEC;padding: 10px 14px">Length</ion-col>
+        <ion-col size="4" style="border: 1px solid #ECECEC;padding: 10px 14px">1/4" (6.4mm)</ion-col>
+        <ion-col size="8" style="background: #F3F3F3;border: 1px solid #ECECEC;padding: 10px 14px">Style</ion-col>
+        <ion-col size="4" style="border: 1px solid #ECECEC;padding: 10px 14px">Twist</ion-col>
+        <ion-col size="8" style="background: #F3F3F3;border: 1px solid #ECECEC;padding: 10px 14px">Gemstone Type
+        </ion-col>
+        <ion-col size="4" style="border: 1px solid #ECECEC;padding: 10px 14px">Diamond</ion-col>
+        <ion-col size="8" style="background: #F3F3F3;border: 1px solid #ECECEC;padding: 10px 14px">Gemstone Size
+        </ion-col>
+        <ion-col size="4" style="border: 1px solid #ECECEC;padding: 10px 14px">1.5mm</ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-card>
 
 
-        <ion-card style="position: fixed;display: none;
+  <ion-card style="position: fixed;display: none;
         bottom: 0;
         width: 100%;
         background: white;
         margin:0;
         padding:0">
-            <ion-card-content style="padding-bottom: 0;">
-              <ion-row *ngIf="!fromCart">
-                <ion-col size="6" class="p0" *ngIf="!cartAdded">
-                  <ion-button expand="block" fill="outline" style="width: 95%;" class="checkout-btn"
-                    (click)="goCartPage()">Buy Now</ion-button>
-                </ion-col>
-                <ion-col size="6" class="p0" *ngIf="!cartAdded">
-                  <ion-button expand="block" style="width: 95%;" class="background"  (click)="goCartPage('')">Add To Cart
-                  </ion-button>
-                </ion-col>
-                <ion-col size="12" class="p0" *ngIf="cartAdded">
-                  <ion-button expand="block" style="width: 100%" class="background" (click)="toHome()">Continue Shopping
-                  </ion-button>
-                </ion-col>
-              </ion-row>
-            </ion-card-content>
-          </ion-card>
+    <ion-card-content style="padding-bottom: 0;">
+      <ion-row *ngIf="!fromCart">
+        <ion-col size="6" class="p0" *ngIf="!cartAdded">
+          <ion-button expand="block" fill="outline" style="width: 95%;" class="checkout-btn" (click)="goCartPage()">Buy
+            Now</ion-button>
+        </ion-col>
+        <ion-col size="6" class="p0" *ngIf="!cartAdded">
+          <ion-button expand="block" style="width: 95%;" class="background" (click)="goCartPage('')">Add To Cart
+          </ion-button>
+        </ion-col>
+        <ion-col size="12" class="p0" *ngIf="cartAdded">
+          <ion-button expand="block" style="width: 100%" class="background" (click)="toHome()">Continue Shopping
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

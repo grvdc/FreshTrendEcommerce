@@ -24,9 +24,9 @@ export class HomePage {
   };
   slide = [
     { id: 1, image: 'https://img.freepik.com/free-photo/beautiful-girl-with-evening-makeup-large-earrings-jewelry_132268-18.jpg?size=626&ext=jpg', 
-    text:'Gold Flat-back Studs' },
-    { id: 2, image: 'https://img.freepik.com/free-photo/beautiful-girl-with-evening-makeup-large-earrings-jewelry_132268-18.jpg?size=626&ext=jpg',
-    text:' Diamond Nose Rings' },
+    text:'Gold Flat-back Studs', subtext:'for ear, lip, and nose piercings' },
+    { id: 2, image: 'https://cdn.shopify.com/s/files/1/2395/3423/files/fine-body-jewelry-pink2_540x.jpg?v=1578795695%20540w',
+    text:' Diamond Nose Rings',subtext:'handmade just for you' },
   ];
 
   // Categories Defines To show Category in front Dynamically Start
