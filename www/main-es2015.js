@@ -441,7 +441,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\n    <ion-menu side=\"start\" type=\"push\" contentId=\"main\"  swipe-gesture=\"false\">\n        <ion-header style=\"display: none;\">\n          <ion-toolbar color=\"primary\">\n            <ion-title>End Menu</ion-title>\n          </ion-toolbar>\n        </ion-header>\n        <ion-content>\n           <ion-row *ngFor=\"let cat of categories;index as index\" style=\"margin-left: 20px;\n           margin-top: 10px;margin-bottom: -10px;\">\n              <ion-col size=\"9\" style=\"display: flex;\n              align-items: center;\n              justify-content: flex-start;\">\n                  <p (click)=\"col(cat,index)\" style=\"margin:0;font-size: 16px;\">{{cat.catName}}</p>\n              </ion-col>\n              <div style=\"height: 0px; width: 100%; padding-left: 20px; overflow: auto;\"  [ngClass]=\"{'height':cat.data}\">\n              <div *ngFor=\"let sub of cat.catlist;index as i\"><p  (click)=\"newD(sub,index)\" style=\" margin-top: 10px; margin-bottom: 10px;font-size: 16px;\n            \">{{sub.subCat}} </p>\n                <div style=\"height: 0px; width: 100%; padding-left: 20px;transition: height 0.7s; overflow: hidden;\"  [ngStyle]=\"{'height':sub.data === true ? sub.height : '0px' }\">\n                    <p *ngFor=\"let sLi of sub.subList\" (click)=\"go()\" style=\" margin-top: 0px;margin-bottom: 10px;font-size: 16px;\">{{sLi}}</p>\n\n                </div>\n              </div>\n           </div>\n          </ion-row>\n\n          <div  class=\"second-section\">\n            <ion-row style=\"border-top:solid 1px purple\">\n              <ion-col size=\"12\" style=\"margin-left: 20px; \" >\n                  <p (click)=\"gotoLoginPage()\">SIGN IN</p>\n              </ion-col>\n           </ion-row>\n           <ion-row >\n            <ion-col size=\"12\" style=\"margin-left: 20px; \">\n                <p >WISHLIST</p>\n            </ion-col>\n         </ion-row>\n          <ion-row >\n          <ion-col size=\"12\" style=\"margin-left: 20px; \">\n              <p>REWARDS</p>\n          </ion-col>\n       </ion-row>\n          </div>\n        </ion-content>\n      </ion-menu>\n      \n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n  \n</ion-app>\n"
+module.exports = "<ion-app>\n    <ion-menu side=\"start\" type=\"push\" contentId=\"main\"  swipe-gesture=\"false\">\n        <ion-header style=\"display: none;\">\n          <ion-toolbar color=\"primary\">\n            <ion-title>End Menu</ion-title>\n          </ion-toolbar>\n        </ion-header>\n        <ion-content>\n           <ion-row *ngFor=\"let cat of categories;index as index\" style=\"margin-left: 20px;\n           margin-top: 10px;margin-bottom: -10px;\">\n              <ion-col size=\"9\" style=\"display: flex;\n              align-items: center;\n              justify-content: flex-start;\">\n                  <ion-icon [name]=\"cat.logo\" style=\"margin-right: 10px;\"></ion-icon><p (click)=\"col(cat,index)\" style=\"margin:0;font-size: 16px;display: flex;\">\n                  {{cat.catName}} \n                </p>\n              </ion-col>\n              <div style=\"height: 0px; width: 100%; padding-left: 20px; overflow: auto;\"  [ngClass]=\"{'height':cat.data}\">\n              <div *ngFor=\"let sub of cat.catlist;index as i\"><p  (click)=\"newD(sub,index)\" style=\" margin-top: 10px; margin-bottom: 10px;font-size: 16px;\n            \">{{sub.subCat}} </p>\n                <div style=\"height: 0px; width: 100%; padding-left: 20px;transition: height 0.7s; overflow: hidden;\"  [ngStyle]=\"{'height':sub.data === true ? sub.height : '0px' }\">\n                    <p *ngFor=\"let sLi of sub.subList\" (click)=\"go()\" style=\" margin-top: 0px;margin-bottom: 10px;font-size: 16px;\">{{sLi}}</p>\n \n                </div>\n              </div>\n           </div>\n          </ion-row>\n\n          <div  class=\"second-section\">\n            <ion-row style=\"border-top:solid 1px purple\">\n              <ion-col size=\"12\" style=\"margin-left: 20px; \" >\n                  <p (click)=\"gotoLoginPage()\" style=\"display: flex;\n                  align-items:  center;\"><ion-icon name=\"person\" style=\"margin-right: 10px;\"></ion-icon>SIGN IN </p>\n              </ion-col>\n           </ion-row>\n           <ion-row >\n            <ion-col size=\"12\" style=\"margin-left: 20px; \">\n                <p style=\"display: flex;\n                align-items: center;\" (click)=\"inProgress()\" ><ion-icon name=\"heart\" style=\"margin-right: 10px;\"></ion-icon> WISHLIST </p>\n            </ion-col>\n         </ion-row>\n          <ion-row > \n          <ion-col size=\"12\" style=\"margin-left: 20px; \">\n              <p style=\"display: flex;\n              align-items:center;\" (click)=\"inProgress()\" ><ion-icon name=\"medal\" style=\"margin-right: 10px;\"></ion-icon> REWARDS </p>\n          </ion-col>\n       </ion-row>\n          </div>\n        </ion-content>\n      </ion-menu>\n      \n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n  \n</ion-app>\n"
 
 /***/ }),
 
@@ -484,6 +484,10 @@ const routes = [
         path: 'cart-page',
         loadChildren: () => Promise.all(/*! import() | pages-cart-page-cart-page-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-cart-page-cart-page-module")]).then(__webpack_require__.bind(null, /*! ./pages/cart-page/cart-page.module */ "./src/app/pages/cart-page/cart-page.module.ts")).then(m => m.CartPagePageModule)
     },
+    {
+        path: 'after-cart',
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-after-cart-after-cart-module */ "pages-after-cart-after-cart-module").then(__webpack_require__.bind(null, /*! ./pages/after-cart/after-cart.module */ "./src/app/pages/after-cart/after-cart.module.ts")).then(m => m.AfterCartPageModule)
+    },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -507,7 +511,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".my-menu {\n  --width: 65%;\n}\n.my-menu .my-custom-menu {\n  height: 100%;\n  background: #de6161;\n}\n.my-menu .my-custom-menu .profile {\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 0;\n  overflow: hidden;\n  text-align: center;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n  padding-top: 15px;\n  background: #401a1a;\n}\n.my-menu .my-custom-menu .profile .profile-picture {\n  border-radius: 50%;\n  width: 135px;\n  height: 135px;\n}\n.my-menu .my-custom-menu .r {\n  -webkit-tap-highlight-color: transparent;\n}\n.my-menu .my-custom-menu ion-list {\n  -webkit-tap-highlight-color: transparent;\n  background: transparent !important;\n  height: 100% !important;\n  overflow: scroll !important;\n  padding: 0px;\n}\n.my-menu .my-custom-menu ion-list ion-item {\n  padding-left: 5%;\n}\n.my-menu .my-custom-menu ion-list ion-item ion-icon {\n  color: #fff;\n}\n.my-menu .my-custom-menu ion-list ion-item ion-label {\n  color: #fff;\n}\n.height {\n  height: 100% !important;\n}\n.height-sub {\n  height: 270px !important;\n}\n.second-section {\n  height: 150px;\n  width: 100%;\n  margin-top: 40%;\n}\n.second-section p {\n  margin: 0;\n  font-size: 16px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3ViYy0yMS9Eb2N1bWVudHMvaW9uYXBwL2dpdC9uZXdHaXQvRnJlc2hUcmVuZEVjb21tZXJjZS9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksWUFBQTtBQ0NKO0FEQUk7RUFDSSxZQUFBO0VBRUEsbUJBQUE7QUNDUjtBREFRO0VBQ0ksTUFBQTtFQUNBLFFBQUE7RUFDQSxPQUFBO0VBQ0EsVUFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0VBQ0EsV0FBQTtFQUNBLGlCQUFBO0VBQ0EsbUJBQUE7QUNFWjtBRERZO0VBQ0ksa0JBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtBQ0doQjtBRENPO0VBQ0Msd0NBQUE7QUNDUjtBRENPO0VBQ0Msd0NBQUE7RUFBMEMsa0NBQUE7RUFDMUMsdUJBQUE7RUFDQSwyQkFBQTtFQUNBLFlBQUE7QUNFUjtBREFRO0VBQ0ksZ0JBQUE7QUNFWjtBRERZO0VBQ0ksV0FBQTtBQ0doQjtBRERZO0VBQ0ksV0FBQTtBQ0doQjtBRElBO0VBQ0ksdUJBQUE7QUNESjtBREdBO0VBQ0ksd0JBQUE7QUNBSjtBREVBO0VBQ0ksYUFBQTtFQUNBLFdBQUE7RUFDQSxlQUFBO0FDQ0o7QURBSTtFQUNJLFNBQUE7RUFBUyxlQUFBO0FDR2pCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm15LW1lbnV7XG4gICAgLS13aWR0aDogNjUlO1xuICAgIC5teS1jdXN0b20tbWVudXtcbiAgICAgICAgaGVpZ2h0OiAxMDAlO1xuICAgICAgICAvL2JhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCh0byBib3R0b20sIHJnYmEoMTY1LDg0LDIxNiwxKSAwJSwgcmdiYSg5MCw1NywxODMsMSkgNjAlLCByZ2JhKDQ2LDY1LDE3MywxKSAxMDAlKSFpbXBvcnRhbnQ7XG4gICAgICAgIGJhY2tncm91bmQ6ICNkZTYxNjE7XG4gICAgICAgIC5wcm9maWxlIHtcbiAgICAgICAgICAgIHRvcDogMDtcbiAgICAgICAgICAgIHJpZ2h0OiAwO1xuICAgICAgICAgICAgbGVmdDogMDtcbiAgICAgICAgICAgIHotaW5kZXg6IDA7XG4gICAgICAgICAgICBvdmVyZmxvdzogaGlkZGVuO1xuICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICAgICAgICAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XG4gICAgICAgICAgICB3aGl0ZS1zcGFjZTogbm93cmFwO1xuICAgICAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgICAgICBwYWRkaW5nLXRvcDogMTVweDtcbiAgICAgICAgICAgIGJhY2tncm91bmQ6ICM0MDFhMWE7XG4gICAgICAgICAgICAucHJvZmlsZS1waWN0dXJlIHtcbiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1MCU7XG4gICAgICAgICAgICAgICAgd2lkdGg6IDEzNXB4O1xuICAgICAgICAgICAgICAgIGhlaWdodDogMTM1cHg7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgICBcbiAgICAgICAucntcbiAgICAgICAgLXdlYmtpdC10YXAtaGlnaGxpZ2h0LWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgICAgICB9XG4gICAgICAgaW9uLWxpc3R7XG4gICAgICAgIC13ZWJraXQtdGFwLWhpZ2hsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7IGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG4gICAgICAgIGhlaWdodDogMTAwJSAhaW1wb3J0YW50O1xuICAgICAgICBvdmVyZmxvdzogc2Nyb2xsICFpbXBvcnRhbnQ7XG4gICAgICAgIHBhZGRpbmc6IDBweDtcbiAgICAgICAgXG4gICAgICAgIGlvbi1pdGVte1xuICAgICAgICAgICAgcGFkZGluZy1sZWZ0OiA1JTtcbiAgICAgICAgICAgIGlvbi1pY29uIHtcbiAgICAgICAgICAgICAgICBjb2xvcjojZmZmO1xuICAgICAgICAgICAgfVxuICAgICAgICAgICAgaW9uLWxhYmVse1xuICAgICAgICAgICAgICAgIGNvbG9yOiNmZmY7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgICB9XG4gICAgfVxufVxuXG4uaGVpZ2h0e1xuICAgIGhlaWdodDogMTAwJSAhaW1wb3J0YW50O1xufVxuLmhlaWdodC1zdWJ7XG4gICAgaGVpZ2h0OiAyNzBweCAhaW1wb3J0YW50O1xufVxuLnNlY29uZC1zZWN0aW9ue1xuICAgIGhlaWdodDoxNTBweDtcbiAgICB3aWR0aDoxMDAlO1xuICAgIG1hcmdpbi10b3A6IDQwJTtcbiAgICBwe1xuICAgICAgICBtYXJnaW46MDtmb250LXNpemU6IDE2cHg7XG4gICAgfVxufSIsIi5teS1tZW51IHtcbiAgLS13aWR0aDogNjUlO1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IHtcbiAgaGVpZ2h0OiAxMDAlO1xuICBiYWNrZ3JvdW5kOiAjZGU2MTYxO1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IC5wcm9maWxlIHtcbiAgdG9wOiAwO1xuICByaWdodDogMDtcbiAgbGVmdDogMDtcbiAgei1pbmRleDogMDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbiAgd2lkdGg6IDEwMCU7XG4gIHBhZGRpbmctdG9wOiAxNXB4O1xuICBiYWNrZ3JvdW5kOiAjNDAxYTFhO1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IC5wcm9maWxlIC5wcm9maWxlLXBpY3R1cmUge1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIHdpZHRoOiAxMzVweDtcbiAgaGVpZ2h0OiAxMzVweDtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSAuciB7XG4gIC13ZWJraXQtdGFwLWhpZ2hsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgaW9uLWxpc3Qge1xuICAtd2Via2l0LXRhcC1oaWdobGlnaHQtY29sb3I6IHRyYW5zcGFyZW50O1xuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xuICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcbiAgb3ZlcmZsb3c6IHNjcm9sbCAhaW1wb3J0YW50O1xuICBwYWRkaW5nOiAwcHg7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgaW9uLWxpc3QgaW9uLWl0ZW0ge1xuICBwYWRkaW5nLWxlZnQ6IDUlO1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IGlvbi1saXN0IGlvbi1pdGVtIGlvbi1pY29uIHtcbiAgY29sb3I6ICNmZmY7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgaW9uLWxpc3QgaW9uLWl0ZW0gaW9uLWxhYmVsIHtcbiAgY29sb3I6ICNmZmY7XG59XG5cbi5oZWlnaHQge1xuICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcbn1cblxuLmhlaWdodC1zdWIge1xuICBoZWlnaHQ6IDI3MHB4ICFpbXBvcnRhbnQ7XG59XG5cbi5zZWNvbmQtc2VjdGlvbiB7XG4gIGhlaWdodDogMTUwcHg7XG4gIHdpZHRoOiAxMDAlO1xuICBtYXJnaW4tdG9wOiA0MCU7XG59XG4uc2Vjb25kLXNlY3Rpb24gcCB7XG4gIG1hcmdpbjogMDtcbiAgZm9udC1zaXplOiAxNnB4O1xufSJdfQ== */"
+module.exports = ".my-menu {\n  --width: 65%;\n}\n.my-menu .my-custom-menu {\n  height: 100%;\n  background: #de6161;\n}\n.my-menu .my-custom-menu .profile {\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 0;\n  overflow: hidden;\n  text-align: center;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  width: 100%;\n  padding-top: 15px;\n  background: #401a1a;\n}\n.my-menu .my-custom-menu .profile .profile-picture {\n  border-radius: 50%;\n  width: 135px;\n  height: 135px;\n}\n.my-menu .my-custom-menu .r {\n  -webkit-tap-highlight-color: transparent;\n}\n.my-menu .my-custom-menu ion-list {\n  -webkit-tap-highlight-color: transparent;\n  background: transparent !important;\n  height: 100% !important;\n  overflow: scroll !important;\n  padding: 0px;\n}\n.my-menu .my-custom-menu ion-list ion-item {\n  padding-left: 5%;\n}\n.my-menu .my-custom-menu ion-list ion-item ion-icon {\n  color: #fff;\n}\n.my-menu .my-custom-menu ion-list ion-item ion-label {\n  color: #fff;\n}\n.height {\n  height: 100% !important;\n}\n.height-sub {\n  height: 270px !important;\n}\n.second-section {\n  height: 150px;\n  width: 100%;\n  margin-top: 40%;\n}\n.second-section p {\n  margin: 0;\n  font-size: 16px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3ViYy0yMS9Eb2N1bWVudHMvaW9uYXBwL2dpdC9uZXdHaXQvbmV3RnJlc2hUcmVuZC9GcmVzaFRyZW5kRWNvbW1lcmNlL3NyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxZQUFBO0FDQ0o7QURBSTtFQUNJLFlBQUE7RUFFQSxtQkFBQTtBQ0NSO0FEQVE7RUFDSSxNQUFBO0VBQ0EsUUFBQTtFQUNBLE9BQUE7RUFDQSxVQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLHVCQUFBO0VBQ0EsbUJBQUE7RUFDQSxXQUFBO0VBQ0EsaUJBQUE7RUFDQSxtQkFBQTtBQ0VaO0FERFk7RUFDSSxrQkFBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0FDR2hCO0FEQ087RUFDQyx3Q0FBQTtBQ0NSO0FEQ087RUFDQyx3Q0FBQTtFQUEwQyxrQ0FBQTtFQUMxQyx1QkFBQTtFQUNBLDJCQUFBO0VBQ0EsWUFBQTtBQ0VSO0FEQVE7RUFDSSxnQkFBQTtBQ0VaO0FERFk7RUFDSSxXQUFBO0FDR2hCO0FERFk7RUFDSSxXQUFBO0FDR2hCO0FESUE7RUFDSSx1QkFBQTtBQ0RKO0FER0E7RUFDSSx3QkFBQTtBQ0FKO0FERUE7RUFDSSxhQUFBO0VBQ0EsV0FBQTtFQUNBLGVBQUE7QUNDSjtBREFJO0VBQ0ksU0FBQTtFQUFTLGVBQUE7QUNHakIiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubXktbWVudXtcbiAgICAtLXdpZHRoOiA2NSU7XG4gICAgLm15LWN1c3RvbS1tZW51e1xuICAgICAgICBoZWlnaHQ6IDEwMCU7XG4gICAgICAgIC8vYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KHRvIGJvdHRvbSwgcmdiYSgxNjUsODQsMjE2LDEpIDAlLCByZ2JhKDkwLDU3LDE4MywxKSA2MCUsIHJnYmEoNDYsNjUsMTczLDEpIDEwMCUpIWltcG9ydGFudDtcbiAgICAgICAgYmFja2dyb3VuZDogI2RlNjE2MTtcbiAgICAgICAgLnByb2ZpbGUge1xuICAgICAgICAgICAgdG9wOiAwO1xuICAgICAgICAgICAgcmlnaHQ6IDA7XG4gICAgICAgICAgICBsZWZ0OiAwO1xuICAgICAgICAgICAgei1pbmRleDogMDtcbiAgICAgICAgICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgICAgICAgICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgICAgICAgICAgIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gICAgICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgICAgIHBhZGRpbmctdG9wOiAxNXB4O1xuICAgICAgICAgICAgYmFja2dyb3VuZDogIzQwMWExYTtcbiAgICAgICAgICAgIC5wcm9maWxlLXBpY3R1cmUge1xuICAgICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgICAgICAgICAgICAgICB3aWR0aDogMTM1cHg7XG4gICAgICAgICAgICAgICAgaGVpZ2h0OiAxMzVweDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgIFxuICAgICAgIC5ye1xuICAgICAgICAtd2Via2l0LXRhcC1oaWdobGlnaHQtY29sb3I6IHRyYW5zcGFyZW50O1xuICAgICAgIH1cbiAgICAgICBpb24tbGlzdHtcbiAgICAgICAgLXdlYmtpdC10YXAtaGlnaGxpZ2h0LWNvbG9yOiB0cmFuc3BhcmVudDsgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbiAgICAgICAgaGVpZ2h0OiAxMDAlICFpbXBvcnRhbnQ7XG4gICAgICAgIG92ZXJmbG93OiBzY3JvbGwgIWltcG9ydGFudDtcbiAgICAgICAgcGFkZGluZzogMHB4O1xuICAgICAgICBcbiAgICAgICAgaW9uLWl0ZW17XG4gICAgICAgICAgICBwYWRkaW5nLWxlZnQ6IDUlO1xuICAgICAgICAgICAgaW9uLWljb24ge1xuICAgICAgICAgICAgICAgIGNvbG9yOiNmZmY7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICBpb24tbGFiZWx7XG4gICAgICAgICAgICAgICAgY29sb3I6I2ZmZjtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgIH1cbiAgICB9XG59XG5cbi5oZWlnaHR7XG4gICAgaGVpZ2h0OiAxMDAlICFpbXBvcnRhbnQ7XG59XG4uaGVpZ2h0LXN1YntcbiAgICBoZWlnaHQ6IDI3MHB4ICFpbXBvcnRhbnQ7XG59XG4uc2Vjb25kLXNlY3Rpb257XG4gICAgaGVpZ2h0OjE1MHB4O1xuICAgIHdpZHRoOjEwMCU7XG4gICAgbWFyZ2luLXRvcDogNDAlO1xuICAgIHB7XG4gICAgICAgIG1hcmdpbjowO2ZvbnQtc2l6ZTogMTZweDtcbiAgICB9XG59IiwiLm15LW1lbnUge1xuICAtLXdpZHRoOiA2NSU7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUge1xuICBoZWlnaHQ6IDEwMCU7XG4gIGJhY2tncm91bmQ6ICNkZTYxNjE7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgLnByb2ZpbGUge1xuICB0b3A6IDA7XG4gIHJpZ2h0OiAwO1xuICBsZWZ0OiAwO1xuICB6LWluZGV4OiAwO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xuICB3aWR0aDogMTAwJTtcbiAgcGFkZGluZy10b3A6IDE1cHg7XG4gIGJhY2tncm91bmQ6ICM0MDFhMWE7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgLnByb2ZpbGUgLnByb2ZpbGUtcGljdHVyZSB7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgd2lkdGg6IDEzNXB4O1xuICBoZWlnaHQ6IDEzNXB4O1xufVxuLm15LW1lbnUgLm15LWN1c3RvbS1tZW51IC5yIHtcbiAgLXdlYmtpdC10YXAtaGlnaGxpZ2h0LWNvbG9yOiB0cmFuc3BhcmVudDtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSBpb24tbGlzdCB7XG4gIC13ZWJraXQtdGFwLWhpZ2hsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG4gIGhlaWdodDogMTAwJSAhaW1wb3J0YW50O1xuICBvdmVyZmxvdzogc2Nyb2xsICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmc6IDBweDtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSBpb24tbGlzdCBpb24taXRlbSB7XG4gIHBhZGRpbmctbGVmdDogNSU7XG59XG4ubXktbWVudSAubXktY3VzdG9tLW1lbnUgaW9uLWxpc3QgaW9uLWl0ZW0gaW9uLWljb24ge1xuICBjb2xvcjogI2ZmZjtcbn1cbi5teS1tZW51IC5teS1jdXN0b20tbWVudSBpb24tbGlzdCBpb24taXRlbSBpb24tbGFiZWwge1xuICBjb2xvcjogI2ZmZjtcbn1cblxuLmhlaWdodCB7XG4gIGhlaWdodDogMTAwJSAhaW1wb3J0YW50O1xufVxuXG4uaGVpZ2h0LXN1YiB7XG4gIGhlaWdodDogMjcwcHggIWltcG9ydGFudDtcbn1cblxuLnNlY29uZC1zZWN0aW9uIHtcbiAgaGVpZ2h0OiAxNTBweDtcbiAgd2lkdGg6IDEwMCU7XG4gIG1hcmdpbi10b3A6IDQwJTtcbn1cbi5zZWNvbmQtc2VjdGlvbiBwIHtcbiAgbWFyZ2luOiAwO1xuICBmb250LXNpemU6IDE2cHg7XG59Il19 */"
 
 /***/ }),
 
@@ -533,13 +537,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 let AppComponent = class AppComponent {
-    constructor(platform, splashScreen, statusBar, router, menuCtrl) {
+    constructor(platform, splashScreen, statusBar, router, menuCtrl, alertController) {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
         this.router = router;
         this.menuCtrl = menuCtrl;
+        this.alertController = alertController;
         this.classng = 'mycontent';
         this.data = false;
         this.categories = [
@@ -562,7 +568,8 @@ let AppComponent = class AppComponent {
                     { subCat: 'Tongue Rings', nodata: true },
                 ],
                 data: false,
-                id: 1
+                id: 1,
+                logo: 'color-wand',
             },
             {
                 catName: 'SHOP BY STYLE', catlist: [
@@ -583,7 +590,8 @@ let AppComponent = class AppComponent {
                     { subCat: 'New Arrivals', nodata: true },
                 ],
                 data: false,
-                id: 2
+                id: 2,
+                logo: 'snow'
             }
         ];
         this.initializeApp();
@@ -657,13 +665,38 @@ let AppComponent = class AppComponent {
         this.menuCtrl.toggle();
         this.router.navigateByUrl('/login');
     }
+    inProgress() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const alert = yield this.alertController.create({
+                header: ' Work in Progress',
+                message: 'Work in progress',
+                buttons: [
+                    {
+                        text: 'Cancel',
+                        role: 'cancel',
+                        cssClass: 'secondary',
+                        handler: (blah) => {
+                            console.log('Confirm Cancel: blah');
+                        }
+                    }, {
+                        text: 'Okay',
+                        handler: () => {
+                            console.log('Confirm Okay');
+                        }
+                    }
+                ]
+            });
+            alert.present();
+        });
+    }
 };
 AppComponent.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },
     { type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"] },
     { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"] }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] }
 ];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -675,7 +708,8 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"],
         _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"],
         _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
-        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"]])
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"]])
 ], AppComponent);
 
 
@@ -798,7 +832,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/ubc-21/Documents/ionapp/git/newGit/FreshTrendEcommerce/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/ubc-21/Documents/ionapp/git/newGit/newFreshTrend/FreshTrendEcommerce/src/main.ts */"./src/main.ts");
 
 
 /***/ })

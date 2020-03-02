@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title >
+    <ion-title (click)=gotoHome()>
         <img src="https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png"
           style="width: 55%;vertical-align: text-bottom;" />
       </ion-title>
@@ -144,7 +144,7 @@
         <ion-col size="6" class="left-bold">Subtotal</ion-col> 
         <ion-col size="6" class="right-bold">{{totalAmount |currency}}</ion-col>
         <ion-col size="12" class="btn-section">
-          <ion-button  class="checkout-btn" type="submit" (click)="checkOutPage()">CHECK OUt
+          <ion-button  class="checkout-btn" type="submit" (click)="checkout()">CHECK OUt
           </ion-button>
         </ion-col>
 

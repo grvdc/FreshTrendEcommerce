@@ -4,6 +4,7 @@ import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,7 @@ export class AppComponent {
       ],
       data: false,
       id:1,
-      logo:'../assets/icon/pin.svg',
+      logo:'color-wand',
 
     },
     {
@@ -59,7 +60,7 @@ export class AppComponent {
       ],
       data: false,
       id:2,
-      logo:'../assets/icon/snow.svg'
+      logo:'snow'
 
 
     }
@@ -69,7 +70,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private router: Router,
-    public menuCtrl: MenuController
+    public menuCtrl: MenuController,
+    public alertController: AlertController,
   ) {
     this.initializeApp();
   }
@@ -147,4 +149,31 @@ export class AppComponent {
     this.menuCtrl.toggle();
     this.router.navigateByUrl('/login');
   }
+
+  async inProgress(){
+    const alert = await this.alertController.create({
+      header: ' Work in Progress',
+      message: 'Work in progress',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+          
+          
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+
+     alert.present();
+   }
+  
 }

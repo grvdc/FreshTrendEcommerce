@@ -1,0 +1,31 @@
+ion-header{
+    ion-toolbar{
+      ion-title{
+        text-align: center;
+        padding-left: 0;
+        img{
+          width: 55%;
+          vertical-align: text-bottom;
+        }
+      }
+      ion-buttons{
+        margin-right: 13px;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .height{
+    min-height: 250px !important;
+}
+
+.head-color{
+  color: #333333;
+}
+.sub-color{
+  color: #545454;
+}
+ion-input{
+  border-radius: 5px;
+
+}

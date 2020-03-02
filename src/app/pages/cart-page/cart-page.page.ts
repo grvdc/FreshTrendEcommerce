@@ -71,6 +71,7 @@ export class CartPagePage implements OnInit {
     
     this.totalAmount = this.totalAmount + newamt;
     item.itemTotal = item.productQuantity * item.variants[0].price;
+    console.log("cartItems", this.cartItems);
 
   }
 
@@ -112,6 +113,8 @@ export class CartPagePage implements OnInit {
          alert.present();
        }
        item.itemTotal = item.productQuantity * item.variants[0].price;
+
+       console.log("cartItems", this.cartItems);
   }
 
 
@@ -127,5 +130,14 @@ export class CartPagePage implements OnInit {
       this.totalAmount = this.totalAmount + parseFloat(item.variants[0].price);
     })
     localStorage.setItem('cartProducts', JSON.stringify(this.cartItems));
+  }
+
+  checkout(){
+    localStorage.setItem('cartProducts', JSON.stringify(this.cartItems));
+    this.router.navigateByUrl('/after-cart');
+  }
+
+  gotoHome(){
+    this.router.navigateByUrl('/');
   }
 }

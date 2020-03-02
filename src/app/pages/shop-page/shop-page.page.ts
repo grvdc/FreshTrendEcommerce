@@ -43,6 +43,10 @@ export class ShopPagePage implements OnInit {
   ngOnInit() {
   }
 
+  gotoHome(){
+    this.router.navigateByUrl('/');
+  }
+
   async ionViewWillEnter() {
    this.getCartCount();
   }
@@ -66,6 +70,7 @@ export class ShopPagePage implements OnInit {
     }, 2000);
   }
   async getProduct() {
+    this.oldproductsList = [];
     let loading = await this.loadingController.create({
       message: 'Please wait!',
     });
@@ -93,6 +98,7 @@ export class ShopPagePage implements OnInit {
     await loading.present();
 
     this.auth.getProductsByCategories(this.categoryType.category).subscribe(data_ => {
+      this.oldproductsList = [];
       if (data_) {
         loading.dismiss();
         this.getResponse = true;
@@ -167,5 +173,13 @@ export class ShopPagePage implements OnInit {
     this.router.navigateByUrl('/cart-page');
   }
 
+  wishlist(product){
+    if(!product.wish){
+      product.wish = true;
+    } else {
+      product.wish = false;
+    }
+    console.log("product",product)
+  }
   
 }

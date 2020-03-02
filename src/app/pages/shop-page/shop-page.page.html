@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>
+    <ion-title  (click)=gotoHome()>
       <img src="https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png"
         style="width: 55%;vertical-align: text-bottom;" />
     </ion-title>
@@ -47,10 +47,10 @@
   <div
     style="display: flex;font-size: 0.68em;color: grey;justify-content: space-around;margin-bottom: 10px; margin-top: -5px">
     <div>look For:</div>
-    <div style="text-decoration: underline;">nose rings</div>
-    <div style="text-decoration: underline;">cartiliage earrings</div>
-    <div style="text-decoration: underline;">barbells</div>
-    <div style="text-decoration: underline;">septum</div>
+    <div style="text-decoration: underline;" (click)="getProduct()">nose rings</div>
+    <div style="text-decoration: underline;" (click)="getProduct()">cartiliage earrings</div>
+    <div style="text-decoration: underline;" (click)="getProduct()">barbells</div>
+    <div style="text-decoration: underline;" (click)="getProduct()">septum</div>
 
   </div>
 
@@ -67,22 +67,27 @@ display: flex;
 justify-content: space-between;
 padding-left: 20px;
 padding-right: 20px;align-items: center;border-top: 1px solid #a88fb6;border-bottom: 1px solid #a88fb6;">
-  <ion-select value="Filter" okText="Okay" cancelText="Dismiss" style="width: 35%;">
+<div style="width: 35%;padding-left: 0;">
+  <ion-select value="Filter" okText="Okay" cancelText="Dismiss" style="width: 75%;padding-left: 0;">
     <ion-select-option value="Filter">Filter</ion-select-option>
     <ion-select-option value="brown">belly-button-rings</ion-select-option>
     <ion-select-option value="blonde">Captive Bead Ring</ion-select-option>
     <ion-select-option value="black">Captives</ion-select-option>
     <ion-select-option value="red">Charm Lip Rings</ion-select-option>
   </ion-select>
+</div>  
+
+
 <p style="font-style: italic;font-size: 0.875em;color: #242424;width: 30%;text-align: center;">{{oldproductsList.length}} Products</p>
+
   <ion-select value="brown" okText="Okay" cancelText="Dismiss" style="width: 35%;">
     <ion-select-option value="brown">Sort By</ion-select-option>
     <ion-select-option value="blonde">Price, low to high</ion-select-option>
     <ion-select-option value="black">Price, high to low</ion-select-option>
     <ion-select-option value="red">Date, new to old</ion-select-option>
     <ion-select-option value="nto">Date, old to new</ion-select-option>
-
   </ion-select>
+
 </div>
 <!-- Filter Section End -->
   <ion-row style="padding-top:10px; padding-right: 10px;" *ngIf="productList.length">
@@ -106,7 +111,7 @@ padding-right: 20px;align-items: center;border-top: 1px solid #a88fb6;border-bot
         left: -40%;
         font-size:20px;
         ">
-          <ion-icon name="heart" style="color:rgb(155, 87, 177)" (click)="wishlist(product.id)"
+          <ion-icon name="heart" style="color:#444444" (click)="wishlist(product)"
             [ngClass]="{wish: product.wish}"></ion-icon>
         </div>
         <ion-card-header style="padding-top: 0px;padding-bottom: 0; text-align: center;">

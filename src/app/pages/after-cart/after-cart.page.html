@@ -1,0 +1,331 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title  (click)=gotoHome()>
+      <img src="https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png"
+        style="width: 55%;vertical-align: text-bottom;" />
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  background: #fafafa;
+  height: 65px;
+  border-bottom: solid 1px #d8d8d8;
+  color:#242424
+  ">
+    <p style=" display: flex;" (click)="toggle()" *ngIf="!show">
+      <ion-icon name="cart" style="margin-right: 10px;"></ion-icon> Show order summary <ion-icon name="arrow-round-down"></ion-icon>
+    </p>
+    <p style=" display: flex;" (click)="toggle()" *ngIf="show">
+      <ion-icon name="cart" style="margin-right: 10px;"></ion-icon> Hide srder summary <ion-icon name="arrow-round-up"></ion-icon>
+    </p>
+
+    <p style="font-weight: 600;">{{totalAmount  | currency}}</p>
+  </div>
+  <div style="background: #fafafa;height: 0px; width: 100%;  overflow: auto;transition: height 0.7s;border-bottom:solid 1px #d8d8d8"
+    [ngStyle]="{'height':show === true ? height : '0px' }">
+    <ion-list style="background: transparent;    padding: 0">
+      <div *ngFor="let item of cartItems; index as index" style="--background: transparent;display:flex;height: 85px;">
+          <ion-item-divider style="    padding: 0;
+          margin-left: 16px;--background: transparent;
+          margin-right: 16px;padding-bottom: 10px;padding-top: 10px;;">
+       <div style=" width: 20%;  display: flex;  align-items: center;justify-content: center;">
+        <ion-thumbnail slot="start">
+          <img [src]="item.image.src" style="border: solid 1px #cacaca;border-radius: 5px;">
+            <div style="margin-top: -60px;margin-left: 40px;">
+              <ion-badge color="medium" style="border-radius: 50%;">{{item.productQuantity}}</ion-badge>
+            </div>
+        </ion-thumbnail>
+       </div> 
+       <div style="width: 60%;">
+        <p style="font-size: 0.9em; color:#242424;margin: 0;">{{item.title}}</p>
+        <p style="margin: 0;font-size: 0.8em;color:#717171;margin-top: 5px;">Yellow Gold / 18G / 3/16" (5mm)</p>
+       </div>
+        <div style="width: 20%;color: #323232;text-align: right;">
+          <p>{{item.variants[0].price | currency}}</p>
+        </div>
+        </ion-item-divider>
+      </div>
+
+
+      <ion-row style="padding-left: 16px;padding-right: 16px;margin-top: 16px;">
+        <ion-col style="padding: 0;">Gift card or discount code:</ion-col>
+      </ion-row>
+      <ion-row style="padding-left: 16px; padding-right: 16px;margin-top: 5px;display: flex;
+        align-items: center;">
+        <ion-col style="padding: 0;" size="9">
+          <ion-input type="text" style="border: solid 1px #b766b7;height: 40px;" placeholder="Gift card or discount code">
+          </ion-input>
+        </ion-col>
+        <ion-col size="3" style="padding: 0;">
+          <ion-button (click)="addToCart()"
+            style="--background: purple;height: 40px; width: 100%;--color:white;color:white;margin-left: 4px;" type="submit">
+            <ion-icon name="arrow-forward"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-item-divider style="    padding: 0;
+      margin-left: 16px;--background: transparent;
+      margin-right: 16px;margin-top: 16px;">
+        <div style="width:100%;color:#535353">
+          
+          <div style="    display: flex;
+            width: 100%;
+           ">
+            <div style="width: 50%;">Sub Total</div>
+            <div  style="width: 50%;text-align: right;padding-right: 32px;">{{totalAmount | currency}}</div>
+          </div>
+          <div style="display: flex; width: 100%; margin-top: 10px;  margin-bottom: 16px; ">
+            <div  style="width: 50%;">Shipping</div>
+            <div  style="width: 50%;text-align: right;padding-right: 32px;">Calculated at next step </div>
+          </div>
+        </div>
+      </ion-item-divider>
+    
+      <ion-item-divider style="padding-right: 16px; height: 80px;
+      --background: transparent;">
+        <div style="width:100%;color:#535353">
+          <div style="    display: flex;
+            width: 100%;
+            justify-content: space-between;    align-items: center;">
+            <div>Total</div>
+            <div style="font-size: 18px; font-weight: 600;"> {{totalAmount | currency}}</div>
+          </div>
+        </div>
+      </ion-item-divider>
+    </ion-list>
+  </div>
+
+
+<div  style="padding-left: 16px;padding-right: 16px;margin-top: 20px;">
+  
+  <div>
+    <ion-row style="margin-top: 16px;display: flex;
+    align-items: center;">
+      <ion-col style="padding: 0;" size="12">
+        <ion-button (click)="addToCart()"
+        style="--background: black;height: 40px; width: 100%;--color:white;color:white;margin-left: 4px;" type="submit">
+        <ion-icon name="logo-google"></ion-icon>Pay
+      </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div>
+    <ion-row style="margin-top: 16px;display: flex;
+    align-items: center;">
+      <ion-col style="padding: 0;" size="12">
+        <ion-button (click)="addToCart()"
+        style="--background: #ffc439;height: 40px; width: 100%;--color:white;color:white;margin-left: 4px;" type="submit">
+        <img src='../../../assets/img/paypal.png' style="width: 85px;" />
+      </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div>
+    <ion-row style="margin-top: 16px;display: flex;
+    align-items: center;">
+      <ion-col style="padding: 0;" size="12">
+        <ion-button (click)="addToCart()"
+        style="--background: #fad676 !important;height: 40px; width: 100%;--color:white;color:white;margin-left: 4px;" type="submit">
+        <img src='../../../assets/img/amazon--pay.png' style="width: 85px;" />
+      </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</div>
+
+
+
+  <div style="padding-left: 16px;padding-right: 16px;margin-top: 20px;">
+    <div style="width:100%">
+      <div>
+        <div class="head-color" style="font-size: 18px;">Contact information</div>
+        <div  class="sub-color" style="font-size: 14px;">Already have an account? Login</div>
+      </div>
+
+      <!-- <ion-row style="margin-top: 16px;">
+        <ion-col style="padding: 0;">Email</ion-col>
+      </ion-row> -->
+      <ion-row style="margin-top: 16px;display: flex;
+        align-items: center;">
+        <ion-col style="padding: 0;" size="12">
+          <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Email"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <div style="    margin-top: 15px;
+        display: flex;
+        ">
+        <ion-checkbox color="dark" checked slot="start"></ion-checkbox>
+        <ion-label style="margin-left: 10px;" class="sub-color">
+          Keep me up to date on news and exclusive offers
+        </ion-label>
+      </div>
+
+      <div style="margin-top: 16px;font-size: 18px;">
+        <div class="head-color">Shipping address</div>
+      </div>
+      <div>
+        <!-- <ion-row style="margin-top: 16px;">
+          <ion-col style="padding: 0;">First name</ion-col>
+        </ion-row> -->
+        <ion-row style="margin-top: 16px;display: flex;
+        align-items: center;">
+          <ion-col style="padding: 0;" size="12">
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="First name"></ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div>
+        <!-- <ion-row style="margin-top: 16px;">
+          <ion-col style="padding: 0;">Last name</ion-col>
+        </ion-row> -->
+        <ion-row style="margin-top: 16px;display: flex;
+        align-items: center;">
+          <ion-col style="padding: 0;" size="12">
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Last name"></ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div>
+        <!-- <ion-row style="margin-top: 16px;">
+          <ion-col style="padding: 0;">Company (optional)</ion-col>
+        </ion-row> -->
+        <ion-row style="margin-top: 16px;display: flex;
+        align-items: center;">
+          <ion-col style="padding: 0;" size="12">
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Company (optional)"></ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div>
+        <!-- <ion-row style="margin-top: 16px;">
+          <ion-col style="padding: 0;">Address</ion-col>
+        </ion-row> -->
+        <ion-row style="margin-top:16px;display: flex;
+        align-items: center;">
+          <ion-col style="padding: 0;" size="12">
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Address"></ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div>
+        <!-- <ion-row style="margin-top: 16px;">
+          <ion-col style="padding: 0;">Apartment, suite, etc. (optional)</ion-col>
+        </ion-row> -->
+        <ion-row style="margin-top:16px;display: flex;
+        align-items: center;">
+          <ion-col style="padding: 0;" size="12">
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Apartment, suite, etc. (optional)"></ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div>
+        <!-- <ion-row style="margin-top: 16px;">
+          <ion-col style="padding: 0;">City</ion-col>
+        </ion-row> -->
+        <ion-row style="margin-top: 16px;display: flex;
+        align-items: center;">
+          <ion-col style="padding: 0;" size="12">
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="City"></ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div>
+        <!-- <ion-row style="margin-top: 16px;">
+          <ion-col style="padding: 0;">Country/Region</ion-col>
+        </ion-row> -->
+        <ion-row style="margin-top: 16px;display: flex;
+        align-items: center;">
+          <ion-col style="padding: 0;" size="12">
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Country/Region"></ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div>
+        <!-- <ion-row style="margin-top: 16px;">
+          <ion-col style="padding: 0;">State</ion-col>
+        </ion-row> -->
+        <ion-row style="margin-top: 16px;display: flex;
+        align-items: center;">
+          <ion-col style="padding: 0;" size="12">
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="State"></ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div>
+        <!-- <ion-row style="margin-top: 16px;">
+          <ion-col style="padding: 0;">ZIP code</ion-col>
+        </ion-row> -->
+        <ion-row style="margin-top: 16px;display: flex;
+        align-items: center;">
+          <ion-col style="padding: 0;" size="12">
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="ZIP code"></ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div>
+        <!-- <ion-row style="margin-top: 16px;">
+          <ion-col style="padding: 0;">Phone (optional)</ion-col>
+        </ion-row> -->
+        <ion-row style="margin-top: 16px;display: flex;
+        align-items: center;">
+          <ion-col style="padding: 0;" size="12">
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Phone (optional)"></ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div>
+        <!-- <ion-row style="margin-top: 16px;">
+          <ion-col style="padding: 0;">Phone (optional)</ion-col>
+        </ion-row> -->
+        <ion-row style="margin-top: 16px;display: flex;
+        align-items: center;">
+          <ion-col style="padding: 0;" size="12">
+            <ion-button (click)="addToCart()"
+            style="--background: purple;height: 40px; width: 100%;--color:white;color:white;margin-left: 4px;" type="submit">
+            Continue to shipping
+          </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div>
+        <!-- <ion-row style="margin-top: 16px;">
+          <ion-col style="padding: 0;">Phone (optional)</ion-col>
+        </ion-row> -->
+        <ion-row style="display: flex;
+        align-items: center;height: 50px;">
+          <ion-col style="padding: 0;display: flex;justify-content: center;color: #545454;" size="12" (click)="cartPage()">
+            <ion-icon name="arrow-back"></ion-icon> return to cart
+          </ion-col>
+        </ion-row>
+      </div>
+     
+
+    </div>
+  </div>
+
+
+</ion-content>

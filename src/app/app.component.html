@@ -11,8 +11,8 @@
               <ion-col size="9" style="display: flex;
               align-items: center;
               justify-content: flex-start;">
-                  <p (click)="col(cat,index)" style="margin:0;font-size: 16px;display: flex;">
-                  {{cat.catName}} <img [src]="cat.logo" style="width: 16px;height: 16px;" />
+                  <ion-icon [name]="cat.logo" style="margin-right: 10px;"></ion-icon><p (click)="col(cat,index)" style="margin:0;font-size: 16px;display: flex;">
+                  {{cat.catName}} 
                 </p>
               </ion-col>
               <div style="height: 0px; width: 100%; padding-left: 20px; overflow: auto;"  [ngClass]="{'height':cat.data}">
@@ -30,19 +30,19 @@
             <ion-row style="border-top:solid 1px purple">
               <ion-col size="12" style="margin-left: 20px; " >
                   <p (click)="gotoLoginPage()" style="display: flex;
-                  align-items:  center;">SIGN IN <ion-icon name="pin"></ion-icon></p>
+                  align-items:  center;"><ion-icon name="person" style="margin-right: 10px;"></ion-icon>SIGN IN </p>
               </ion-col>
            </ion-row>
            <ion-row >
             <ion-col size="12" style="margin-left: 20px; ">
                 <p style="display: flex;
-                align-items: center;">WISHLIST <ion-icon name="heart"></ion-icon></p>
+                align-items: center;" (click)="inProgress()" ><ion-icon name="heart" style="margin-right: 10px;"></ion-icon> WISHLIST </p>
             </ion-col>
          </ion-row>
           <ion-row > 
           <ion-col size="12" style="margin-left: 20px; ">
               <p style="display: flex;
-              align-items:center;">REWARDS <ion-icon name="medal"></ion-icon></p>
+              align-items:center;" (click)="inProgress()" ><ion-icon name="medal" style="margin-right: 10px;"></ion-icon> REWARDS </p>
           </ion-col>
        </ion-row>
           </div>

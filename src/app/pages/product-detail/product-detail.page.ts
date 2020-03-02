@@ -35,6 +35,11 @@ export class ProductDetailPage implements OnInit {
     this.nn();
    
   }
+
+  gotoHome(){
+    this.router.navigateByUrl('/');
+  }
+  
 nn(){
   this.route.queryParams.subscribe(params => {
     if (params && params.productFromShopPage) {
