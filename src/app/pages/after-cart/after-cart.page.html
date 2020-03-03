@@ -23,10 +23,10 @@
   color:#242424
   ">
     <p style=" display: flex;" (click)="toggle()" *ngIf="!show">
-      <ion-icon name="cart" style="margin-right: 10px;"></ion-icon> Show order summary <ion-icon name="arrow-round-down"></ion-icon>
+      <ion-icon name="cart" style="margin-right: 10px;"></ion-icon> Show order summary  <img src='../../../assets/img/down.png' style="width: 14px; margin-left: 5px;" />
     </p>
     <p style=" display: flex;" (click)="toggle()" *ngIf="show">
-      <ion-icon name="cart" style="margin-right: 10px;"></ion-icon> Hide srder summary <ion-icon name="arrow-round-up"></ion-icon>
+      <ion-icon name="cart" style="margin-right: 10px;"></ion-icon> Hide srder summary <img src='../../../assets/img/up.png' style="width: 14px; margin-left: 5px;" />
     </p>
 
     <p style="font-weight: 600;">{{totalAmount  | currency}}</p>
@@ -57,16 +57,16 @@
       </div>
 
 
-      <ion-row style="padding-left: 16px;padding-right: 16px;margin-top: 16px;">
+      <!-- <ion-row style="padding-left: 16px;padding-right: 16px;margin-top: 16px;">
         <ion-col style="padding: 0;">Gift card or discount code:</ion-col>
-      </ion-row>
+      </ion-row> -->
       <ion-row style="padding-left: 16px; padding-right: 16px;margin-top: 5px;display: flex;
         align-items: center;">
-        <ion-col style="padding: 0;" size="9">
+        <ion-col style="padding: 0;" size="10">
           <ion-input type="text" style="border: solid 1px #b766b7;height: 40px;" placeholder="Gift card or discount code">
           </ion-input>
         </ion-col>
-        <ion-col size="3" style="padding: 0;">
+        <ion-col size="2" style="padding: 0;">
           <ion-button (click)="addToCart()"
             style="--background: purple;height: 40px; width: 100%;--color:white;color:white;margin-left: 4px;" type="submit">
             <ion-icon name="arrow-forward"></ion-icon>
@@ -85,16 +85,16 @@
             <div style="width: 50%;">Sub Total</div>
             <div  style="width: 50%;text-align: right;padding-right: 32px;">{{totalAmount | currency}}</div>
           </div>
-          <div style="display: flex; width: 100%; margin-top: 10px;  margin-bottom: 16px; ">
+          <div style="display: flex; width: 100%; margin-top: 10px;  margin-bottom: 16px; align-items: center;">
             <div  style="width: 50%;">Shipping</div>
-            <div  style="width: 50%;text-align: right;padding-right: 32px;">Calculated at next step </div>
+            <div  style="width: 50%;text-align: right;padding-right: 32px;font-size: 0.8em;">Calculated at next step </div>
           </div>
         </div>
       </ion-item-divider>
-    
+<!--     
       <ion-item-divider style="padding-right: 16px; height: 80px;
-      --background: transparent;">
-        <div style="width:100%;color:#535353">
+      --background: transparent;" lines="none"> -->
+        <div style="width:100%;display:flex;color:#535353;padding-right: 16px; height: 80px;padding-left: 16px;">
           <div style="    display: flex;
             width: 100%;
             justify-content: space-between;    align-items: center;">
@@ -102,19 +102,19 @@
             <div style="font-size: 18px; font-weight: 600;"> {{totalAmount | currency}}</div>
           </div>
         </div>
-      </ion-item-divider>
+      <!-- </ion-item-divider> -->
     </ion-list>
   </div>
 
 
 <div  style="padding-left: 16px;padding-right: 16px;margin-top: 20px;">
-  
+  <div class="head-color" style="font-size: 18px;font-weight: 600;text-align: center;">Express checkout</div>
   <div>
     <ion-row style="margin-top: 16px;display: flex;
     align-items: center;">
       <ion-col style="padding: 0;" size="12">
         <ion-button (click)="addToCart()"
-        style="--background: black;height: 40px; width: 100%;--color:white;color:white;margin-left: 4px;" type="submit">
+        style="--background: black;height: 48px; width: 98%;--color:white;color:white;margin-left: 4px;" type="submit">
         <ion-icon name="logo-google"></ion-icon>Pay
       </ion-button>
       </ion-col>
@@ -125,7 +125,7 @@
     align-items: center;">
       <ion-col style="padding: 0;" size="12">
         <ion-button (click)="addToCart()"
-        style="--background: #ffc439;height: 40px; width: 100%;--color:white;color:white;margin-left: 4px;" type="submit">
+        style="--background: #ffc439;height: 48px; width: 98%;--color:white;color:white;margin-left: 4px;" type="submit">
         <img src='../../../assets/img/paypal.png' style="width: 85px;" />
       </ion-button>
       </ion-col>
@@ -136,7 +136,7 @@
     align-items: center;">
       <ion-col style="padding: 0;" size="12">
         <ion-button (click)="addToCart()"
-        style="--background: #fad676 !important;height: 40px; width: 100%;--color:white;color:white;margin-left: 4px;" type="submit">
+        style="--background: #fad676 !important;height: 48px; width: 98%;--color:white;color:white;margin-left: 4px;" type="submit">
         <img src='../../../assets/img/amazon--pay.png' style="width: 85px;" />
       </ion-button>
       </ion-col>
@@ -145,13 +145,20 @@
 
 </div>
 
+<div class="or-section" style="margin-top: 16px;width: 100%;display: flex;justify-content: space-around;align-items: center;">
+  <div style="width: 40%; border-bottom: solid 1px #d8d8d8;"></div>
+  <div>OR</div>
+  <div style="width: 40%;border-bottom: solid 1px #d8d8d8;"></div>
+
+</div>
+
 
 
   <div style="padding-left: 16px;padding-right: 16px;margin-top: 20px;">
     <div style="width:100%">
       <div>
-        <div class="head-color" style="font-size: 18px;">Contact information</div>
-        <div  class="sub-color" style="font-size: 14px;">Already have an account? Login</div>
+        <div class="head-color" style="font-size: 18px;font-weight: 600;">Contact information</div>
+        <div  class="sub-color" style="font-size: 14px;margin-top: 10px;">Already have an account? Login</div>
       </div>
 
       <!-- <ion-row style="margin-top: 16px;">
@@ -160,10 +167,12 @@
       <ion-row style="margin-top: 16px;display: flex;
         align-items: center;">
         <ion-col style="padding: 0;" size="12">
-          <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Email"></ion-input>
+          <ion-input type="text" (ngModelChange)="emailvalidate()" style="border: solid 1px #b766b7;" placeholder="Email" name="email" [(ngModel)]="form.email"></ion-input>
         </ion-col>
       </ion-row>
-
+      <ion-row style="margin-top: 5px;" *ngIf="check && emailtest">
+        <ion-col style="padding: 0;color: red;">Please Enter valid email</ion-col>
+      </ion-row>
       <div style="    margin-top: 15px;
         display: flex;
         ">
@@ -173,7 +182,7 @@
         </ion-label>
       </div>
 
-      <div style="margin-top: 16px;font-size: 18px;">
+      <div style="margin-top: 16px;font-size: 18px;font-weight: 600;">
         <div class="head-color">Shipping address</div>
       </div>
       <div>
@@ -183,9 +192,12 @@
         <ion-row style="margin-top: 16px;display: flex;
         align-items: center;">
           <ion-col style="padding: 0;" size="12">
-            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="First name"></ion-input>
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="First name" name='fname' [(ngModel)]="form.fName"></ion-input>
           </ion-col>
         </ion-row>
+        <ion-row style="margin-top: 5px;" *ngIf="check && !form.fName">
+          <ion-col style="padding: 0;color: red;">Enter a first name</ion-col>
+        </ion-row> 
       </div>
 
       <div>
@@ -195,9 +207,12 @@
         <ion-row style="margin-top: 16px;display: flex;
         align-items: center;">
           <ion-col style="padding: 0;" size="12">
-            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Last name"></ion-input>
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Last name" name='lname' [(ngModel)]="form.lName"></ion-input>
           </ion-col>
         </ion-row>
+        <ion-row style="margin-top: 5px;" *ngIf="check && !form.lName">
+          <ion-col style="padding: 0;color: red;">Enter a last name</ion-col>
+        </ion-row> 
       </div>
 
       <div>
@@ -207,7 +222,7 @@
         <ion-row style="margin-top: 16px;display: flex;
         align-items: center;">
           <ion-col style="padding: 0;" size="12">
-            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Company (optional)"></ion-input>
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Company (optional)" name='company' [(ngModel)]="form.company"></ion-input>
           </ion-col>
         </ion-row>
       </div>
@@ -219,9 +234,12 @@
         <ion-row style="margin-top:16px;display: flex;
         align-items: center;">
           <ion-col style="padding: 0;" size="12">
-            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Address"></ion-input>
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Address" name='address' [(ngModel)]="form.address"></ion-input>
           </ion-col>
         </ion-row>
+        <ion-row style="margin-top: 5px;" *ngIf="check && !form.address">
+          <ion-col style="padding: 0;color: red;">Enter a address</ion-col>
+        </ion-row> 
       </div>
 
       <div>
@@ -231,7 +249,7 @@
         <ion-row style="margin-top:16px;display: flex;
         align-items: center;">
           <ion-col style="padding: 0;" size="12">
-            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Apartment, suite, etc. (optional)"></ion-input>
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Apartment, suite, etc. (optional)" name='appartment' [(ngModel)]="form.appartment"></ion-input>
           </ion-col>
         </ion-row>
       </div>
@@ -243,8 +261,11 @@
         <ion-row style="margin-top: 16px;display: flex;
         align-items: center;">
           <ion-col style="padding: 0;" size="12">
-            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="City"></ion-input>
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="City" name='city' [(ngModel)]="form.city"></ion-input>
           </ion-col>
+        </ion-row>
+        <ion-row style="margin-top: 5px;" *ngIf="check && !form.city">
+          <ion-col style="padding: 0;color: red;">Enter a city</ion-col>
         </ion-row>
       </div>
 
@@ -255,8 +276,16 @@
         <ion-row style="margin-top: 16px;display: flex;
         align-items: center;">
           <ion-col style="padding: 0;" size="12">
-            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Country/Region"></ion-input>
+            <ion-select value="us" okText="Okay" cancelText="Dismiss" style="max-width: 100% !important;padding-left: 8px;border: solid 1px #b766b7;
+            border-radius: 5px;" name='country' [(ngModel)]="form.country">
+              <ion-select-option value="">Select Country</ion-select-option>
+              <ion-select-option value="us">United States</ion-select-option>
+              <ion-select-option value="ca">Canada</ion-select-option>
+            </ion-select>
           </ion-col>
+        </ion-row>
+        <ion-row style="margin-top: 5px;" *ngIf="check && !form.country">
+          <ion-col style="padding: 0;color: red;">Select a country</ion-col>
         </ion-row>
       </div>
 
@@ -267,8 +296,17 @@
         <ion-row style="margin-top: 16px;display: flex;
         align-items: center;">
           <ion-col style="padding: 0;" size="12">
-            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="State"></ion-input>
+            <!-- <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="State"></ion-input> -->
+            <ion-select value="al" okText="Okay" cancelText="Dismiss" style="max-width: 100% !important;padding-left: 8px;border: solid 1px #b766b7;
+            border-radius: 5px;" name='state' [(ngModel)]="form.state">
+              <ion-select-option value="">Select State</ion-select-option>
+              <ion-select-option value="al">Alabama</ion-select-option>
+              <ion-select-option value="ak">Alaska</ion-select-option>
+            </ion-select>
           </ion-col>
+        </ion-row>
+        <ion-row style="margin-top: 5px;" *ngIf="check && !form.state">
+          <ion-col style="padding: 0;color: red;">Select a state</ion-col>
         </ion-row>
       </div>
 
@@ -279,7 +317,22 @@
         <ion-row style="margin-top: 16px;display: flex;
         align-items: center;">
           <ion-col style="padding: 0;" size="12">
-            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="ZIP code"></ion-input>
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="ZIP code" name='pin' [(ngModel)]="form.pin"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row style="margin-top: 5px;" *ngIf="check && !form.pin">
+          <ion-col style="padding: 0;color: red;">Enter a zip code</ion-col>
+        </ion-row>
+      </div>
+
+      <div>
+        <!-- <ion-row style="margin-top: 16px;">
+          <ion-col style="padding: 0;">Phone (optional)</ion-col>
+        </ion-row> -->
+        <ion-row style="margin-top: 16px;display: flex;
+        align-items: center;">
+          <ion-col style="padding: 0;" size="12">
+            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Phone (optional)" name='mobile' [(ngModel)]="form.mobile"></ion-input>
           </ion-col>
         </ion-row>
       </div>
@@ -291,20 +344,7 @@
         <ion-row style="margin-top: 16px;display: flex;
         align-items: center;">
           <ion-col style="padding: 0;" size="12">
-            <ion-input type="text" style="border: solid 1px #b766b7;" placeholder="Phone (optional)"></ion-input>
-          </ion-col>
-        </ion-row>
-      </div>
-
-      <div>
-        <!-- <ion-row style="margin-top: 16px;">
-          <ion-col style="padding: 0;">Phone (optional)</ion-col>
-        </ion-row> -->
-        <ion-row style="margin-top: 16px;display: flex;
-        align-items: center;">
-          <ion-col style="padding: 0;" size="12">
-            <ion-button (click)="addToCart()"
-            style="--background: purple;height: 40px; width: 100%;--color:white;color:white;margin-left: 4px;" type="submit">
+            <ion-button (click)="validate()" style="--background: purple;height: 40px; width: 100%;--color:white;color:white;margin-left: 4px;" type="submit">
             Continue to shipping
           </ion-button>
           </ion-col>
@@ -317,8 +357,8 @@
         </ion-row> -->
         <ion-row style="display: flex;
         align-items: center;height: 50px;">
-          <ion-col style="padding: 0;display: flex;justify-content: center;color: #545454;" size="12" (click)="cartPage()">
-            <ion-icon name="arrow-back"></ion-icon> return to cart
+          <ion-col style="padding: 0;display: flex;justify-content: center;color: #545454;align-items: center" size="12" (click)="cartPage()">
+      <img src='../../../assets/img/back.png' style="height: 14px; margin-right: 5px;" /> Return to cart
           </ion-col>
         </ion-row>
       </div>
