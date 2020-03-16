@@ -150,6 +150,11 @@ var ProductDetailPage = /** @class */ (function () {
     ProductDetailPage.prototype.gotoHome = function () {
         this.router.navigateByUrl('/');
     };
+    ProductDetailPage.prototype.ionViewDidEnter = function () {
+        document.addEventListener("backbutton", function (e) {
+            console.log("disable back button");
+        }, false);
+    };
     ProductDetailPage.prototype.nn = function () {
         var _this = this;
         this.route.queryParams.subscribe(function (params) {

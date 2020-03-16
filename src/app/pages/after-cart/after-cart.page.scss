@@ -15,7 +15,32 @@ ion-header{
     }
   }
 
-  .height{
+
+.order-summary-text{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  background: #fafafa;
+  height: 65px;
+  border-bottom: solid 1px #d8d8d8;
+  color:#242424;
+
+  .p-text{
+    display: flex;
+    ion-icon {
+      margin-right: 10px;
+    }
+  }
+  .p-font600{
+    font-weight: 600;
+  }
+}
+
+
+
+.height{
     min-height: 250px !important;
 }
 

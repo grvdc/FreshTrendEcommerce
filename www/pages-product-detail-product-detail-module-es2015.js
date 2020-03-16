@@ -144,6 +144,11 @@ let ProductDetailPage = class ProductDetailPage {
     gotoHome() {
         this.router.navigateByUrl('/');
     }
+    ionViewDidEnter() {
+        document.addEventListener("backbutton", function (e) {
+            console.log("disable back button");
+        }, false);
+    }
     nn() {
         this.route.queryParams.subscribe(params => {
             if (params && params.productFromShopPage) {

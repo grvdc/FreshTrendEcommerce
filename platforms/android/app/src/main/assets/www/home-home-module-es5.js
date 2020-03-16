@@ -164,6 +164,11 @@ var HomePage = /** @class */ (function () {
             });
         });
     };
+    HomePage.prototype.ionViewDidEnter = function () {
+        document.addEventListener("backbutton", function (e) {
+            console.log("disable back button");
+        }, false);
+    };
     HomePage.prototype.goToShopPage = function (category) {
         // this.router.navigateByUrl('/shop-page');
         if (category) {

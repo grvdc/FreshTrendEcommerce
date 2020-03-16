@@ -28,6 +28,18 @@ const routes: Routes = [
     path: 'after-cart',
     loadChildren: () => import('./pages/after-cart/after-cart.module').then( m => m.AfterCartPageModule)
   },
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+  },
+  {
+    path: 'order-success',
+    loadChildren: () => import('./pages/order-success/order-success.module').then( m => m.OrderSuccessPageModule)
+  },
+  {
+    path: 'wishlist',
+    loadChildren: () => import('./pages/wishlist/wishlist.module').then( m => m.WishlistPageModule)
+  },
 ];
 
 @NgModule({

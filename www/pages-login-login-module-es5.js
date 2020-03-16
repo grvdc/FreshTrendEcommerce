@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <ion-header>\n  <ion-toolbar>\n \n    <ion-title>\n      <img src=\"https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png\" />\n    </ion-title>\n    \n  </ion-toolbar>\n</ion-header> -->\n\n\n\n<ion-content>\n  <div style=\"width: 100%; height: 250px;display: flex; align-items: center;\n  justify-content: center;\">\n      <img src=\"https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png\" style=\"width: 50%;\" (click)=gotoHome() />\n  </div>\n  <h3 style=\"text-align: center;display: none;\">Login</h3>\n  <ion-item lines=\"none\">\n      <ion-label position=\"floating\" >Email</ion-label>\n      <ion-input clearInput style=\"border-bottom: solid 1px #b766b7;\"></ion-input>\n  </ion-item>\n  <ion-item lines=\"none\">\n      <ion-label position=\"floating\">Password</ion-label>\n      <ion-input type=\"password\" style=\"border-bottom: solid 1px #b766b7;\"></ion-input>\n  </ion-item>\n  \n  <ion-item lines=\"none\">\n    <div style=\"width:100%;margin-top: 10px;\"> \n    <ion-row>\n      <ion-col size=\"12\" style=\"padding:0\">\n          <ion-button expand=\"full\" style=\"width: 100%; --background: #b766b7;\" (click)=\"login()\">LOGIN</ion-button>\n      </ion-col>\n    </ion-row>\n    <ion-row style=\"margin-top: -10px;\">\n        <ion-col size=\"12\" style=\"padding:0\">\n            <p style=\"text-align: right;\">Forget Password?</p>\n        </ion-col>\n    </ion-row>\n    <ion-row style=\"margin-top: -10px;\">\n      <ion-col size=\"12\" style=\"padding:0;margin:0\">\n          <p style=\"text-align: right;\" (click)=\"signup()\">Sign Up</p>\n      </ion-col>\n  </ion-row>\n  </div>\n  </ion-item>\n  \n\n</ion-content>\n"
+module.exports = "<!-- <ion-header>\n  <ion-toolbar>\n \n    <ion-title>\n      <img src=\"https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png\" />\n    </ion-title>\n    \n  </ion-toolbar>\n</ion-header> -->\n\n\n\n<ion-content>\n  <div style=\"width: 100%; height: 250px;display: flex; align-items: center;\n  justify-content: center;\">\n      <img src=\"https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png\" style=\"width: 50%;\" (click)=gotoHome() />\n  </div>\n  <h3 style=\"text-align: center;display: none;\">Login</h3>\n  <ion-item lines=\"none\">\n      <ion-label position=\"floating\" >Email</ion-label>\n      <ion-input clearInput style=\"border-bottom: solid 1px #b766b7;\" [(ngModel)]=\"email\" (ngModelChange)=\"emailvalidate()\"></ion-input>\n  </ion-item>\n  <ion-row style=\"margin-top: -2px; width: 90%;text-align: left; margin-bottom: 5px;\" *ngIf=\"check && emailtest\">\n    <ion-col style=\"padding: 16px;color: red;padding-bottom: 0;padding-top: 5px;\n\">Enter email id</ion-col>\n  </ion-row>\n  <ion-item lines=\"none\">\n      <ion-label position=\"floating\">Password</ion-label>\n      <ion-input type=\"password\" style=\"border-bottom: solid 1px #b766b7;\" [(ngModel)]=\"password\"></ion-input>\n  </ion-item>\n  <ion-row style=\"margin-top: -2px; width: 90%;text-align: left; margin-bottom: 5px;\"  *ngIf=\"check && !password\">\n    <ion-col style=\"padding: 16px;color: red;padding-bottom: 0;padding-top: 5px;\n\">Enter a password</ion-col>\n  </ion-row>\n  \n  <ion-item lines=\"none\">\n    <div style=\"width:100%;margin-top: 10px;\"> \n    <ion-row>\n      <ion-col size=\"12\" style=\"padding:0\">\n          <ion-button expand=\"full\" style=\"width: 100%; --background: #b766b7;height: 35px;\" (click)=\"login()\">LOGIN</ion-button>\n      </ion-col>\n    </ion-row>\n    <ion-row style=\"margin-top: -10px;\">\n        <ion-col size=\"12\" style=\"padding:0\">\n            <p style=\"text-align: center;\" (click)=\"toForgotPassword()\">Forget Password?</p>\n        </ion-col>\n    </ion-row>\n    <ion-row style=\"margin-top: -10px;\">\n      <ion-col size=\"12\" style=\"padding:0;margin:0\">\n          <p style=\"text-align: center;margin: 0;\" >Don't have Account? <a class=\"sign-up-a\" style=\"color: #b766b7;font-size: 18px;\" (click)=\"signup()\">Sign Up</a></p>\n      </ion-col>\n  </ion-row>\n  </div>\n  </ion-item>\n  \n\n</ion-content>\n"
 
 /***/ }),
 
@@ -126,17 +126,57 @@ __webpack_require__.r(__webpack_exports__);
 var LoginPage = /** @class */ (function () {
     function LoginPage(router) {
         this.router = router;
+        this.email = '';
+        this.password = '';
+        this.emailtest = false;
+        this.check = false;
     }
     LoginPage.prototype.ngOnInit = function () {
     };
+    LoginPage.prototype.emailvalidate = function () {
+        if (this.email == '') {
+            this.emailtest = true;
+            // return false;
+        }
+        else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
+            console.log("inside the Email validation");
+            this.emailtest = true;
+            // return false;
+        }
+        else {
+            this.emailtest = false;
+            return true;
+        }
+    };
+    LoginPage.prototype.ionViewDidEnter = function () {
+        document.addEventListener("backbutton", function (e) {
+            console.log("disable back button");
+        }, false);
+    };
     LoginPage.prototype.login = function () {
-        this.router.navigateByUrl('/');
+        this.check = true;
+        if (!this.emailvalidate()) {
+            this.emailtest = true;
+            return false;
+        }
+        else {
+            if (this.password == '') {
+                this.check = true;
+            }
+            else {
+                this.check = false;
+                this.router.navigateByUrl('/');
+            }
+        }
     };
     LoginPage.prototype.signup = function () {
         this.router.navigateByUrl('/signup');
     };
     LoginPage.prototype.gotoHome = function () {
         this.router.navigateByUrl('/');
+    };
+    LoginPage.prototype.toForgotPassword = function () {
+        this.router.navigateByUrl('/forgot-password');
     };
     LoginPage.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }

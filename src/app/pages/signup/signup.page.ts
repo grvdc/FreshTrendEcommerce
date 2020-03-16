@@ -29,6 +29,8 @@ export class SignupPage implements OnInit {
   email = '';
   password = '';
   confirmPassword ='';
+  check :boolean = false;
+  emailtest : boolean = false;
   constructor(
     private router: Router,
     public alertController: AlertController,
@@ -36,7 +38,11 @@ export class SignupPage implements OnInit {
 
   ngOnInit() {
   }
-
+  ionViewDidEnter() {
+    document.addEventListener("backbutton",function(e) {
+      console.log("disable back button")
+    }, false);
+}
   test(){
     console.log("firstName", this.firstName);
     console.log("lastName", this.lastName);
@@ -46,29 +52,45 @@ export class SignupPage implements OnInit {
 
   }
 
+  emailvalidate(){
+    if(this.email == ''){
+      this.emailtest = true;
+      // return false;
+    } else if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)){
+      console.log("inside the Email validation");
+      this.emailtest = true;
+      // return false;
+    } else {
+      this.emailtest = false;
+      return true;
+    }
+  }
+
   validate(){
+    this.check = true;
     let data = '';
     this.firstName = this.firstName.trim();
     this.email = this.email.trim();
     this.password = this.password.trim();
     this.confirmPassword = this.confirmPassword.trim();
-    if(this.firstName === ''){
-      data = 'Please Add Name'
-      this.presentAlert(data);
-      return false;
-    } else if(this.email === ''){
+    if(!this.emailvalidate()){
       data = 'Please Add Email'
-      this.presentAlert(data);
+      // this.presentAlert(data);
+      return false;
+    } else if(this.firstName === ''){
+      data = 'Please Add Name'
+      // this.presentAlert(data);
       return false;
     } else if(this.password === ''){
       data = 'Please Create Password'
-      this.presentAlert(data);
+      // this.presentAlert(data);
       return false;
     } else if(this.password !== this.confirmPassword){
       data = 'Password and Confirm not matched.'
       this.presentAlert(data);
       return false;
     } else{
+      this.check = false;
       this.signUp();
     }
   }

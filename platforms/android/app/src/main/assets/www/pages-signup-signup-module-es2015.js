@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <ion-header> -->\n    <!-- <ion-toolbar style=\"--background: transparent ; background-image: url('../../../assets/login.jpg');\"> -->\n    <!-- <ion-toolbar>\n      <ion-title class=\"white\">Register</ion-title>\n      <ion-buttons slot=\"start\">\n        <ion-back-button class=\"white\"></ion-back-button>\n      </ion-buttons>\n      <ion-buttons slot=\"end\">\n      </ion-buttons>\n    </ion-toolbar>\n  </ion-header> -->\n  <div class=\"mylogin-page\">\n  \n    <div class=\"login-color\" >\n      \n      <!-- <div class=\"login-header\">Login</div> -->\n      <div class=\"content\" style=\"display: flex;flex-direction: column;\">\n        <h5>Sign Up</h5>\n        <!-- <img style=\"width: 40%;\"src=\"https://assets-ouch.icons8.com/thumb/962/7b8d4e8b-7b64-4f18-af4c-093f3b213c1a.png\"/> -->\n  \n        \n        <ion-row class=\"center\" >\n          <ion-col size=\"10\">\n              <ion-item lines=\"none\" style=\"--background: transparent;\" >\n                  <ion-label  position=\"floating\">First Name</ion-label>\n                  <ion-input clearInput style=\"border-bottom: solid 1px black;\" [(ngModel)]=\"firstName\"  type=\"text\" ></ion-input>\n                </ion-item>\n            <!-- <ion-item class=\"login transparent\">\n  \n              \n              <ion-input clearInput type=\"text\" placeholder=\"First Name\" name=\"firstname\" [(ngModel)]=\"firstName\"></ion-input>\n            </ion-item> -->\n          </ion-col>\n          <ion-col size=\"10\">\n              <ion-item lines=\"none\" style=\"--background: transparent;\" >\n                  <ion-label  position=\"floating\">Last Name</ion-label>\n                  <ion-input clearInput style=\"border-bottom: solid 1px black;\" [(ngModel)]=\"lastName\"  type=\"text\" ></ion-input>\n                </ion-item>\n           \n              <!-- <ion-input clearInput type=\"text\" placeholder=\"Last Name\" name=\"lastname\" [(ngModel)]=\"lastName\"></ion-input> -->\n           \n          </ion-col>\n          <ion-col size=\"10\">\n              <ion-item lines=\"none\" style=\"--background: transparent;\" >\n                  <ion-label  position=\"floating\">Email</ion-label>\n                  <ion-input clearInput style=\"border-bottom: solid 1px black;\" [(ngModel)]=\"email\"  type=\"email\" ></ion-input>\n                </ion-item>\n           <!-- <ion-item class=\"login transparent\"> -->\n             <!--   <ion-label class=\"icon-color\">\n                <ion-icon name=\"person\"></ion-icon>\n              </ion-label> -->\n              <!-- <ion-input clearInput type=\"text\" placeholder=\"Email\" name=\"email\" [(ngModel)]=\"email\"></ion-input> -->\n              <!-- <ion-label class=\"icon-color\">\n                <ion-icon name=\"person\"></ion-icon>\n              </ion-label> -->\n            <!-- </ion-item> -->\n          </ion-col>\n          <ion-col size=\"10\">\n              <ion-item lines=\"none\" style=\"--background: transparent;\" >\n                  <ion-label  position=\"floating\">Password</ion-label>\n                  <ion-input clearInput style=\"border-bottom: solid 1px black;\" [(ngModel)]=\"password\"  type=\"password\"></ion-input>\n                </ion-item>\n            <!-- <ion-item class=\"login transparent\"> -->\n              <!-- <ion-label class=\"icon-color\">\n                <ion-icon name=\"lock\"></ion-icon>\n              </ion-label> -->\n              <!-- <ion-input clearInput type=\"password\" placeholder=\"Password\" name=\"password\" [(ngModel)]=\"password\"></ion-input>\n            </ion-item> -->\n          </ion-col>\n          <ion-col size=\"10\">\n              <ion-item lines=\"none\" style=\"--background: transparent;\" >\n                  <ion-label  position=\"floating\">Confirm Password</ion-label>\n                  <ion-input clearInput style=\"border-bottom: solid 1px black;\" [(ngModel)]=\"confirmPassword\"  type=\"password\" ></ion-input>\n                </ion-item>\n            <!-- <ion-item class=\"login transparent\"> -->\n              <!-- <ion-label class=\"icon-color\">\n                <ion-icon name=\"lock\"></ion-icon>\n              </ion-label> -->\n              <!-- <ion-input clearInput type=\"password\" placeholder=\"Confirm Password\" name=\"confirmpassword\" [(ngModel)]=\"confirmPassword\"></ion-input>\n            </ion-item> -->\n          </ion-col>\n          <ion-col size=\"10\" style=\"margin-top: 5%;\">\n            <!-- <p class=\"forgot-password\" style=\"margin: 0;padding: 0;\">Forgot password?</p> -->\n              \n            <!-- <ion-button expand=\"full\" type=\"submit\" style=\"height: 48px;\" color=\"#fff !important\" class=\"butn bg-color\" (click)=\"validate()\">Create Account</ion-button> -->\n            <ion-item lines=\"none\" style=\"--background: transparent;\" >\n            <ion-button expand=\"full\" style=\"width: 100%;\n                  --background: #b766b7;\" (click)=\"validate()\">\n                     Create Account\n                    </ion-button>\n                  </ion-item>\n          </ion-col>\n          <ion-col size=\"10\" style=\"color: black;margin-top: -2%;\">\n            <!-- <p class=\"forgot-password\">Forgot password?</p> -->\n            <p style=\"margin: 0;\">Allready have an account? <a class=\"sign-up-a\" style=\"color: #b766b7;font-size: 18px;\" (click)=\"goTologinPage()\">Sign In</a><br><br></p>\n          </ion-col>\n         \n          \n        </ion-row>\n      </div>\n      <div class=\"sign-up\">\n        \n        \n      </div>\n  \n    </div>\n  </div>"
+module.exports = "<!-- <ion-header> -->\n    <!-- <ion-toolbar style=\"--background: transparent ; background-image: url('../../../assets/login.jpg');\"> -->\n    <!-- <ion-toolbar>\n      <ion-title class=\"white\">Register</ion-title>\n      <ion-buttons slot=\"start\">\n        <ion-back-button class=\"white\"></ion-back-button>\n      </ion-buttons>\n      <ion-buttons slot=\"end\">\n      </ion-buttons>\n    </ion-toolbar>\n  </ion-header> -->\n  <div class=\"mylogin-page\">\n  \n    <div class=\"login-color\" >\n      \n      <!-- <div class=\"login-header\">Login</div> -->\n      <div class=\"content\" style=\"display: flex;flex-direction: column;\">\n        <h5>Sign Up</h5>\n        <!-- <img style=\"width: 40%;\"src=\"https://assets-ouch.icons8.com/thumb/962/7b8d4e8b-7b64-4f18-af4c-093f3b213c1a.png\"/> -->\n  \n        \n        <ion-row class=\"center\" >\n          <ion-col size=\"10\">\n              <ion-item lines=\"none\" style=\"--background: transparent;\" >\n                  <ion-label  position=\"floating\">First Name</ion-label>\n                  <ion-input clearInput style=\"border-bottom: solid 1px black;\" [(ngModel)]=\"firstName\"  type=\"text\" ></ion-input>\n                </ion-item>\n                <ion-row style=\"margin-top: 4px;width: 90%;text-align: left; margin-left: 16px;\"  *ngIf=\"check && !firstName\">\n                  <ion-col style=\"padding: 16px;color: red;padding-bottom: 0;padding-top: 5px;\n              \">Enter first name</ion-col>\n                </ion-row>\n            <!-- <ion-item class=\"login transparent\">\n  \n              \n              <ion-input clearInput type=\"text\" placeholder=\"First Name\" name=\"firstname\" [(ngModel)]=\"firstName\"></ion-input>\n            </ion-item> -->\n          </ion-col>\n          <ion-col size=\"10\">\n              <ion-item lines=\"none\" style=\"--background: transparent;\" >\n                  <ion-label  position=\"floating\">Last Name</ion-label>\n                  <ion-input clearInput style=\"border-bottom: solid 1px black;\" [(ngModel)]=\"lastName\"  type=\"text\" ></ion-input>\n                </ion-item>\n                <ion-row style=\"margin-top: 4px;width: 90%;text-align: left; margin-left: 16px;\"  *ngIf=\"check && !lastName\">\n                  <ion-col style=\"padding: 16px;color: red;padding-bottom: 0;padding-top: 5px;\n              \">Enter last name</ion-col>\n                </ion-row>\n              <!-- <ion-input clearInput type=\"text\" placeholder=\"Last Name\" name=\"lastname\" [(ngModel)]=\"lastName\"></ion-input> -->\n           \n          </ion-col>\n          <ion-col size=\"10\">\n              <ion-item lines=\"none\" style=\"--background: transparent;\" >\n                  <ion-label  position=\"floating\">Email</ion-label>\n                  <ion-input clearInput style=\"border-bottom: solid 1px black;\" [(ngModel)]=\"email\"  type=\"email\" (ngModelChange)=\"emailvalidate()\"></ion-input>\n                </ion-item>\n                <ion-row style=\"margin-top: 4px;width: 90%;text-align: left; margin-left: 16px;\" *ngIf=\"check && emailtest\" >\n                  <ion-col style=\"padding: 16px;color: red;padding-bottom: 0;padding-top: 5px;\n              \">Enter valid email</ion-col>\n                </ion-row>\n           <!-- <ion-item class=\"login transparent\"> -->\n             <!--   <ion-label class=\"icon-color\">\n                <ion-icon name=\"person\"></ion-icon>\n              </ion-label> -->\n              <!-- <ion-input clearInput type=\"text\" placeholder=\"Email\" name=\"email\" [(ngModel)]=\"email\"></ion-input> -->\n              <!-- <ion-label class=\"icon-color\">\n                <ion-icon name=\"person\"></ion-icon>\n              </ion-label> -->\n            <!-- </ion-item> -->\n          </ion-col>\n          <ion-col size=\"10\">\n              <ion-item lines=\"none\" style=\"--background: transparent;\" >\n                  <ion-label  position=\"floating\">Password</ion-label>\n                  <ion-input clearInput style=\"border-bottom: solid 1px black;\" [(ngModel)]=\"password\"  type=\"password\"></ion-input>\n                </ion-item>\n                <ion-row style=\"margin-top: 4px;width: 90%;text-align: left; margin-left: 16px;\"  *ngIf=\"check && !password\">\n                  <ion-col style=\"padding: 16px;color: red;padding-bottom: 0;padding-top: 5px;\n              \">Enter password</ion-col>\n                </ion-row>\n            <!-- <ion-item class=\"login transparent\"> -->\n              <!-- <ion-label class=\"icon-color\">\n                <ion-icon name=\"lock\"></ion-icon>\n              </ion-label> -->\n              <!-- <ion-input clearInput type=\"password\" placeholder=\"Password\" name=\"password\" [(ngModel)]=\"password\"></ion-input>\n            </ion-item> -->\n          </ion-col>\n          <ion-col size=\"10\">\n              <ion-item lines=\"none\" style=\"--background: transparent;\" >\n                  <ion-label  position=\"floating\">Confirm Password</ion-label>\n                  <ion-input clearInput style=\"border-bottom: solid 1px black;\" [(ngModel)]=\"confirmPassword\"  type=\"password\" ></ion-input>\n                </ion-item>\n                <ion-row style=\"margin-top: 4px;width: 90%;text-align: left; margin-left: 16px;\"  *ngIf=\"check && (confirmPassword !== password || !confirmPassword)\">\n                  <ion-col style=\"padding: 16px;color: red;padding-bottom: 0;padding-top: 5px;\n              \">Enter confirm password</ion-col>\n                </ion-row>\n            <!-- <ion-item class=\"login transparent\"> -->\n              <!-- <ion-label class=\"icon-color\">\n                <ion-icon name=\"lock\"></ion-icon>\n              </ion-label> -->\n              <!-- <ion-input clearInput type=\"password\" placeholder=\"Confirm Password\" name=\"confirmpassword\" [(ngModel)]=\"confirmPassword\"></ion-input>\n            </ion-item> -->\n          </ion-col>\n          <ion-col size=\"10\" style=\"margin-top: 5%;\">\n            <!-- <p class=\"forgot-password\" style=\"margin: 0;padding: 0;\">Forgot password?</p> -->\n              \n            <!-- <ion-button expand=\"full\" type=\"submit\" style=\"height: 48px;\" color=\"#fff !important\" class=\"butn bg-color\" (click)=\"validate()\">Create Account</ion-button> -->\n            <ion-item lines=\"none\" style=\"--background: transparent;\" >\n            <ion-button expand=\"full\" style=\"width: 100%;height: 35px;\n                  --background: #b766b7;\" (click)=\"validate()\">\n                     Create Account\n                    </ion-button>\n                  </ion-item>\n          </ion-col>\n          <ion-col size=\"10\" style=\"color: black;\">\n            <!-- <p class=\"forgot-password\">Forgot password?</p> -->\n            <p style=\"margin: 0;\">Allready have an account? <a class=\"sign-up-a\" style=\"color: #b766b7;font-size: 18px;\" (click)=\"goTologinPage()\">Sign In</a><br><br></p>\n          </ion-col>\n         \n          \n        </ion-row>\n      </div>\n      <div class=\"sign-up\">\n        \n        \n      </div>\n  \n    </div>\n  </div>"
 
 /***/ }),
 
@@ -139,8 +139,15 @@ let SignupPage = class SignupPage {
         this.email = '';
         this.password = '';
         this.confirmPassword = '';
+        this.check = false;
+        this.emailtest = false;
     }
     ngOnInit() {
+    }
+    ionViewDidEnter() {
+        document.addEventListener("backbutton", function (e) {
+            console.log("disable back button");
+        }, false);
     }
     test() {
         console.log("firstName", this.firstName);
@@ -149,25 +156,41 @@ let SignupPage = class SignupPage {
         console.log("password", this.password);
         console.log("confirmPassword", this.confirmPassword);
     }
+    emailvalidate() {
+        if (this.email == '') {
+            this.emailtest = true;
+            // return false;
+        }
+        else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
+            console.log("inside the Email validation");
+            this.emailtest = true;
+            // return false;
+        }
+        else {
+            this.emailtest = false;
+            return true;
+        }
+    }
     validate() {
+        this.check = true;
         let data = '';
         this.firstName = this.firstName.trim();
         this.email = this.email.trim();
         this.password = this.password.trim();
         this.confirmPassword = this.confirmPassword.trim();
-        if (this.firstName === '') {
-            data = 'Please Add Name';
-            this.presentAlert(data);
+        if (!this.emailvalidate()) {
+            data = 'Please Add Email';
+            // this.presentAlert(data);
             return false;
         }
-        else if (this.email === '') {
-            data = 'Please Add Email';
-            this.presentAlert(data);
+        else if (this.firstName === '') {
+            data = 'Please Add Name';
+            // this.presentAlert(data);
             return false;
         }
         else if (this.password === '') {
             data = 'Please Create Password';
-            this.presentAlert(data);
+            // this.presentAlert(data);
             return false;
         }
         else if (this.password !== this.confirmPassword) {
@@ -176,6 +199,7 @@ let SignupPage = class SignupPage {
             return false;
         }
         else {
+            this.check = false;
             this.signUp();
         }
     }

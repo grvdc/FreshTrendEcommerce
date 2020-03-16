@@ -140,4 +140,9 @@ export class CartPagePage implements OnInit {
   gotoHome(){
     this.router.navigateByUrl('/');
   }
+  ionViewDidEnter() {
+    document.addEventListener("backbutton",function(e) {
+      console.log("disable back button")
+    }, false);
+}
 }

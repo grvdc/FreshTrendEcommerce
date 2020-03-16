@@ -18,6 +18,7 @@ export class ShopPagePage implements OnInit {
   length= 7;
   search :boolean = false;
   cartBadge = 0;
+  searchText = 'p';
   constructor(
     private auth: AuthService,
     private router: Router,
@@ -46,7 +47,11 @@ export class ShopPagePage implements OnInit {
   gotoHome(){
     this.router.navigateByUrl('/');
   }
-
+  ionViewDidEnter() {
+    document.addEventListener("backbutton",function(e) {
+      console.log("disable back button")
+    }, false);
+}
   async ionViewWillEnter() {
    this.getCartCount();
   }
@@ -82,11 +87,15 @@ export class ShopPagePage implements OnInit {
         loading.dismiss();
         data_['products'].map(item => {
           if (item.image && item.image.src) {
+            // item.variants[0].price = parseFloat(item.variants[0].price);
             this.productList.push(item);
-            this.oldproductsList.push(item)
+            this.oldproductsList.push(item);
+           
           }
         })
       }
+         
+
     })
   }
 
@@ -105,9 +114,11 @@ export class ShopPagePage implements OnInit {
         // this.productList = data_['products'];
         this.id = setInterval(() => this.anitest(),120);
         this.oldproductsList = data_['products'];
+        
         // this.oldproductsList['titleLength'] =  this.oldproductsList['title'].split(' ').length;
         // console.log('this.oldproductsList',this.oldproductsList['title'].split(' ').length);
         this.oldproductsList.map(item=>{
+          // item.variants[0].price= parseFloat(item.variants[0].price);
           item.titleLength = item.title.split(' ').length;
         })
         console.log('this.oldproductsList',this.oldproductsList);
@@ -153,7 +164,7 @@ export class ShopPagePage implements OnInit {
   }
 
   filterItems(ev) {
-    if(ev.target.value !== ''){
+    if(this.searchText !== ''){
       this.search = true;
     } else {
       this.search = false;
@@ -161,7 +172,7 @@ export class ShopPagePage implements OnInit {
     }
     console.log("this.oldproductsList;",this.oldproductsList)
     this.productList = this.oldproductsList;
-    const searchTerm = ev.target.value;
+    const searchTerm = this.searchText;
     this.productList =  this.productList.filter(item => {
       return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
     });
@@ -181,5 +192,6 @@ export class ShopPagePage implements OnInit {
     }
     console.log("product",product)
   }
-  
+
+ 
 }

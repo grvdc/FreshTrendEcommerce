@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title (click)=gotoHome()>
+      <img src="https://image4.owler.com/logo/freshtrends_owler_20160228_045955_original.png" />
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="cart"></ion-icon>
+      <ion-badge color="success" style="    border-radius: 35px;
+      background: #af7ddc;
+      width: 20px;
+      margin-top: -11px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;">9</ion-badge>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="search-bar">
+    <ion-input placeholder="Search"></ion-input>
+    <div class="search-icon">
+      <ion-icon name="search"></ion-icon>
+    </div>
+
+  </div>
+  <div
+    style="display: flex;font-size: 0.68em;color: grey;justify-content: space-around;margin-bottom: 10px; margin-top: -5px">
+    <div>look For:</div>
+    <div style="text-decoration: underline;" (click)="goToShopPage('')">nose rings</div>
+    <div style="text-decoration: underline;" (click)="goToShopPage('')">cartiliage earrings</div>
+    <div style="text-decoration: underline;" (click)="goToShopPage('')">barbells</div>
+    <div style="text-decoration: underline;" (click)="goToShopPage('')">septum</div>
+
+  </div>
+
+  <!-- <div style="width:100%;height: 50px;" *ngIf="totalItem !== 0">
+    <ion-row>
+      <ion-col size="6" style="padding: 15px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;">
+        Wishlist ({{totalItem}})
+      </ion-col>
+      <ion-col size="6" style="padding: 15px;display: flex;font-size: 18pt;align-items: center;
+      justify-content: flex-end;">
+        <ion-badge color="light" style="font-size: 20px;margin-right:5px;display: flex;" (click)="gridView()"
+          [ngStyle]="{'background': listView ? '' : '#de6161'}">
+          <ion-icon name="apps"></ion-icon>
+        </ion-badge>
+        <ion-badge color="light" style="font-size: 20px;display: flex;" (click)="toggleListView()"
+          [ngStyle]="{'background': listView ? '#de6161' : ''}">
+          <ion-icon name="list"></ion-icon>
+        </ion-badge>
+      </ion-col>
+    </ion-row>
+  </div> -->
+
+  <ion-row style="padding-top:10px; padding-right: 10px;">
+    <ion-col
+      style="margin-bottom: 10px;padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important"
+      sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let item of products; index as index">
+      <ion-card class="m0" style="box-shadow: none;">
+        <img [src]="item.image.src" style="height: 132px !important;width: 132px !important" (click)="productDetail(item)" />
+
+        <ion-card-header style="padding-top: 0px;padding-bottom: 0;text-align: center;">
+          <ion-card-title>
+            <h6 style="margin-bottom: -10px;word-wrap: break-word;
+          overflow: hidden; max-height: 2.4em; line-height: 1.2em;
+          font-weight: 600; color: black;">
+              {{item.title}}
+            </h6>
+          </ion-card-title>
+          <ion-card-subtitle>
+            <ion-row>
+              <ion-col size="12">
+                {{item.variants[0].title?item.variants[0].title : '' }}
+              </ion-col>
+              <ion-col size="12">
+                {{item.variants[0].price? (item.variants[0].price | currency) : '' }}
+              </ion-col>
+            </ion-row>
+            <ion-button style="--background: #3c3c3c;">Add to Cart</ion-button>
+            <p style="font-size: 18px; margin: 5px;">Remove</p>
+            <!-- <ion-row>
+            <ion-col size="8" style="padding-left: 0 !important;    display: flex;
+            align-items: center;">
+              <label style="color:black"><s style="color:grey">₹ 99/-</s> $ 25</label>
+            </ion-col>
+            <ion-col size="4" style="text-align:right;font-size: 16pt;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;">
+              <ion-icon name="cart" style="color:orange" ></ion-icon>
+            </ion-col>
+          </ion-row> -->
+          </ion-card-subtitle>
+        </ion-card-header>
+
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- <div swipeAll
+           (swipe)="swipeAll($event)"
+           (swipeleft)="swipeLeft($event)"
+           (swiperight)="swipeRight($event)"
+           (swipeup)="swipeUp($event)"
+           (swipedown)="swipeDown($event)"
+      class="animated " [ngClass]="fade" style="height:250px; background:red"></div> -->
+
+
+</ion-content>

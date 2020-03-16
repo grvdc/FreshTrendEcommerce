@@ -244,6 +244,11 @@ var CartPagePage = /** @class */ (function () {
     CartPagePage.prototype.gotoHome = function () {
         this.router.navigateByUrl('/');
     };
+    CartPagePage.prototype.ionViewDidEnter = function () {
+        document.addEventListener("backbutton", function (e) {
+            console.log("disable back button");
+        }, false);
+    };
     CartPagePage.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
         { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },

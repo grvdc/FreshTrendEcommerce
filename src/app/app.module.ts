@@ -10,12 +10,14 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule ,} from '@angular/common/http';
 import { Camera } from '@ionic-native/camera/ngx';
+import { IonicSwipeAllModule } from 'ionic-swipe-all';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule,HttpClientModule,
-     IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule,HttpClientModule,IonicSwipeAllModule,
+    IonicModule.forRoot({hardwareBackButton: false}),
+  AppRoutingModule],
   providers: [
     StatusBar,
     SplashScreen,

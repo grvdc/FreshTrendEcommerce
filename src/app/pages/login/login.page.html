@@ -18,28 +18,36 @@
   <h3 style="text-align: center;display: none;">Login</h3>
   <ion-item lines="none">
       <ion-label position="floating" >Email</ion-label>
-      <ion-input clearInput style="border-bottom: solid 1px #b766b7;"></ion-input>
+      <ion-input clearInput style="border-bottom: solid 1px #b766b7;" [(ngModel)]="email" (ngModelChange)="emailvalidate()"></ion-input>
   </ion-item>
+  <ion-row style="margin-top: -2px; width: 90%;text-align: left; margin-bottom: 5px;" *ngIf="check && emailtest">
+    <ion-col style="padding: 16px;color: red;padding-bottom: 0;padding-top: 5px;
+">Enter email id</ion-col>
+  </ion-row>
   <ion-item lines="none">
       <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" style="border-bottom: solid 1px #b766b7;"></ion-input>
+      <ion-input type="password" style="border-bottom: solid 1px #b766b7;" [(ngModel)]="password"></ion-input>
   </ion-item>
+  <ion-row style="margin-top: -2px; width: 90%;text-align: left; margin-bottom: 5px;"  *ngIf="check && !password">
+    <ion-col style="padding: 16px;color: red;padding-bottom: 0;padding-top: 5px;
+">Enter a password</ion-col>
+  </ion-row>
   
   <ion-item lines="none">
     <div style="width:100%;margin-top: 10px;"> 
     <ion-row>
       <ion-col size="12" style="padding:0">
-          <ion-button expand="full" style="width: 100%; --background: #b766b7;" (click)="login()">LOGIN</ion-button>
+          <ion-button expand="full" style="width: 100%; --background: #b766b7;height: 35px;" (click)="login()">LOGIN</ion-button>
       </ion-col>
     </ion-row>
     <ion-row style="margin-top: -10px;">
         <ion-col size="12" style="padding:0">
-            <p style="text-align: right;">Forget Password?</p>
+            <p style="text-align: center;" (click)="toForgotPassword()">Forget Password?</p>
         </ion-col>
     </ion-row>
     <ion-row style="margin-top: -10px;">
       <ion-col size="12" style="padding:0;margin:0">
-          <p style="text-align: right;" (click)="signup()">Sign Up</p>
+          <p style="text-align: center;margin: 0;" >Don't have Account? <a class="sign-up-a" style="color: #b766b7;font-size: 18px;" (click)="signup()">Sign Up</a></p>
       </ion-col>
   </ion-row>
   </div>

@@ -441,7 +441,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\n    <ion-menu side=\"start\" type=\"push\" contentId=\"main\"  swipe-gesture=\"false\">\n        <ion-header style=\"display: none;\">\n          <ion-toolbar color=\"primary\">\n            <ion-title>End Menu</ion-title>\n          </ion-toolbar>\n        </ion-header>\n        <ion-content>\n           <ion-row *ngFor=\"let cat of categories;index as index\" style=\"margin-left: 20px;\n           margin-top: 10px;margin-bottom: -10px;\">\n              <ion-col size=\"9\" style=\"display: flex;\n              align-items: center;\n              justify-content: flex-start;\">\n                  <ion-icon [name]=\"cat.logo\" style=\"margin-right: 10px;\"></ion-icon><p (click)=\"col(cat,index)\" style=\"margin:0;font-size: 16px;display: flex;\">\n                  {{cat.catName}} \n                </p>\n              </ion-col>\n              <div style=\"height: 0px; width: 100%; padding-left: 20px; overflow: auto;\"  [ngClass]=\"{'height':cat.data}\">\n              <div *ngFor=\"let sub of cat.catlist;index as i\"><p  (click)=\"newD(sub,index)\" style=\" margin-top: 10px; margin-bottom: 10px;font-size: 16px;\n            \">{{sub.subCat}} </p>\n                <div style=\"height: 0px; width: 100%; padding-left: 20px;transition: height 0.7s; overflow: hidden;\"  [ngStyle]=\"{'height':sub.data === true ? sub.height : '0px' }\">\n                    <p *ngFor=\"let sLi of sub.subList\" (click)=\"go()\" style=\" margin-top: 0px;margin-bottom: 10px;font-size: 16px;\">{{sLi}}</p>\n \n                </div>\n              </div>\n           </div>\n          </ion-row>\n\n          <div  class=\"second-section\">\n            <ion-row style=\"border-top:solid 1px purple\">\n              <ion-col size=\"12\" style=\"margin-left: 20px; \" >\n                  <p (click)=\"gotoLoginPage()\" style=\"display: flex;\n                  align-items:  center;\"><ion-icon name=\"person\" style=\"margin-right: 10px;\"></ion-icon>SIGN IN </p>\n              </ion-col>\n           </ion-row>\n           <ion-row >\n            <ion-col size=\"12\" style=\"margin-left: 20px; \">\n                <p style=\"display: flex;\n                align-items: center;\" (click)=\"inProgress()\" ><ion-icon name=\"heart\" style=\"margin-right: 10px;\"></ion-icon> WISHLIST </p>\n            </ion-col>\n         </ion-row>\n          <ion-row > \n          <ion-col size=\"12\" style=\"margin-left: 20px; \">\n              <p style=\"display: flex;\n              align-items:center;\" (click)=\"inProgress()\" ><ion-icon name=\"medal\" style=\"margin-right: 10px;\"></ion-icon> REWARDS </p>\n          </ion-col>\n       </ion-row>\n          </div>\n        </ion-content>\n      </ion-menu>\n      \n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n  \n</ion-app>\n"
+module.exports = "<ion-app>\n    <ion-menu side=\"start\" type=\"push\" contentId=\"main\"  swipe-gesture=\"false\">\n        <ion-header style=\"display: none;\">\n          <ion-toolbar color=\"primary\">\n            <ion-title>End Menu</ion-title>\n          </ion-toolbar>\n        </ion-header>\n        <ion-content>\n           <ion-row *ngFor=\"let cat of categories;index as index\" style=\"margin-left: 20px;\n           margin-top: 10px;margin-bottom: -10px;\">\n              <ion-col size=\"9\" style=\"display: flex;\n              align-items: center;\n              justify-content: flex-start;\">\n                  <ion-icon [name]=\"cat.logo\" style=\"margin-right: 10px;\"></ion-icon><p (click)=\"col(cat,index)\" style=\"margin:0;font-size: 16px;display: flex;\">\n                  {{cat.catName}} \n                </p>\n              </ion-col>\n              <div style=\"height: 0px; width: 100%; padding-left: 20px; overflow: auto;\"  [ngClass]=\"{'height':cat.data}\">\n              <div *ngFor=\"let sub of cat.catlist;index as i\"><p  (click)=\"newD(sub,index)\" style=\" margin-top: 10px; margin-bottom: 10px;font-size: 16px;\n            \">{{sub.subCat}} </p>\n                <div style=\"height: 0px; width: 100%; padding-left: 20px;transition: height 0.7s; overflow: hidden;\"  [ngStyle]=\"{'height':sub.data === true ? sub.height : '0px' }\">\n                    <p *ngFor=\"let sLi of sub.subList\" (click)=\"go()\" style=\" margin-top: 0px;margin-bottom: 10px;font-size: 16px;\">{{sLi}}</p>\n \n                </div>\n              </div>\n           </div>\n          </ion-row>\n\n          <div  class=\"second-section\">\n            <ion-row style=\"border-top:solid 1px purple;padding-top: 15px;\">\n              <ion-col size=\"12\" style=\"margin-left: 20px; \" >\n                  <p (click)=\"gotoLoginPage()\" style=\"display: flex;\n                  align-items:  center;\"><ion-icon name=\"person\" style=\"margin-right: 10px;\"></ion-icon>SIGN IN </p>\n              </ion-col>\n           </ion-row>\n           <ion-row >\n            <ion-col size=\"12\" style=\"margin-left: 20px; \">\n                <p style=\"display: flex;\n                align-items: center;\" (click)=\"wishlist()\" ><ion-icon name=\"heart\" style=\"margin-right: 10px;\"></ion-icon> WISHLIST </p>\n            </ion-col>\n         </ion-row>\n          <ion-row > \n          <ion-col size=\"12\" style=\"margin-left: 20px; \">\n              <p style=\"display: flex;\n              align-items:center;\" (click)=\"inProgress()\" ><ion-icon name=\"medal\" style=\"margin-right: 10px;\"></ion-icon> REWARDS </p>\n          </ion-col>\n       </ion-row>\n          </div>\n        </ion-content>\n      </ion-menu>\n      \n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n  \n</ion-app>\n"
 
 /***/ }),
 
@@ -487,6 +487,18 @@ const routes = [
     {
         path: 'after-cart',
         loadChildren: () => __webpack_require__.e(/*! import() | pages-after-cart-after-cart-module */ "pages-after-cart-after-cart-module").then(__webpack_require__.bind(null, /*! ./pages/after-cart/after-cart.module */ "./src/app/pages/after-cart/after-cart.module.ts")).then(m => m.AfterCartPageModule)
+    },
+    {
+        path: 'forgot-password',
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-forgot-password-forgot-password-module */ "pages-forgot-password-forgot-password-module").then(__webpack_require__.bind(null, /*! ./pages/forgot-password/forgot-password.module */ "./src/app/pages/forgot-password/forgot-password.module.ts")).then(m => m.ForgotPasswordPageModule)
+    },
+    {
+        path: 'order-success',
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-order-success-order-success-module */ "pages-order-success-order-success-module").then(__webpack_require__.bind(null, /*! ./pages/order-success/order-success.module */ "./src/app/pages/order-success/order-success.module.ts")).then(m => m.OrderSuccessPageModule)
+    },
+    {
+        path: 'wishlist',
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-wishlist-wishlist-module */ "pages-wishlist-wishlist-module").then(__webpack_require__.bind(null, /*! ./pages/wishlist/wishlist.module */ "./src/app/pages/wishlist/wishlist.module.ts")).then(m => m.WishlistPageModule)
     },
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -606,12 +618,19 @@ let AppComponent = class AppComponent {
                 document.addEventListener('backbutton', function (event) {
                     event.preventDefault();
                     event.stopPropagation();
+                    this.platform.exitApp();
                     console.log('hello');
+                    this.inProgress();
                 }, false);
             });
             this.splashScreen.hide();
             this.statusBar.styleDefault();
         });
+    }
+    ionViewDidEnter() {
+        document.addEventListener("backbutton", function (e) {
+            console.log("disable back button");
+        }, false);
     }
     col(data, index) {
         console.log("col", data, index);
@@ -664,6 +683,10 @@ let AppComponent = class AppComponent {
     gotoLoginPage() {
         this.menuCtrl.toggle();
         this.router.navigateByUrl('/login');
+    }
+    wishlist() {
+        this.menuCtrl.toggle();
+        this.router.navigateByUrl('/wishlist');
     }
     inProgress() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -737,6 +760,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
+/* harmony import */ var ionic_swipe_all__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ionic-swipe-all */ "./node_modules/ionic-swipe-all/dist/index.js");
+
 
 
 
@@ -754,8 +779,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]],
         entryComponents: [],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"]],
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"], ionic_swipe_all__WEBPACK_IMPORTED_MODULE_11__["IonicSwipeAllModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot({ hardwareBackButton: false }),
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"]],
         providers: [
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],

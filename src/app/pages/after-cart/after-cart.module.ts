@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { AfterCartPageRoutingModule } from './after-cart-routing.module';
 
 import { AfterCartPage } from './after-cart.page';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AfterCartPageRoutingModule
+    AfterCartPageRoutingModule,
   ],
-  declarations: [AfterCartPage]
+  declarations: [AfterCartPage,PaymentComponent],
+  entryComponents:[PaymentComponent]
 })
 export class AfterCartPageModule {}

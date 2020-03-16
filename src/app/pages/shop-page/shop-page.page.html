@@ -33,13 +33,13 @@
 
   <div style="width: 100%;display: flex;padding: 10px;">
     <ion-input style="border: solid 1px #A88FB6;height: 40px;" type="text" debounce="500" placeholder="Search"
-      (ionInput)="filterItems($event)"></ion-input>
+      (ngModelChange)="filterItems($event)" [(ngModel)]=searchText></ion-input>
     <div style="width: 10%;
         background: #A88FB6;
         border: solid 1px #A88FB6;
         display: flex;
         align-items: center;
-        justify-content: center;">
+        justify-content: center;" (click)="filterItems($event)">
       <ion-icon name="search"></ion-icon>
     </div>
   </div>

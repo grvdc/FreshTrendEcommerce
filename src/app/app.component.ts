@@ -86,13 +86,20 @@ export class AppComponent {
         document.addEventListener('backbutton', function (event) {
           event.preventDefault();
           event.stopPropagation();
+          this.platform.exitApp()
           console.log('hello');
+          this.inProgress();
         }, false);
       });
       this.splashScreen.hide();
       this.statusBar.styleDefault();
     });
   }
+  ionViewDidEnter() {
+    document.addEventListener("backbutton",function(e) {
+      console.log("disable back button")
+    }, false);
+}
 
   col(data,index) {
     console.log("col",data,index);
@@ -148,6 +155,11 @@ export class AppComponent {
   gotoLoginPage(){
     this.menuCtrl.toggle();
     this.router.navigateByUrl('/login');
+  }
+
+  wishlist(){
+    this.menuCtrl.toggle();
+    this.router.navigateByUrl('/wishlist');
   }
 
   async inProgress(){

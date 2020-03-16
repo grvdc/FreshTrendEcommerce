@@ -152,6 +152,11 @@ let HomePage = class HomePage {
             });
         });
     }
+    ionViewDidEnter() {
+        document.addEventListener("backbutton", function (e) {
+            console.log("disable back button");
+        }, false);
+    }
     goToShopPage(category) {
         // this.router.navigateByUrl('/shop-page');
         if (category) {

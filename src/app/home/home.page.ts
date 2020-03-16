@@ -77,7 +77,11 @@ export class HomePage {
       console.log("this.newProducts", datar);
     })
   }
-
+  ionViewDidEnter() {
+    document.addEventListener("backbutton",function(e) {
+      console.log("disable back button")
+    }, false);
+}
   goToShopPage(category) {
     // this.router.navigateByUrl('/shop-page');
     if (category) {

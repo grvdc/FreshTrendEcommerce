@@ -226,6 +226,11 @@ let CartPagePage = class CartPagePage {
     gotoHome() {
         this.router.navigateByUrl('/');
     }
+    ionViewDidEnter() {
+        document.addEventListener("backbutton", function (e) {
+            console.log("disable back button");
+        }, false);
+    }
 };
 CartPagePage.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
